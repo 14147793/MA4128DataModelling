@@ -1,3 +1,10 @@
+
+
+% - Case-Deletion Diagnostics for Linear Mixed Models
+
+% - http://www.researchgate.net/publication/264244541_Case-Deletion_Diagnostics_for_Linear_Mixed_Models
+
+
 \documentclass[12pt, a4paper]{report}
 \usepackage{epsfig}
 \usepackage{subfigure}
@@ -5,6 +12,7 @@
 \usepackage{amssymb}
 \usepackage{amsbsy}
 \usepackage{amsthm}
+\usepackage{framed}
 %\usepackage[dvips]{graphicx}
 \usepackage{natbib}
 \bibliographystyle{chicago}
@@ -67,6 +75,395 @@
 %1.14 Matrix Notation of Case Deletion
 %1.15 CPJ's Three Propositions
 %1.16 Other measures of Influence
+\section{Model Validation}
+%http://www.itl.nist.gov/div898/handbook/pmd/section4/pmd44.htm
+Model validation is possibly the most important step in the model building sequence. It is also one of the most overlooked. Often the validation of a model seems to consist of nothing more than quoting the R2 statistic from the fit (which measures the fraction of the total variability in the response that is accounted for by the model). Unfortunately, a high R2 value does not guarantee that the model fits the data well. Use of a model that does not fit the data well cannot provide good answers to the underlying engineering or scientific questions under investigation.
+
+\subsection{Why Use Residuals?}
+
+If the model fit to the data were correct, the residuals would approximate the random errors that make the relationship between the explanatory variables and the response variable a statistical relationship. Therefore, if the residuals appear to behave randomly, it suggests that the model fits the data well. On the other hand, if non-random structure is evident in the residuals, it is a clear sign that the model fits the data poorly. The subsections listed below detail the types of plots to use to test different aspects of a model and give guidance on the correct interpretations of different results that could be observed for each type of plot.
+%------------------------------------------------------------------------------------------------------------------------ %
+
+
+	
+	\subsection{Introduction}
+	In statistics and optimization, statistical errors and residuals are two closely related and easily confused measures of the deviation of an observed value of an element of a statistical sample from its "theoretical value". The error (or disturbance) of an observed value is the deviation of the observed value from the (unobservable) true function value, while the residual of an observed value is the difference between the observed value and the estimated function value.
+	
+	The distinction is most important in regression analysis, where it leads to the concept of studentized residuals.
+	
+	%-------------------------------------------------------------- %
+	
+	\subsection{Residual}
+	Residual (or error) represents unexplained (or residual) variation after fitting a regression model. It is the difference (or left over) between the observed value of the variable and the value suggested by the regression model.
+	
+	
+	%------------------------- %
+	
+	The difference between the observed value of the dependent variable (y) and the predicted value (ŷ) is called the residual (e). Each data point has one residual.
+	
+	Residual = Observed value - Predicted value 
+	\[e = y - \hat{y} \]
+	
+	Both the sum and the mean of the residuals are equal to zero. That is, Σ e = 0 and e = 0.
+	
+	%--------------------------------- %
+	
+	
+	
+	
+	%----------------------------- %
+	\subsection{Residual}
+	A residual (or fitting error), on the other hand, is an observable estimate of the unobservable statistical error. Consider the previous example with men's heights and suppose we have a random sample of n people. The sample mean could serve as a good estimator of the population mean. Then we have:
+	
+	The difference between the height of each man in the sample and the unobservable population mean is a statistical error, whereas
+	The difference between the height of each man in the sample and the observable sample mean is a residual.
+	Note that the sum of the residuals within a random sample is necessarily zero, and thus the residuals are necessarily not independent. The statistical errors on the other hand are independent, and their sum within the random sample is almost surely not zero.
+	
+	%------------------------------- %
+	
+	Other uses of the word "error" in statistics: 
+	
+	The use of the term "error" as discussed in the sections above is in the sense of a deviation of a value from a hypothetical unobserved value. At least two other uses also occur in statistics, both referring to observable prediction errors:
+	
+	\begin{itemize}
+		\item Mean square error or mean squared error (abbreviated MSE) and root mean square error (RMSE) refer to the amount by which the values predicted by an estimator differ from the quantities being estimated (typically outside the sample from which the model was estimated).
+		
+		\item 
+		Sum of squared errors, typically abbreviated SSE or SSe, refers to the residual sum of squares (the sum of squared residuals) of a regression; this is the sum of the squares of the deviations of the actual values from the predicted values, within the sample used for estimation. Likewise, the sum of absolute errors (SAE) refers to the sum of the absolute values of the residuals, which is minimized in the least absolute deviations approach to regression.
+		
+	\end{itemize}
+	
+	\subsection{Influence Diagnostics: Basic Idea and Statistics} %1.1.2
+	%http://support.sas.com/documentation/cdl/en/statug/63033/HTML/default/viewer.htm#statug_mixed_sect024.htm
+	
+	
+	The general idea of quantifying the influence of one or more observations relies on computing parameter estimates based on all data points, removing the cases in question from the data, refitting the model, and computing statistics based on the change between full-data and reduced-data estimation.
+	
+	
+	
+	
+	
+	\subsection{Standardization} %1.4.1
+	
+	A random variable is said to be standardized if the difference from its mean is scaled by its standard deviation. The residuals above have mean zero but their variance is unknown, it depends on the true values of $\theta$. Standardization is thus not possible in practice.
+	
+	\subsection{Studentization} %1.4.2
+	Instead, you can compute studentized residuals by dividing a residual by an estimate of its standard deviation. 
+	
+	\subsection{Internal and External Studentization} %1.4.3
+	If that estimate is independent of the $i-$th observation, the process is termed \index{external studentization}`external studentization'. This is usually accomplished by excluding the $i-$th observation when computing the estimate of its standard error. If the observation contributes to the
+	standard error computation, the residual is said to be \index{internally studentization}internally studentized.
+	
+	Externally \index{studentized residual} studentized residual require iterative influence analysis or a profiled residuals variance.
+	
+	
+	\subsection{Computation}%1.4.4
+	
+	The computation of internally studentized residuals relies on the diagonal entries of $\boldsymbol{V} (\hat{\theta})$ - $\boldsymbol{Q} (\hat{\theta})$, where $\boldsymbol{Q} (\hat{\theta})$ is computed as
+	
+	\[ \boldsymbol{Q} (\hat{\theta}) = \boldsymbol{X} ( \boldsymbol{X}^{\prime}\boldsymbol{Q} (\hat{\theta})^{-1}\boldsymbol{X})\boldsymbol{X}^{-1} \]
+	
+	%---------------------------------------------------------------------------%
+	\newpage
+	\subsection{Standardized and studentized residuals} %1.4
+	%--Studentized and Standardized Residuals
+	
+	To alleviate the problem caused by inconstant variance, the residuals are scaled (i.e. divided) by their standard deviations. This results in a \index{standardized residual}`standardized residual'. Because true standard deviations are frequently unknown, one can instead divide a residual by the estimated standard deviation to obtain the \index{studentized residual}`studentized residual. 
+	
+	
+	\subsection{Internal and External Studentization} %1.4.3
+	If that estimate is independent of the $i-$th observation, the process is termed \index{external studentization}`external studentization'. This is usually accomplished by excluding the $i-$th observation when computing the estimate of its standard error. If the observation contributes to the
+	standard error computation, the residual is said to be \index{internally studentization}internally studentized.
+	
+	Externally \index{studentized residual} studentized residual require iterative influence analysis or a profiled residuals variance.
+	
+	
+	\subsection{Computation}%1.4.4
+	
+	The computation of internally studentized residuals relies on the diagonal entries of $\boldsymbol{V} (\hat{\theta})$ - $\boldsymbol{Q} (\hat{\theta})$, where $\boldsymbol{Q} (\hat{\theta})$ is computed as
+	
+	\[ \boldsymbol{Q} (\hat{\theta}) = \boldsymbol{X} ( \boldsymbol{X}^{\prime}\boldsymbol{Q} (\hat{\theta})^{-1}\boldsymbol{X})\boldsymbol{X}^{-1} \]
+	
+	\subsection{Pearson Residual}%1.4.5
+	
+	Another possible scaled residual is the \index{Pearson residual} `Pearson residual', whereby a residual is divided by the standard deviation of the dependent variable. The Pearson residual can be used when the variability of $\hat{\beta}$ is disregarded in the underlying assumptions.
+	
+	%---------------------------------------------------------------------------%
+	
+	%---------------------------------------------------------------------------%
+	\newpage
+	\subsection{Standardized and studentized residuals} %1.4
+	
+	Externally \index{studentized residual} studentized residual require iterative influence analysis or a profiled residuals variance.
+	
+	
+	
+	
+	\subsection{Computation}%1.4.4
+	
+	
+	The computation of internally studentized residuals relies on the diagonal entries of $\boldsymbol{V} (\hat{\theta})$ - $\boldsymbol{Q} (\hat{\theta})$, where $\boldsymbol{Q} (\hat{\theta})$ is computed as
+	
+	
+	\[ \boldsymbol{Q} (\hat{\theta}) = \boldsymbol{X} ( \boldsymbol{X}^{\prime}\boldsymbol{Q} (\hat{\theta})^{-1}\boldsymbol{X})\boldsymbol{X}^{-1} \]
+	
+	
+	\subsection{Pearson Residual}%1.4.5
+	
+	Another possible scaled residual is the \index{Pearson residual} `Pearson residual', whereby a residual is divided by the standard deviation of the dependent variable. The Pearson residual can be used when the variability of $\hat{\beta}$ is disregarded in the underlying assumptions.
+	
+	
+	
+	%---------------------------------------------------------------------------%
+	\newpage
+	\subsection{Covariance Parameters} %1.5
+	The unknown variance elements are referred to as the covariance parameters and collected in the vector $\theta$.
+	% - where is this coming from?
+	% - where is it used again?
+	% - Has this got anything to do with CovTrace etc?
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	\subsection{Computation}%1.4.4
+	
+	The computation of internally studentized residuals relies on the diagonal entries of $\boldsymbol{V} (\hat{\theta})$ - $\boldsymbol{Q} (\hat{\theta})$, where $\boldsymbol{Q} (\hat{\theta})$ is computed as
+	
+	\[ \boldsymbol{Q} (\hat{\theta}) = \boldsymbol{X} ( \boldsymbol{X}^{\prime}\boldsymbol{Q} (\hat{\theta})^{-1}\boldsymbol{X})\boldsymbol{X}^{-1} \]
+	
+	%------------------------------- %
+	
+	\newpage
+	
+	\subsection{Studentization}
+	In statistics, a studentized residual is the quotient resulting from the division of a residual by an estimate of its standard deviation. Typically the standard deviations of residuals in a sample vary greatly from one data point to another even when the errors all have the same standard deviation, particularly in regression analysis; thus it does not make sense to compare residuals at different data points without first studentizing. It is a form of a Student's t-statistic, with the estimate of error varying between points.
+	
+	This is an important technique in the detection of outliers. It is named in honor of William Sealey Gosset, who wrote under the pseudonym Student, and dividing by an estimate of scale is called studentizing, in analogy with standardizing and normalizing: see Studentization.
+	
+	\section{Covariance Parameters} %1.5
+	The unknown variance elements are referred to as the covariance parameters and collected in the vector $\theta$.
+	% - where is this coming from?
+	% - where is it used again?
+	% - Has this got anything to do with CovTrace etc?
+	%---------------------------------------------------------------------------%
+	
+	\subsection{Pearson Residual}%1.4.5
+	
+	Another possible scaled residual is the \index{Pearson residual} `Pearson residual', whereby a residual is divided by the standard deviation of the dependent variable. The Pearson residual can be used when the variability of $\hat{\beta}$ is disregarded in the underlying assumptions.
+	
+
+\section{Standardized and studentized residuals} %1.4
+%--Studentized and Standardized Residuals
+
+To alleviate the problem caused by inconstant variance, the residuals are scaled (i.e. divided) by their standard deviations. This results in a \index{standardized residual}`standardized residual'. Because true standard deviations are frequently unknown, one can instead divide a residual by the estimated standard deviation to obtain the \index{studentized residual}`studentized residual. 
+
+\subsection{Standardization} %1.4.1
+
+A random variable is said to be standardized if the difference from its mean is scaled by its standard deviation. The residuals above have mean zero but their variance is unknown, it depends on the true values of $\theta$. Standardization is thus not possible in practice.
+
+\subsection{Studentization} %1.4.2
+Instead, you can compute studentized residuals by dividing a residual by an estimate of its standard deviation. 
+
+\subsection{Internal and External Studentization} %1.4.3
+If that estimate is independent of the $i-$th observation, the process is termed \index{external studentization}`external studentization'. This is usually accomplished by excluding the $i-$th observation when computing the estimate of its standard error. If the observation contributes to the
+standard error computation, the residual is said to be \index{internally studentization}internally studentized.
+
+Externally \index{studentized residual} studentized residual require iterative influence analysis or a profiled residuals variance.
+
+
+\subsection{Computation}%1.4.4
+
+The computation of internally studentized residuals relies on the diagonal entries of $\boldsymbol{V} (\hat{\theta})$ - $\boldsymbol{Q} (\hat{\theta})$, where $\boldsymbol{Q} (\hat{\theta})$ is computed as
+
+\[ \boldsymbol{Q} (\hat{\theta}) = \boldsymbol{X} ( \boldsymbol{X}^{\prime}\boldsymbol{Q} (\hat{\theta})^{-1}\boldsymbol{X})\boldsymbol{X}^{-1} \]
+
+\subsection{Pearson Residual}%1.4.5
+
+Another possible scaled residual is the \index{Pearson residual} `Pearson residual', whereby a residual is divided by the standard deviation of the dependent variable. The Pearson residual can be used when the variability of $\hat{\beta}$ is disregarded in the underlying assumptions.
+
+%---------------------------------------------------------------------------%
+
+\section{Introduction to Residuals}
+
+The difference between the observed value of the dependent variable (y) and the predicted value ($\hat{y}$) is called the \textbf{residual} (e). Each data point has one residual.
+
+\[\mbox{Residual} = \mbox{Observed value} - \mbox{Predicted value}\] 
+\[e = y - \hat{y}\]
+
+Both the sum and the mean of the residuals are equal to zero. 
+%That is, Σ e = 0 and e = 0.
+
+\subsection{Residual Plots}
+A residual plot is a graph that shows the residuals on the vertical axis and the independent variable on the horizontal axis. If the points in a residual plot are randomly dispersed around the horizontal axis, a linear regression model is appropriate for the data; otherwise, a non-linear model is more appropriate.
+
+Below the table on the left shows inputs and outputs from a simple linear regression analysis, and the chart on the right displays the residual (e) and independent variable (X) as a residual plot.
+
+%x	60	70	80	85	95
+%y	70	65	70	95	85
+%ŷ	65.411	71.849	78.288	81.507	87.945
+%e	4.589	-6.849	-8.288	13.493	-2.945
+% Image of residual plot
+\newpage
+The residual plot shows a fairly random pattern - the first residual is positive, the next two are negative, the fourth is positive, and the last residual is negative. This random pattern indicates that a linear model provides a decent fit to the data.
+
+Below, the residual plots show three typical patterns. The first plot shows a random pattern, indicating a good fit for a linear model. The other plot patterns are non-random (U-shaped and inverted U), suggesting a better fit for a non-linear model.
+
+
+%Random pattern	Non-random: U-shaped	Non-random: Inverted U
+In the next lesson, we will work on a problem, where the residual plot shows a non-random pattern. And we will show how to "transform" the data to use a linear model with nonlinear data.
+
+%----------------------------------------------------------------------------------------------%
+\newpage
+%http://blog.minitab.com/blog/adventures-in-statistics/why-you-need-to-check-your-residual-plots-for-regression-analysis
+In the graph above, you can predict non-zero values for the residuals based on the fitted value. For example, a fitted value of 8 has an expected residual that is negative. Conversely, a fitted value of 5 or 11 has an expected residual that is positive.
+
+The non-random pattern in the residuals indicates that the deterministic portion (predictor variables) of the model is not capturing some explanatory information that is “leaking” into the residuals. The graph could represent several ways in which the model is not explaining all that is possible. 
+
+Possibilities include:
+
+\begin{itemize}
+	\item A missing variable
+	\item A missing higher-order term of a variable in the model to explain the curvature
+	\item A missing interction between terms already in the model
+\end{itemize}
+
+
+Identifying and fixing the problem so that the predictors now explain the information that they missed before should produce a good-looking set of residuals!
+
+In addition to the above, here are two more specific ways that predictive information can sneak into the residuals:
+
+The residuals should not be correlated with another variable. If you can predict the residuals with another variable, that variable should be included in the model. In Minitab’s regression, you can plot the residuals by other variables to look for this problem.
+
+\subsubsection{Autocorrelation} 
+Adjacent residuals should not be correlated with each other (\textbf{autocorrelation}). If you can use one residual to predict the next residual, there is some predictive information present that is not captured by the predictors. Typically, this situation involves time-ordered observations. For example, if a residual is more likely to be followed by another residual that has the same sign, adjacent residuals are positively correlated. You can include a variable that captures the relevant time-related information, or use a time series analysis. 
+
+In Minitab’s regression, you can perform the \textbf{\textit{Durbin-Watson} }test to test for autocorrelation.
+\newpage
+\section{Leverage and Influence}
+% http://polisci.msu.edu/jacoby/icpsr/regress3/lectures/week3/11.Outliers.pdf
+
+\subsection{Summary of Influence Statistics}
+\begin{itemize}
+	\item	\textbf{Studentized Residuals} – Residuals divided by their estimated standard errors (like t-statistics). Observations with values larger than 3 in absolute value are considered outliers.
+	\item	\textbf{Leverage Values (Hat Diag)} – Measure of how far an observation is from the others in terms of the levels of the independent variables (not the dependent variable). Observations with values larger than $2(k+1)/n$ are considered to be potentially highly influential, where k is the number of predictors and n is the sample size.
+	\item	\textbf{DFFITS} – Measure of how much an observation has effected its fitted value from the regression model. Values larger than $2\sqrt{(k+1)/n}$ in absolute value are considered highly influential. %Use standardized DFFITS in SPSS.
+	\item	\textbf{DFBETAS} – Measure of how much an observation has effected the estimate of a regression coefficient (there is one DFBETA for each regression coefficient, including the intercept). Values larger than 2/sqrt(n) in absolute value are considered highly influential.
+	\\
+	The measure that measures how much impact each observation has on a particular predictor is DFBETAs The DFBETA for a predictor and for a particular observation is the difference between the regression coefficient calculated for all of the data and the regression coefficient calculated with the observation deleted, scaled by the standard error calculated with the observation deleted. 
+	
+	\item	\textbf{Cook’s D} – Measure of aggregate impact of each observation on the group of regression coefficients, as well as the group of fitted values. Values larger than 4/n are considered highly influential.
+\end{itemize}
+
+
+\subsection{Influential Observations:
+	DFBeta and DFBetas}
+
+
+\subsection{Cook's Distance}
+
+%-------------------------------------------------------------- %
+\newpage
+\section{Diagnostic Plots for Linear Models with \texttt{R}}
+Plot Diagnostics for an \texttt{lm} Object
+
+\subsection{Description}
+
+Six plots (selectable by \texttt{which}) are currently available: 
+\begin{enumerate}
+	\item a plot of residuals against fitted values, 
+	\item a Scale-Location plot of \textit{sqrt(| residuals |}) against fitted values, 
+	\item a Normal Q-Q plot, 
+	\item a plot of Cook's distances versus row labels, 
+	\item a plot of residuals against leverages, 
+	\item a plot of Cook's distances against leverage/(1-leverage).
+\end{enumerate} By default, the first three and 5 are provided.
+
+\begin{itemize}
+	\item
+	The \textbf{Scale-Location} plot, also called ‘Spread-Location’ or ‘S-L’ plot, takes the square root of the absolute residuals in order to diminish skewness (sqrt(|E|)) is much less skewed than | E | for Gaussian zero-mean E).
+	
+	\item
+	The \textbf{Residual-Leverage} plot shows contours of equal Cook's distance, for values of cook.levels (by default 0.5 and 1) and omits cases with leverage one with a warning. If the leverages are constant (as is typically the case in a balanced aov situation) the plot uses factor level combinations instead of the leverages for the x-axis. (The factor levels are ordered by mean fitted value.)
+\end{itemize}
+\begin{framed}
+	\begin{verbatim}
+	par(mfrow=c(4,1))
+	plot(fittedmodel)
+	par(opar)
+	\end{verbatim}
+\end{framed}
+%-------------------------------------------------------------- %
+\chapter{Influence Diagnostics}
+
+% - http://support.sas.com/documentation/cdl/en/statug/63033/HTML/default/viewer.htm#statug_mixed_sect024.htm
+
+%---------------------------------------------------------------------------------------------%
+
+Basic Idea and Statistics
+
+The general idea of quantifying the influence of one or more observations relies on computing parameter estimates based on all data points, removing the cases in question from the data, refitting the model, and computing statistics based on the change between full-data and reduced-data estimation. Influence statistics can be coarsely grouped by the aspect of estimation that is their primary target: 
+
+\begin{itemize}	
+	\item	influence on fitted and predicted values: PRESS residual, PRESS statistic (Allen 1974), DFFITS (Belsley, Kuh, and Welsch 1980, p. 15) 
+	\item	influence on parameter estimates: Cook’s (Cook 1977, 1979), MDFFITS (Belsley, Kuh, and Welsch 1980, p. 32) 
+	\item	influence on precision of estimates: CovRatio and CovTrace 
+	\item	outlier properties: internally and externally studentized residuals, leverage 
+	\item	overall measures compare changes in objective functions: (restricted) likelihood distance (Cook and Weisberg 1982, Ch. 5.2) 
+\end{itemize}	
+
+%---------------------------------------------------------------------------------------------%
+
+For linear models for uncorrelated data, it is not necessary to refit the model after removing a data point in order to measure the impact of an observation on the model. The change in fixed effect estimates, residuals, residual sums of squares, and the variance-covariance matrix of the fixed effects can be computed based on the fit to the full data alone. By contrast, in mixed models several important complications arise. Data points can affect not only the fixed effects but also the covariance parameter estimates on which the fixed-effects estimates depend. Furthermore, closed-form expressions for computing the change in important model quantities might not be available. 
+
+This section provides background material for the various influence diagnostics available with the MIXED procedure. See the section Mixed Models Theory for relevant expressions and definitions. The parameter vector denotes all unknown parameters in the and matrix. 
+
+The observations whose influence is being ascertained are represented by the set and referred to simply as "the observations in ." The estimate of a parameter vector, such as , obtained from all observations except those in the set is denoted . In case of a matrix , the notation represents the matrix with the rows in removed; these rows are collected in . If is symmetric, then notation implies removal of rows and columns. The vector comprises the responses of the data points being removed, and is the variance-covariance matrix of the remaining observations. When , lowercase notation emphasizes that single points are removed, such as . 
+
+\section{Robust Regression (Optional Section)}
+
+%-------------------------------------------------------------- %
+\newpage
+\section{Residual Analysis for GLMs (Optional Section)}
+
+\subsection{Pearson and Deviance Residuals} 
+% https://v8doc.sas.com/sashtml/insight/chap39/sect55.htm
+
+
+
+
+
+The \textbf{deviance residual} is the measure of deviance contributed from each observation and is given by
+\[r_{Di} = \textrm{sign}( r_{i})
+\sqrt{ d_{i}}\]
+where $d_i$ is the individual deviance contribution.
+The deviance residuals can be used to check the model fit at each observation for generalized linear models. 
+
+%These residuals are stored in variables named \textit{RD\_yname} for each response variable, where yname is the response variable name. 
+
+The standardized and studentized deviance residuals are
+\[
+r_{Dsi} = \frac{r_{Di}}{\sqrt{\hat{ \phi} (1- h_{i})} }\]
+\[r_{Dti} = \frac{r_{Di}}{\sqrt{ \hat{ \phi}_{(i)}
+		(1- h_{i})}}\]
+
+
+\subsection{Diagnostics for Logistic Regression}
+
+\subsection{Diagnostics for Poisson Regression}
+%-------------------------------------------------------------- %
+\newpage
+\section{Residual Analysis for LME Models}
+
+\subsection{Likelihood Distance}
+
 %---------------------------------------------------------------------------%
 \section{Introduction}%1.1
 In classical linear models model diagnostics have been become a required part of any statistical analysis, and the methods are commonly available in statistical packages and standard textbooks on applied regression. However it has been noted by several papers that model diagnostics do not often accompany LME model analyses.
@@ -86,6 +483,336 @@ Model diagnostic techniques determine whether or not the distributional assumpti
 \section{Residual diagnostics} %1.3
 For classical linear models, residual diagnostics are typically implemented as a plot of the observed residuals and the predicted values. A visual inspection for the presence of trends inform the analyst on the validity of distributional assumptions, and to detect outliers and influential observations.
 
+	%------------------------------------------------------------%
+	\section*{Residuals}
+	
+	Residuals are used to examine model assumptions and to detect outliers and potentially influential data
+	point. The raw residuals $r_{mi}$ and $r_{ci}$ are usually not well suited for these purposes.
+	
+	\begin{itemize}
+		\item Conditional Residuals $r_{ci}$
+		\item Marginal Residuals $r_{mi}$
+		\item 
+	\end{itemize}
+	
+	
+	%--Marginal and Conditional Residuals
+	
+	%========================================================================================== %
+	\subsection{Residuals diagnostics in LME Models}
+	
+	
+	A residual is the difference between an observed quantity and its
+	estimated or predicted value. In LME models, there are two types
+	of residuals, marginal residuals and conditional residuals. 
+	In a model without random effects, both sets of residuals coincide.
+	\citet{schabenberger} provides a useful summary. 
+	% \subsection{Marginal and Conditional Residuals}
+	
+	\begin{itemize}
+		\item A marginal residual is the difference between the observed data and the estimated (marginal) mean, $r_{mi} = y_i - x_0^{\prime} \hat{b}$
+		\item A conditional residual is the difference between an observed value $y_{i}$ and the conditional predicted value $\hat{y}_{i} $,
+		\[r_{ci} = y_i - x_i^{\prime} \hat{b} - z_i^{\prime} \hat{\gamma}\]
+	\end{itemize} 
+	
+	%schabenberger
+	The marginal and conditional means in the linear mixed model are
+	$E[\boldsymbol{Y}] = \boldsymbol{X}\boldsymbol{\beta}$ and
+	$E[\boldsymbol{Y|\boldsymbol{u}}] = \boldsymbol{X}\boldsymbol{\beta} + \boldsymbol{Z}\boldsymbol{u}$, respectively.
+	%1.5
+	%http://support.sas.com/documentation/cdl/en/statug/63033/HTML/default/viewer.htm#statug_mixed_sect024.htm
+	
+	\subsection{Marginal and Conditional Residuals}
+	
+	A marginal residual is the difference between the observed data and the estimated (marginal) mean, $r_{mi} = y_i - x_0^{\prime} \hat{b}$
+	A conditional residual is the difference between the observed data and the predicted value of the observation,
+	$r_{ci} = y_i - x_i^{\prime} \hat{b} - z_i^{\prime} \hat{\gamma}$
+	
+	In linear mixed effects models, diagnostic techniques may consider `conditional' residuals. A conditional residual is the difference between an observed value $y_{i}$ and the conditional predicted value $\hat{y}_{i} $.
+	
+	\[ \hat{epsilon}_{i} = y_{i} - \hat{y}_{i} = y_{i} - ( X_{i}\hat{beta} + Z_{i}\hat{b}_{i}) \]
+	
+	However, using conditional residuals for diagnostics presents difficulties, as they tend to be correlated and their variances may be different for different subgroups, which can lead to erroneous conclusions.
+	
+	
+	
+	\begin{equation}
+	r_{mi}=x^{T}_{i}\hat{\beta}
+	\end{equation}
+	
+	%------------------------------------------------------------------%
+	\newpage
+	
+	\subsection{Marginal residuals}
+	
+	\[y - X\beta = Z \eta +\epsilon \]
+	\begin{itemize}
+		\item
+		Should be mean 0, but may show grouping structure
+		\item
+		May not be homoskedastic.
+		\item
+		Good for checking fixed effects, just like linear regr.
+	\end{itemize}
+	%----------------------------------------------------%
+	\subsection{Conditional residuals}
+	\[y - X\beta - Z \eta = \epsilon \]
+	\begin{itemize}
+		\item
+		Should be mean zero with no grouping structure
+		\item
+		Should be homoscedastic.
+		\item
+		Good for checking normality of outliers
+		\end{itemize}
+			
+			\section{Residuals diagnostics in LME Models}
+			
+			%schabenberger
+			The marginal and conditional means in the linear mixed model are
+			$E[\boldsymbol{Y}] = \boldsymbol{X}\boldsymbol{\beta}$ and
+			$E[\boldsymbol{Y|\boldsymbol{u}}] = \boldsymbol{X}\boldsymbol{\beta} + \boldsymbol{Z}\boldsymbol{u}$, respectively.
+			
+			
+			\begin{equation}
+			r_{mi}=x^{T}_{i}\hat{\beta}
+			\end{equation}
+			
+			%------------------------------------------------------------%
+			\newpage
+			\section{Distinction From Linear Models}
+			%% Where is this coming from?
+			%% Schabenberger page 3
+			\begin{itemize}
+				\item The differences between perturbation and residual analysis in the linear model and the linear mixed model
+				are connected to the important facts that b and b
+				depend on the estimates of the covariance parameters,
+				that b has the form of an (estimated) generalized least squares (GLS) estimator, and that 
+				is a random
+				vector.
+				\item In a mixed model, you can consider the data in a conditional and an unconditional sense. If you imagine
+				a particular realization of the random effects, then you are considering the conditional distribution
+				Y|
+				\item If you are interested in quantities averaged over all possible values of the random effects, then
+				you are interested in Y; this is called the marginal formulation. In a clinical trial, for example, you
+				may be interested in drug efficacy for a particular patient. If random effects vary by patient, that is a
+				conditional problem. If you are interested in the drug efficacy in the population of all patients, you are
+				using a marginal formulation. Correspondingly, there will be conditional and marginal residuals, for
+				example.
+				\item The estimates of the fixed effects  depend on the estimates of the covariance parameters. If you are
+				interested in determining the influence of an observation on the analysis, you must determine whether
+				this is influence on the fixed effects for a given value of the covariance parameters, influence on the
+				covariance parameters, or influence on both.
+				\item Mixed models are often used to analyze repeated measures and longitudinal data. The natural experimental
+				or sampling unit in those studies is the entity that is repeatedly observed, rather than each
+				individual repeated observation. For example, you may be analyzing monthly purchase records by
+				customer. 
+				\item An influential “data point” is then not necessarily a single purchase. You are probably more
+				interested in determining the influential customer. This requires that you can measure the influence
+				of sets of observations on the analysis, not just influence of individual observations.
+				\item The computation of case deletion diagnostics in the classical model is made simple by the fact that
+				%estimates of  and 2, which exclude the ith observation, can be %computed without re-fitting the
+				model. Such update formulas are available in the mixed model only if you assume that the covariance
+				parameters are not affected by the removal of the observation in question. This is rarely a reasonable
+				assumption.
+				\item The application of well-known concepts in model-data diagnostics to the mixed model can produce results
+				that are at first counter-intuitive, since our understanding is steeped in the ordinary least squares
+				(OLS) framework. As a consequence, we need to revisit these important concepts, ask whether they
+				are “portable” to the mixed model, and gain new appreciation for their changed properties. An important
+				example is the ostensibly simple concept of leverage. 
+				\item The definition of leverage adopted by
+				the MIXED procedure can, in some instances, produce negative values, which are mathematically
+				impossible in OLS. Other measures that have been proposed may be non-negative, but trade other
+				advantages. Another example are properties of residuals. While OLS residuals necessarily sum to
+				zero in any model (with intercept), this not true of the residuals in many mixed models.
+			\end{itemize}
+			\newpage
+			
+			\section{Residual diagnostics} %1.3
+			For classical linear models, residual diagnostics are typically implemented as a plot of the observed residuals and the predicted values. A visual inspection for the presence of trends inform the analyst on the validity of distributional assumptions, and to detect outliers and influential observations.
+			
+			
+			%--Marginal and Conditional Residuals
+			
+			\subsection{Residuals diagnostics in mixed models}
+			
+			%schabenberger
+			The marginal and conditional means in the linear mixed model are
+			$E[\boldsymbol{Y}] = \boldsymbol{X}\boldsymbol{\beta}$ and
+			$E[\boldsymbol{Y|\boldsymbol{u}}] = \boldsymbol{X}\boldsymbol{\beta} + \boldsymbol{Z}\boldsymbol{u}$, respectively.
+			
+			A residual is the difference between an observed quantity and its estimated or predicted value. In the mixed
+			model you can distinguish marginal residuals $r_m$ and conditional residuals $r_c$. 
+			
+			\begin{equation}
+			r_{mi}=x^{T}_{i}\hat{\beta}
+			\end{equation}
+			
+			\subsection{Marginal Residuals}
+			\begin{eqnarray}
+			\hat{\beta} &=& (X^{T}R^{-1}X)^{-1}X^{T}R^{-1}Y \nonumber \\
+			&=& BY \nonumber
+			\end{eqnarray}
+			
+			%1.5
+			%http://support.sas.com/documentation/cdl/en/statug/63033/HTML/default/viewer.htm#statug_mixed_sect024.htm
+			
+			
+			%===========================================================================================================%
+			
+			
+ %------------------------------------------------------------------------%
+ 
+ \section*{Conditional and Marginal Residuals}
+ 
+ Conditional residuals include contributions from both fixed and random effects, whereas marginal residuals include contribution from only fixed effects.
+ 
+ Suppose the linear mixed-effects model lmehas an n-by-p fixed-effects design matrix X and an n-by-q random-effects design matrix Z. 
+ 
+ Also, suppose the p-by-1 estimated fixed-effects vector is $\hat{\beta}$, and the q-by-1 estimated best linear unbiased predictor (BLUP) vector of random effects is $\hat{b}$. The fitted conditional response is
+ 
+ \[ \hat{y}_{Cond} = X\hat{\beta}+Z\hat{b},\]
+ 
+ and the fitted marginal response is
+ 
+ \[ \hat{y}_{Mar} = X\hat{\beta}.\]
+ 
+ residuals can return three types of residuals: raw, Pearson, and standardized. 
+ 
+ 
+ For any type, you can compute the conditional or the marginal residuals. For example, the conditional raw residual is
+ 
+ \[ r_{Cond} = y−X\hat{\beta}−Z\hat{b},\]
+ 
+ and the marginal raw residual is 
+ 
+ \[ r_{Mar} = y−X\hat{\beta}.\]
+ 
+ For more information on other types of residuals, see the ResidualType name-value pair argument.
+
+\subsection{Residuals diagnostics in mixed models}
+
+%schabenberger
+The marginal and conditional means in the linear mixed model are
+$E[\boldsymbol{Y}] = \boldsymbol{X}\boldsymbol{\beta}$ and
+$E[\boldsymbol{Y|\boldsymbol{u}}] = \boldsymbol{X}\boldsymbol{\beta} + \boldsymbol{Z}\boldsymbol{u}$, respectively.
+
+A residual is the difference between an observed quantity and its estimated or predicted value. In the mixed
+model you can distinguish marginal residuals $r_m$ and conditional residuals $r_c$. 
+
+
+%\subsection{Marginal and Conditional Residuals}
+%
+%A marginal residual is the difference between the observed data and the estimated (marginal) mean, $r_{mi} = y_i - x_0^{\prime} \hat{b}$
+%A conditional residual is the difference between the observed data and the predicted value of the observation,
+%$r_{ci} = y_i - x_i^{\prime} \hat{b} - z_i^{\prime} \hat{\gamma}$
+%
+%In linear mixed effects models, diagnostic techniques may consider `conditional' residuals. A conditional residual is the difference between an observed value $y_{i}$ and the conditional predicted value $\hat{y}_{i} $.
+%
+%\[ \hat{epsilon}_{i} = y_{i} - \hat{y}_{i} = y_{i} - ( X_{i}\hat{beta} + Z_{i}\hat{b}_{i}) \]
+%
+%However, using conditional residuals for diagnostics presents difficulties, as they tend to be correlated and their variances may be different for different subgroups, which can lead to erroneous conclusions.
+
+%1.5
+%http://support.sas.com/documentation/cdl/en/statug/63033/HTML/default/viewer.htm#statug_mixed_sect024.htm
+
+
+
+
+
+
+\begin{equation}
+r_{mi}=x^{T}_{i}\hat{\beta}
+\end{equation}
+
+\subsection{Marginal Residuals}
+\begin{eqnarray}
+\hat{\beta} &=& (X^{T}R^{-1}X)^{-1}X^{T}R^{-1}Y \nonumber \\
+&=& BY \nonumber
+\end{eqnarray}
+
+
+\newpage
+			\section{Conditional and Marginal Residuals}
+			Conditional residuals include contributions from both fixed and random effects, whereas marginal residuals include contribution from only fixed effects.
+			
+			Suppose the linear mixed-effects model lme has an $n \times p$ fixed-effects design matrix $\boldsymbol{X}$ and an $n \times q$ random-effects design matrix $\boldsymbol{Z}$. 
+			
+			Also, suppose the p-by-1 estimated fixed-effects vector is $\hat{\beta}$ , and the q-by-1 estimated best linear unbiased predictor (BLUP) 
+			vector of random effects is $\hat{b}$ . The fitted conditional response is
+			
+			\[ \hat{y}_{Cond} = X \hat{\beta} + Z \hat{b} \]
+			
+			and the fitted marginal response is
+			
+			
+			\[ \hat{y}_{Mar} = X \hat{\beta} \]
+			
+			residuals can return three types of residuals:
+			\begin{itemize} 
+				\item raw, 
+				\item Pearson, and 
+				\item standardized.\end{itemize} For any type, you can compute the conditional or the marginal residuals. For example, the conditional raw residual is
+			
+			
+			\[ r_{Cond} = y - X \hat{\beta} - Z \hat{b} \]
+			
+			and the marginal raw residual is
+			
+			
+			
+			\[ r_{Mar} = y - X \hat{\beta} \]
+			
+			\newpage
+			%=================================================== %
+			% http://www.ime.usp.br/~jmsinger/MAE0610/Mixedmodelresiduals.pdf
+			
+			Cox and Snell (1968, JRSS-B): general definition of residuals for
+			models with single source of variability
+			Hilden-Minton (1995, PhD thesis UCLA), Verbeke and Lesaffre
+			(1997, CSDA) or Pinheiro and Bates (2000, Springer): extension to
+			define three types of residuals that accommodate the extra source of
+			variability present in linear mixed models, namely:
+			
+			i) Marginal residuals, 
+			%bξ = y − X\hat{\beta} = \hat{M}^{-1}\hat{Q}y ,
+			
+			predictors of marginal errors, 
+			
+			%ξ = y − E[y] = y − X\beta = Zb + e
+			
+			ii) Conditional residuals, 
+			\[be = y − X\hat{\beta} − Zbb = \hat{\sigma}Q\hat{y}\] , predictors of
+			conditional errors 
+			\[e = y − E[y|b] = y − X\beta − Zb\]
+			
+			iii) BLUP, Zbb, predictors of random effects,
+			\[ Zb = E[y|b] − E[y]\]
+			
+
+		
+		%-----------------------------------------------------%
+		\subsection*{Random effects}
+		%% where is this coming from?
+		\[y - X\beta -\epsilon = Z \eta \]
+		\begin{itemize}
+			\item
+			Should be mean zero with no grouping structure
+			\item
+			May not be be homoscedastic.
+		\end{itemize}
+		
+		
+		%=============================================================================================================%
+		
+		
+		
+		\section{Confounded Residuals}
+		Hilden-Minton (1995, PhD thesis, UCLA): residual is pure for a
+		specific type of error if it depends only on the fixed components and
+		on the error that it is supposed to predict
+		Residuals that depend on other types of errors are called \textit{\textbf{confounded
+				residuals}}
 
 
 	%--Marginal and Conditional Residuals
@@ -240,6 +967,175 @@ OLS regression, the residual sums of squares serves that purpose. In linear mixe
 'observation-diagnostics'. For multiple observations, Preisser describes the diagnostics as 'cluster-deletion' diagnostics.
 
 
+
+	%-------------------------------------------------------------- %
+	\newpage
+	\section{Residual Analysis for LME Models}
+	\subsection{Introduction}%1.1
+	In classical linear models model diagnostics have been become a required part of any statistical analysis, and the methods are commonly available in statistical packages and standard textbooks on applied regression. However it has been noted by several papers that model diagnostics do not often accompany LME model analyses.
+	
+	\textbf{Cite:Zewotir} lists several established methods of analyzing influence in LME models. These methods include \begin{itemize}
+		\item Cook's distance for LME models,
+		\item \index{likelihood distance} likelihood distance,
+		\item the variance (information) ration,
+		\item the \index{Cook-Weisberg statistic} Cook-Weisberg statistic,
+		\item the \index{Andrews-Prebigon statistic} Andrews-Prebigon statistic.
+	\end{itemize}
+	
+	%-------------------------------------------------------------------------------------------------------------------------------------%
+	\subsection{Zewotir Measures of Influence in LME Models}%2.2
+	%Zewotir page 161
+	\citet{Zewotir} describes a number of approaches to model diagnostics, investigating each of the following;
+	\begin{itemize}
+		\item Variance components
+		\item Fixed effects parameters
+		\item Prediction of the response variable and of random effects
+		\item likelihood function
+	\end{itemize}
+	
+	\subsection{Cook's Distance applied to LMEs}
+	\begin{itemize}
+		\item For variance components $\gamma$: $CD(\gamma)_i$,
+		\item For fixed effect parameters $\beta$: $CD(\beta)_i$,
+		\item For random effect parameters $\boldsymbol{u}$: $CD(u)_i$,
+		\item For linear functions of $\hat{beta}$: $CD(\psi)_i$
+	\end{itemize}
+	
+	\subsection{Iterative and non-iterative influence analysis for LMEs} %1.13
+	
+	\textbf{Cite: Schabenberger} highlights some of the issue regarding implementing mixed model diagnostics.
+	
+	A measure of total influence requires updates of all model parameters. However, this doesnt increase the procedures execution time by the same degree.
+	
+	\subsection{Iterative Influence Analysis}
+	
+	%----schabenberger page 8
+	For linear models, the implementation of influence analysis is straightforward.
+	However, for LME models, the process is more complex. Update formulas for the fixed effects are available only when the covariance parameters are assumed to be known. A measure of total influence requires updates of all model parameters. This can only be achieved in general is by omitting observations, then refitting the model.\textbf{Cite: Schabenberger} describes the choice between \index{iterative influence analysis} iterative influence analysis and \index{non-iterative influence analysis} non-iterative influence analysis.
+	
+	
+	
+	%------------------------------------------------------------%
+	\begin{description}
+		\item[Random Effects]
+		
+		A large value for $CD(u)_i$ indicates that the $i-$th observation is influential in predicting random effects.
+		
+		\item[linear functions]
+		$CD(\psi)_i$ does not have to be calculated unless $CD(\beta)_i$ is large.
+		
+		
+		\item[Information Ratio]
+	\end{description}
+	
+	%--------------------------------------------------------------%
+	\newpage
+	\section{Measures 2} %2.4
+	
+	\subsection{Cook's Distance} %2.4.1
+	\begin{itemize}
+		\item For variance components $\gamma$
+	\end{itemize}
+	
+	Diagnostic tool for variance components
+	\[ C_{\theta i} =(\hat(\theta)_{[i]} - \hat(\theta))^{T}\mbox{cov}( \hat(\theta))^{-1}(\hat(\theta)_{[i]} - \hat(\theta))\]
+	
+	\subsection{Variance Ratio} %2.4.2
+	\begin{itemize}
+		\item For fixed effect parameters $\beta$.
+	\end{itemize}
+	
+	\subsection{Cook-Weisberg statistic} %2.4.3
+	\begin{itemize}
+		\item For fixed effect parameters $\beta$.
+	\end{itemize}
+	
+	\subsection{Andrews-Pregibon statistic} %2.4.4
+	\begin{itemize}
+		\item For fixed effect parameters $\beta$.
+	\end{itemize}
+	The Andrews-Pregibon statistic $AP_{i}$ is a measure of influence based on the volume of the confidence ellipsoid.
+	The larger this statistic is for observation $i$, the stronger the influence that observation will have on the model fit.
+	
+	
+	%---------------------------------------------------------------------------%
+	
+	
+	
+	
+	%------------------------------------------------------------%
+	\subsection{Likelihood Distance}
+	
+	
+	\citet{BA83}
+	
+	\subsection{Diagnostics for LMEs with \texttt{R}}
+	influence.ME: Tools for detecting influential data in mixed effects models
+	
+	influence.ME provides a collection of tools for detecting influential cases in generalized mixed effects models. It analyses models that were estimated using lme4. The basic rationale behind identifying influential data is that when iteratively single units are omitted from the data, models based on these data should not produce substantially different estimates. To standardize the assessment of how influential a (single group of) observation(s) is, several measures of influence are common practice, such as DFBETAS and Cook's Distance. In addition, we provide a measure of percentage change of the fixed point estimates and a simple procedure to detect changing levels of significance.
+	
+	
+	%------------------------------------------------------------------------------------------------%
+	% http://journal.r-project.org/archive/2012-2/RJournal_2012-2_Nieuwenhuis~et~al.pdf
+	
+	You should have a look at the \texttt{R} package \textit{\textbf{influence.ME}}. It allows you to compute measures of influential data for mixed effects models generated by lme4.
+	
+	An example model:
+	\begin{verbatim}
+	library(lme4)
+	model <- lmer(mpg ~ disp + (1 | cyl), mtcars)
+	\end{verbatim}
+	
+	The function \texttt{influence} is the basis for all further steps:
+	
+	\begin{verbatim}
+	library(influence.ME)
+	infl <- influence(model, obs = TRUE)
+	\end{verbatim}
+	Calculate Cook's distance:
+	\begin{verbatim}
+	cooks.distance(infl)
+	\end{verbatim}
+	Plot Cook's distance:
+	\begin{verbatim}
+	plot(infl, which = "cook")
+	\end{verbatim}
+	\newpage
+	%----------------------------------------------------------------------------------------%
+	
+	\section{Case-Deletion Diagnostics for LMEs The CPJ Paper}%1.13
+	
+	\subsection{Case-Deletion results for Variance components}
+	\textbf{Cite: CPJ}  examines case deletion results for estimates of the variance components, proposing the use of one-step estimates of variance components for examining case influence. The method describes focuses on REML estimation, but can easily be adapted to ML or other methods.
+	
+	This paper develops their global influences for the deletion of single observations in two steps: a one-step estimate for the REML (or ML) estimate of the variance components, and an ordinary case-deletion diagnostic for a weighted regression problem ( conditional on the estimated covariance matrix) for fixed effects.
+	
+	% Lesaffre's approach accords with that proposed by Christensen et al when applied in a repeated measurement context, with a large sample size.
+	
+	\subsection{CPJ Notation} %1.13.1
+	
+	\[ \boldsymbol{C} = \boldsymbol{H}^{-1} = \left[
+	\begin{array}{cc}
+	c_{ii} & \boldsymbol{c}_{i}^{\prime}\\
+	\boldsymbol{c}_{i} &  \boldsymbol{C}_{[i]}
+	\end{array} \right]
+	\]
+	
+	\textbf{Cite: CPJ}  noted the following identity:
+	
+	\[ \boldsymbol{H}_{[i]}^{-1}  = \boldsymbol{C}_{[i]} - {1 \over c_{ii}}\boldsymbol{c}_{[i]}\boldsymbol{c}_{[i]}^{\prime} \]
+	
+	
+	\textbf{Cite: CPJ} use the following as building blocks for case deletion statistics.
+	\begin{itemize}
+		\item $\breve{x}_i$
+		\item $\breve{z}_i$
+		\item $\breve{z}_ij$
+		\item $\breve{y}_i$
+		\item $p_ii$
+		\item $m_i$
+	\end{itemize}
+	All of these terms are a function of a row (or column) of $\boldsymbol{H}$ and $\boldsymbol{H}_{[i]}^{-1}$
 
 %---------------------------------------------------------------------------%
 \newpage
