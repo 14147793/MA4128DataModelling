@@ -1,33 +1,3 @@
-\indexentry {standardized residual}{8}
-\indexentry {studentized residual}{8}
-\indexentry {studentized residual}{9}
-\indexentry {external studentization}{9}
-\indexentry {internally studentization}{9}
-\indexentry {studentized residual}{9}
-\indexentry {standardized residual}{9}
-\indexentry {studentized residual}{9}
-\indexentry {Pearson residual}{10}
-\indexentry {likelihood distance}{12}
-\indexentry {Cook-Weisberg statistic}{12}
-\indexentry {Andrews-Prebigon statistic}{12}
-\indexentry {maximum likelihood}{25}
-\indexentry {restricted maximum likelihood}{25}
-\indexentry {likelihood distance}{25}
-\indexentry {iterative influence analysis}{28}
-\indexentry {non-iterative influence analysis}{28}
-\indexentry {likelihood distance}{29}
-\indexentry {case deletion diagnostics}{30}
-\indexentry {Cook's distance}{30}
-\indexentry {case deletion diagnostics}{36}
-\indexentry {likelihood distance}{36}
-\indexentry {Cook-Weisberg statistic}{36}
-\indexentry {Andrews-Prebigon statistic}{36}
-\indexentry {iterative influence analysis}{38}
-\indexentry {non-iterative influence analysis}{38}
-\indexentry {Cook's distance}{43}
-\indexentry {Cook's distance}{43}
-\indexentry {Cook's Distance}{44}
-\indexentry {Cook's distance}{44}
-\indexentry {Cook's distance}{45}
-\indexentry {Cook's distance}{45}
-\indexentry {Cook's distance}{45}
+\indexentry {likelihood distance}{2}
+\indexentry {Cook-Weisberg statistic}{2}
+\indexentry {Andrews-Prebigon statistic}{2}
