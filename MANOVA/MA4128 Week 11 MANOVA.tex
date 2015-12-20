@@ -1,0 +1,256 @@
+\documentclass[a4paper,12pt]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{eurosym}
+\usepackage{vmargin}
+\usepackage{amsmath}
+\usepackage{graphics}
+\usepackage{epsfig}
+\usepackage{framed}
+\usepackage{subfigure}
+\usepackage{fancyhdr}
+
+\setcounter{MaxMatrixCols}{10}
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.00.0.2570}
+%TCIDATA{<META NAME="SaveForMode"CONTENT="1">}
+%TCIDATA{LastRevised=Wednesday, February 23, 201113:24:34}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{Language=American English}
+
+\pagestyle{fancy}
+\setmarginsrb{20mm}{0mm}{20mm}{25mm}{12mm}{11mm}{0mm}{11mm}
+\lhead{MA4128} \rhead{Kevin O'Brien} \chead{{One-way MANOVA} }%\input{tcilatex}
+
+%http://www.electronics.dit.ie/staff/ysemenova/Opto2/CO_IntroLab.pdf
+\begin{document}
+	\Large
+	
+	\tableofcontents
+	\newpage
+
+\section{One-way MANOVA in SPSS}
+
+\subsection{Introduction}
+The one-way analysis of variance procedure (one-way ANOVA) is used to determine whether there are any differences between multiple independent groups on a continuous dependent variable. Suppose there was a study carried out on the mathematics results from three schools A, B and C. A one-way ANOVA procedure is used to test the hypothesis that the average score in each of the three schools is the same.
+The alternative hypothesis is that the average score of one school is different to the others.
+\begin{description}
+\item[$H_0$] $\mu_A = \mu_B = \mu_C$
+\item[$H_1$] There exists $\mu_i \neq \mu_j$ for some pairing of schools A B and C.
+\end{description}
+It is important to realize that the one-way ANOVA is an omnibus test statistic and cannot tell you which specific groups were significantly different from each other; it only tells you that at least two groups were different.
+
+The one-way multivariate analysis of variance (one-way MANOVA) is used to determine whether there are any differences between independent groups on \textbf{more than one} continuous dependent variable. In this regard, it differs from a one-way ANOVA, which only measures one dependent variable.
+
+
+For example, you could use a one-way MANOVA to understand whether there were differences in the perceptions of attractiveness and intelligence of drug users in movies (i.e., the two dependent variables are ``perceptions of attractiveness" and ``perceptions of intelligence", whilst the independent variable is ``drug users in movies", which has three independent groups: ``non-user", ``experimenter" and ``regular user").
+
+
+Alternately, you could use a one-way MANOVA to understand whether there were differences in students' short-term and long-term recall of facts based on three different lengths of lecture (i.e., the two dependent variables are ``short-term memory recall" and ``long-term memory recall", whilst the independent variable is ``lecture duration", which has four independent groups: ``30 minutes", ``60 minutes", ``90 minutes" and ``120 minutes" , considered as categorical data, even though numeric data is valid also).
+
+Again, it is important to realize that the one-way MANOVA is an omnibus test statistic and cannot tell you which specific groups were significantly different from each other; it only tells you that at least two groups were different. Since you may have three, four, five or more groups in your study design, determining which of these groups differ from each other is important. You can do this using a \textbf{post-hoc} test.
+
+
+\section{Implementation}
+In the section,we will illustrate the SPSS procedure to perform a one-way MANOVA assuming that no assumptions have been violated. First, we set out the example we use to explain the one-way MANOVA procedure in SPSS.
+
+
+
+\subsection{Example}
+The pupils at a high school come from three different primary schools. The headteacher wanted to know whether there were academic differences between the pupils from the three different primary schools. As such, she randomly selected 20 pupils from School A, 20 pupils from School B and 20 pupils from School C, and measured their academic performance as assessed by the marks they received for their end-of-year English and Maths exams. Therefore, the two dependent variables were ``English score" and ``Maths score", whilst the independent variable was ``School", which consisted of three categories: ``School A", ``School B" and ``School C".
+
+
+\subsection{Setup in SPSS}
+In SPSS, we separated the groups for analysis by creating a grouping variable called School (i.e., the independent variable), and gave the three categories of the independent variable the labels $School A$, $School B$ and $School C$. The two dependent variables were labelled $English_Score$ and $Maths_Score$, respectively. It is also recommended that you create a fourth variable, $subject_id$, to act as a case number. This latter variable is required to test whether there are any multivariate outliers (i.e., part of Assumption 5 above).
+
+%However, in the one-way MANOVA guide, we show you how to correctly enter data in SPSS to run a one-way MANOVA when you are also checking for assumptions. You can learn about our  data setup content here. Alternately, we have a generic, "quick start" guide to show you how to enter data into SPSS, available here.
+
+
+
+\subsection{Test Procedure in SPSS}
+The following steps below show you how to analyse your data using a one-way MANOVA in SPSS when the nine assumptions in the previous section, ssumptions, have not been violated. At the end of these 14 steps, we show you how to interpret the results from this test.
+\begin{verbatim}
+Click Analyze > General Linear Model > Multivariate
+\end{verbatim}
+on the top menu as shown below:
+
+
+
+You will be presented with the Multivariate dialogue box:
+
+\begin{center}
+\begin{figure}[h!]
+  % Requires \usepackage{graphicx}
+  \includegraphics[scale=0.4]{images/MANOVA1}\\
+  \caption{MANOVA}
+\end{figure}
+\end{center}
+
+%Transfer the independent variable, School, into the \texttt{Fixed Factor(s):} box and transfer the dependent variables, English Score and Maths Score, into the
+%\texttt{Dependent Variables: box.} You can do this by drag-and-dropping the variables into their respective boxes or by using the  button.
+%
+%\begin{center}
+%\begin{figure}[h!]
+%  % Requires \usepackage{graphicx}
+%  \includegraphics[scale=0.4]{MANOVA2}\\
+%  \caption{MANOVA}
+%\end{figure}
+%\end{center}
+%
+%(Note: For this analysis, you will not need to use the Covariate(s): box (used for MANCOVA) or the WLS Weight: box.)
+%
+%Click on the  button. You will be presented with the Multivariate: Profile Plots dialogue box:
+%
+%
+%\begin{center}
+%\begin{figure}[h!]
+%  % Requires \usepackage{graphicx}
+%  \includegraphics[scale=0.4]{MANOVA3}\\
+%  \caption{MANOVA}
+%\end{figure}
+%\end{center}
+%Transfer the independent variable, School, into the Horizontal Axis: box.
+%
+%
+%Click the  button. You will see that "School" has been added to the Plots: box.
+%
+%
+%Click the  button. This will return you to the Multivariate dialogue box.
+%
+%Click the  button. You will be presented with the Multivariate: Post Hoc Multiple Comparisons for Observed... dialogue box.
+%
+%\begin{center}
+%\begin{figure}[h!]
+%  % Requires \usepackage{graphicx}
+%  \includegraphics[scale=0.4]{MANOVA4}\\
+%  \caption{MANOVA}
+%\end{figure}
+%\end{center}
+%
+%Transfer the independent variable, School, into the Post Hoc Tests for: box and select the Tukey checkbox in the -Equal Variances Assumed- area.
+%
+%
+%\begin{center}
+%\begin{figure}[h!]
+%  % Requires \usepackage{graphicx}
+%  \includegraphics[scale=0.4]{MANOVA5}\\
+%  \caption{MANOVA}
+%\end{figure}
+%\end{center}
+%
+%Note: You can select other post-hoc tests depending on your data and study design. If your independent variable only has two levels/categories, you do not need to complete this post-hoc section.
+%
+%Click the  button. This will return you to the Multivariate dialogue box.
+%
+%
+%Click the  button. This will present you with the Multivariate: Options dialogue box.
+%
+%
+%Transfer the independent variable, "School", from the Factor(s) and Factor Interactions: box into the Display Means for: box. Select the Descriptive statistics, Estimates of effect size and Observed power checkboxes in the -Display- area. You will be presented with the following screen:
+%
+%\begin{center}
+%\begin{figure}[h!]
+%  % Requires \usepackage{graphicx}
+%  \includegraphics[scale=0.4]{MANOVA6}\\
+%  \caption{MANOVA}
+%\end{figure}
+%\end{center}
+%
+%
+%Click the  button. This will return you to the Multivariate dialogue box.
+%
+%Click the  button to generate the output.
+\newpage
+\section{SPSS Output of the One-Way MANOVA}
+SPSS produces many different tables in its one-way MANOVA analysis. In this section, we show you only the main tables required to understand your results from the one-way MANOVA and Tukey post-hoc tests.
+
+\begin{quote}
+For a complete explanation of the output you have to interpret when checking your data for the nine assumptions required to carry out a one-way MANOVA.
+
+This includes relevant boxplots, scatterplot matrix and Pearson's correlation coefficients, and output from your Mahalanobis distance test, Shapiro-Wilk test for normality, and Box's M test of equality of covariance, and if required, Levene's test of homogeneity of variance.
+\end{quote}
+However, the emphasis will be placed on the four main tables you need to understandthe one-way MANOVA results, assuming that your data has already met the nine assumptions required for a one-way MANOVA to give you a valid result.
+
+
+
+\subsection{Descriptive Statistics}
+The first important one is the Descriptive Statistics table. This table is very useful as it provides the mean and standard deviation for the two different dependent variables, which have been split by the independent variable. In addition, the table provides "Total" rows, which allows means and standard deviations for groups only split by the dependent variable to be known.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.7\linewidth]{images/MANOVA8}
+\caption{}
+\label{fig:MANOVA8}
+\end{figure}
+
+
+
+\subsection{Multivariate Tests}
+The Multivariate Tests table is where we find the actual result of the one-way MANOVA. You need to look at the second Effect, labelled "School", and the Wilks' Lambda row (highlighted in red). To determine whether the one-way MANOVA was statistically significant you need to look at the \textbf{Sig.} column. We can see from the table that we have a "Sig." value of .000, which means $p < .0005$. Therefore, we can conclude that this school's pupils academic performance was significantly dependent on which prior school they had attended ($p < .0005$).
+
+
+\begin{center}
+\begin{figure}[h!]
+  % Requires \usepackage{graphicx}
+  \includegraphics[scale=0.6]{images/MANOVA7}\\
+  \caption{MANOVA}
+\end{figure}
+\end{center}
+
+\subsection{Reporting the Result (without follow-up tests)}
+You could report the result of this test as follows:
+
+\emph{
+There was a statistically significant difference in academic performance based on a pupil's prior school , $F(4, 112) = 13.74$, $p < .0005$; Wilk's Lambda = 0.450, partial $\eta^2$ = 0.33.
+}
+
+If you had not achieved a statistically significant result, you would not perform any further follow-up tests. However, as our case shows that we did, we will continue with further tests.
+
+
+
+
+
+\subsection{Univariate ANOVAs}
+To determine how the dependent variables differ for the independent variable, we need to look at the Tests of Between-Subjects Effects table (highlighted in red):
+
+\begin{center}
+\begin{figure}[h!]
+  % Requires \usepackage{graphicx}
+  \includegraphics[scale=0.5]{images/MANOVA9}\\
+  \caption{MANOVA}
+\end{figure}
+\end{center}
+
+We can see from this table that prior schooling has a statistically significant effect on both English $(F (2, 57) = 18.11$; $p < .0005$; partial $\eta^2$ $= .39)$ and Maths scores $(F (2, 57) = 14.30$; $p < .0005$; partial $\eta^2$ = .33).
+(It is important to note that, in practice, you should make an \textbf{alpha correction} to account for multiple ANOVAs being run, such as a Bonferroni correction. As such, in this case, we accept statistical significance at p < .025.)
+
+
+\subsection{Multiple Comparisons}
+We can follow up these significant ANOVAs with Tukey's HSD post-hoc tests, as shown below in the Multiple Comparisons table:
+
+\begin{center}
+\begin{figure}[h!]
+  % Requires \usepackage{graphicx}
+  \includegraphics[scale=0.6]{images/MANOVA10}\\
+  \caption{MANOVA}
+\end{figure}
+\end{center}
+
+The table above shows that for mean scores for English were statistically significantly different between School A and School B ($p < .0005$), and School A and School C ($p < .0005$), but not between School B and School C (p = .897). Mean maths scores were statistically significantly different between School A and School C ($p < .0005$), and School B and School C (p = .001), but not between School A and School B (p = .443). These differences can be easily visualised by the plots generated by this procedure, as shown below:
+
+\begin{center}
+\begin{figure}[h!]
+  % Requires \usepackage{graphicx}
+  \includegraphics[scale=0.4]{images/MANOVA11}\\
+  \caption{MANOVA}
+\end{figure}
+\end{center}
+\begin{center}
+\begin{figure}[h!]
+  % Requires \usepackage{graphicx}
+  \includegraphics[scale=0.4]{images/MANOVA12}\\
+  \caption{MANOVA}
+\end{figure}
+\end{center}
+
+
+\end{document} 
