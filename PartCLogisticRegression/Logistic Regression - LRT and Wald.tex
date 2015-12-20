@@ -1,0 +1,30 @@
+\documentclass[]{article}
+
+
+\begin{document}
+\tableofcontents
+\newpage
+\section{Likelihood ratio test}
+\begin{itemize}
+\item The likelihood-ratio test test discussed above to assess model fit is also the recommended procedure to assess the contribution of individual "predictors" to a given model.
+
+\item In the case of a single predictor model, one simply compares the deviance of the predictor model with that of the null model on a chi-square distribution with a single degree of freedom. If the predictor model has a significantly smaller deviance (c.f chi-square using the difference in degrees of freedom of the two models), then one can conclude that there is a significant association between the "predictor" and the outcome. 
+\item Although some common statistical packages (e.g. SPSS) do provide likelihood ratio test statistics, without this computationally intensive test it would be more difficult to assess the contribution of individual predictors in the multiple logistic regression case. 
+\item To assess the contribution of individual predictors one can enter the predictors hierarchically, comparing each new model with the previous to determine the contribution of each predictor.
+\item There is considerable debate among statisticians regarding the appropriateness of so-called "stepwise" procedures. They do not preserve the nominal statistical properties and can be very misleading.
+\end{itemize}
+\newpage
+\section{Wald Statistic}
+Alternatively, when assessing the contribution of individual predictors in a given model, one may examine the significance of the \textbf{Wald statistic}. The Wald statistic, analogous to the t-test in linear regression, is used to assess the significance of coefficients. 
+\newline
+
+\noindent The Wald statistic is the ratio of the square of the regression coefficient to the square of the standard error of the coefficient and is asymptotically distributed as a chi-square distribution.
+\[
+W_j = \frac{B^2_j} {SE^2_{B_j}}
+\]
+Although several statistical packages (e.g., SPSS, SAS) report the Wald statistic to assess the contribution of individual predictors, the Wald statistic has limitations. When the regression coefficient is large, the standard error of the regression coefficient also tends to be large increasing the probability of Type-II error. 
+
+\subsection{biasedness}
+The Wald statistic also tends to be biased when data are sparse.
+
+\end{document}
