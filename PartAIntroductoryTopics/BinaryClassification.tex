@@ -1,0 +1,141 @@
+\documentclass[a4]{beamer}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{newlfont}
+\usepackage{multicol}
+\usepackage{amsmath,amsthm,amsfonts}
+%\usepackage{beamerthemesplit}
+\usepackage{pgf,pgfarrows,pgfnodes,pgfautomata,pgfheaps,pgfshade}
+\usepackage{mathptmx} % Font Family
+\usepackage{helvet} % Font Family
+\usepackage{color}
+\mode<presentation> {
+\usetheme{Default} % was Frankfurt
+\useinnertheme{rounded}
+\useoutertheme{infolines}
+\usefonttheme{serif}
+%\usecolortheme{wolverine}
+% \usecolortheme{rose}
+\usefonttheme{structurebold}
+}
+\setbeamercovered{dynamic}
+\title[MA4413]{Statistics for Computing \\ {\normalsize MA4413 Lecture 10A}}
+\author[Kevin O'Brien]{Kevin O'Brien \\ {\scriptsize Kevin.obrien@ul.ie}}
+\date{Autumn Semester 2013}
+\institute[Maths \& Stats]{Dept. of Mathematics \& Statistics, \\ University \textit{of} Limerick}
+
+\renewcommand{\arraystretch}{1.5}
+%----------------------------------------------------------------------------------------------------------%
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+\begin{frame}
+	\frametitle{Binary Classification}
+	Recall the possible outcomes of a hypothesis test procedure. In particular recall the two important types of error. Importantly the binary classification prediction procedure can yield wrong predictions.
+	\begin{center}
+		\begin{tabular}{|c|c|c|} \hline
+			& Null hypothesis & Null hypothesis   \\
+			& ($H_0$) true	 & ($H_0$) false \\ \hline
+			Reject 	       & \textbf{Type I error }   & \textbf{Correct outcome} \\
+			null hypothesis& False positive  & True positive \\ \hline
+			Fail to reject & \textbf{Correct outcome} & \textbf{Type II error} \\
+			null hypothesis & True negative  & False negative \\ \hline
+		\end{tabular} 
+	\end{center}
+\end{frame}
+%------------------------------------------------------%
+\begin{frame}
+	\frametitle{Accuracy, Precision and Recall}
+	Let us simplify the last table, and present it in the context of a binary prediction procedure.
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline  & Predicted Negative & Predicted Positive \\ 
+			\hline Observed Negative & True Negative & False Positive \\ 
+			\hline Observed Positive & False Negative & True Positive \\ 
+			\hline 
+		\end{tabular} 
+	\end{center}
+\end{frame}
+%------------------------------------------------------%
+\begin{frame}
+	\frametitle{Accuracy, Precision and Recall}
+	Important metrics for determining how usefulness of the prediction procedure are : Accuracy, Recall and Precision.
+	\\
+	Accuracy, Precision and recall are defined as
+	\[\mbox{Accuracy}=\frac{tp+tn}{tp+tn+fp+fn} \]
+	\[\mbox{Precision}=\frac{tp}{tp+fp} \] 
+	\[\mbox{Recall}=\frac{tp}{tp+fn} \]
+\end{frame}
+%------------------------------------------------------%
+\begin{frame}
+	\frametitle{Accuracy, Precision and Recall}
+	Another measure is the F-measure.
+	The F measure is computed as
+	\[F = 2 \cdot \frac{\mathrm{precision} \cdot \mathrm{recall}}{ \mathrm{precision} + \mathrm{recall}}\]
+	
+\end{frame}
+%------------------------------------------------------%
+\begin{frame}
+	\frametitle{Questions}
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			& Predicted  & Predicted \\
+			& Negative & Positive \\ \hline
+			Negative Cases & TN: 9,700  & FP: 165 \\ \hline
+			Positive Cases & FN: 35 & TP: 100 \\ \hline
+		\end{tabular} 
+	\end{center}
+\end{frame}
+%------------------------------------------------------%
+\begin{frame}
+	\frametitle{Accuracy, Precision and Recall}
+	
+	With reference to the table above, compute each of the following appraisal metrics.
+	\begin{multicols}{2} 
+		\begin{itemize}
+			\item[a.] Accuracy
+			\item[b.] Precision
+			\item[c.] Recall
+			\item[d.] $F$ measure
+		\end{itemize}
+	\end{multicols}
+\end{frame}
+%------------------------------------------------------%
+\begin{frame}
+	\frametitle{Accuracy, Precision and Recall}
+	\begin{itemize}
+		\item Why is the accuracy value so high?
+		\item Why is the F-measure so low?
+		\item This is the class-imbalance problem: more``negative" outcomes which skews the statistic, but these outcomes are the least relevant.
+		\item F-measure disregards the irrelevant ``true negatives, and concentrates on the more relevant potential outcomes.
+	\end{itemize}
+\end{frame}
+%------------------------------------------------------%
+\begin{frame}
+	BLANK
+\end{frame}
+%------------------------------------------------------%
+\begin{frame}
+	BLANK
+\end{frame}
+%------------------------------------------------------%
+\begin{frame}
+	BLANK
+\end{frame}
+%------------------------------------------------------%
+\begin{frame}
+	BLANK
+\end{frame}
+%------------------------------------------------------%
+\begin{frame}
+	BLANK
+\end{frame}
+
+
+%---------------------------- %
+
+\end{document}
