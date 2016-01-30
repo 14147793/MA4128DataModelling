@@ -20,9 +20,9 @@
 \usefonttheme{structurebold}
 }
 \setbeamercovered{dynamic}
-\title[MA4413]{Statistics for Computing \\ {\normalsize MA4413 Lecture 10A}}
+\title[MA4128]{Advanced Data Modelling \\ {\normalsize MA4128 2016 Week 2}}
 \author[Kevin O'Brien]{Kevin O'Brien \\ {\scriptsize Kevin.obrien@ul.ie}}
-\date{Autumn Semester 2013}
+\date{Spring Semester 2016}
 \institute[Maths \& Stats]{Dept. of Mathematics \& Statistics, \\ University \textit{of} Limerick}
 
 \renewcommand{\arraystretch}{1.5}
@@ -34,6 +34,7 @@
 \end{frame}
 \begin{frame}
 	\frametitle{Binary Classification}
+	\large
 	Recall the possible outcomes of a hypothesis test procedure. In particular recall the two important types of error. Importantly the binary classification prediction procedure can yield wrong predictions.
 	\begin{center}
 		\begin{tabular}{|c|c|c|} \hline
@@ -49,37 +50,43 @@
 %------------------------------------------------------%
 \begin{frame}
 	\frametitle{Accuracy, Precision and Recall}
+	\large
 	Let us simplify the last table, and present it in the context of a binary prediction procedure.
 	\begin{center}
 		\begin{tabular}{|c|c|c|}
 			\hline  & Predicted Negative & Predicted Positive \\ 
-			\hline Observed Negative & True Negative & False Positive \\ 
+			\hline Observed Negative & True Negative & False Positive \\
+			& (TN) & (FP)  
+			\\
 			\hline Observed Positive & False Negative & True Positive \\ 
+			& (FN) & (TP)  \\
 			\hline 
 		\end{tabular} 
 	\end{center}
+\textit{	(Notice that ``Negative" precedes ``Positive")}
 \end{frame}
 %------------------------------------------------------%
 \begin{frame}
 	\frametitle{Accuracy, Precision and Recall}
-	Important metrics for determining how usefulness of the prediction procedure are : Accuracy, Recall and Precision.
-	\\
-	Accuracy, Precision and recall are defined as
-	\[\mbox{Accuracy}=\frac{tp+tn}{tp+tn+fp+fn} \]
-	\[\mbox{Precision}=\frac{tp}{tp+fp} \] 
-	\[\mbox{Recall}=\frac{tp}{tp+fn} \]
+	\large
+	Important metrics for determining how usefulness of the prediction procedure are : \textbf{Accuracy}, \textbf{Recall} and \textbf{Precision}.
+	\\ \bigskip
+	Accuracy, Precision and Recall are defined as
+	\[\mbox{Accuracy}=\frac{TP+TN}{TP+TN+FP+FN} \]
+	\[\mbox{Precision}=\frac{TP}{TP+FP} \] 
+	\[\mbox{Recall}=\frac{TP}{TP+FN} \]
 \end{frame}
 %------------------------------------------------------%
 \begin{frame}
 	\frametitle{Accuracy, Precision and Recall}
-	Another measure is the F-measure.
-	The F measure is computed as
-	\[F = 2 \cdot \frac{\mathrm{precision} \cdot \mathrm{recall}}{ \mathrm{precision} + \mathrm{recall}}\]
+	Another measure is the F-measure (or F-score), which is computed as
+	\[F = 2 \cdot \bigg( \frac{\mathrm{precision} \cdot \mathrm{recall}}{ \mathrm{precision} + \mathrm{recall}} \bigg)\]
 	
 \end{frame}
 %------------------------------------------------------%
 \begin{frame}
 	\frametitle{Questions}
+	\large
 	\begin{center}
 		\begin{tabular}{|c|c|c|}
 			\hline
@@ -94,7 +101,7 @@
 \begin{frame}
 	\frametitle{Accuracy, Precision and Recall}
 	
-	With reference to the table above, compute each of the following appraisal metrics.
+	With reference to the table on the previous slide, compute each of the following appraisal metrics.
 	\begin{multicols}{2} 
 		\begin{itemize}
 			\item[a.] Accuracy
@@ -110,9 +117,12 @@
 	\begin{itemize}
 		\item Why is the accuracy value so high?
 		\item Why is the F-measure so low?
-		\item This is the class-imbalance problem: more``negative" outcomes which skews the statistic, but these outcomes are the least relevant.
-		\item F-measure disregards the irrelevant ``true negatives, and concentrates on the more relevant potential outcomes.
-	\end{itemize}
+		\begin{itemize}
+\item[$\ast$] This is the \textbf{class-imbalance} problem: more ``negative" outcomes which skews the statistic, but these outcomes are the least relevant.
+\item[$\ast$] The F-measure disregards the irrelevant ``true negatives, and concentrates on the more relevant potential outcomes.
+
+		\end{itemize}
+		\end{itemize}
 \end{frame}
 %------------------------------------------------------%
 \begin{frame}
