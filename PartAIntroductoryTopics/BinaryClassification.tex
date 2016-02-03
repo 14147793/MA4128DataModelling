@@ -37,11 +37,11 @@
 \begin{frame}
 	\frametitle{Hypothesis Testing}
 	\large
-	Recall: the inferential step to conclude that the null hypothesis is false goes as follows: The data (or data more extreme) are very unlikely given that the null hypothesis is true.
+	Recall from Hypothesis Testing: the inferential step to conclude that the null hypothesis is false goes as follows:\\  The data (or data more extreme) are very unlikely given that the null hypothesis is true.
 	\bigskip
 	This means that:
 	\begin{itemize}\item [(1)] a very unlikely event occurred or
-		\item[(2)] the null hypothesis is false. \end{itemize}
+		\item[(2)] the null hypothesis is false. \end{itemize} \smallskip
 	The inference usually made is that the null hypothesis is false. Importantly it doesnt prove the null hypothesis to be false.
 \end{frame}
 %-------------------------------------------------------------------------------------------------------------------------%
@@ -52,29 +52,40 @@
 	\begin{itemize}
 		\item[(1)] a true null hypothesis can be incorrectly rejected
 		\item[(2)] a false null hypothesis can fail to be rejected.
-	\end{itemize}
+	\end{itemize}\smallskip
 	The former error is called a \textbf{\emph{Type I error}} and the latter error is called a \textbf{\emph{Type II error}}. \\ \bigskip
 	The probability of Type I error is always equal to the level of significance $\alpha$ (alpha) that is used as the standard for rejecting the null hypothesis .
 \end{frame}
 %---------------------------------------------------------------------------%
 \begin{frame}
 	\frametitle{Type II Error}
+	\large
 	\begin{itemize}
 		
-		\item The probability of a Type II error is designated by the Greek letter beta ($\beta$).
-		\item A Type II error is only an error in the sense that an opportunity to reject the null hypothesis correctly was lost.
+		\item The probability of a Type II error is designated by the Greek letter beta ($\beta$). \smallskip
+		\item A Type II error is only an error in the sense that an opportunity to reject the null hypothesis correctly was lost. \smallskip
 		\item It is not an error in the sense that an incorrect conclusion was drawn since no conclusion is drawn when the null hypothesis is not rejected.
 	\end{itemize}
 \end{frame}
+\begin{frame}
+	\frametitle{Hypothesi Testing}
+	\large
+	\noindent \textbf{Statistical Power}
+	\begin{itemize}
+\item 	The power of any test of statistical significance is defined as the probability that it will reject a false null hypothesis. \item Statistical power is inversely related to beta or the probability of making a Type II error.
+\item  In short, power $= 1 - \beta$.
+	\end{itemize}
+
+\end{frame}
 %---------------------------------------------------------------------------%
 \begin{frame}
 	\frametitle{Types of Error}
 	\large
 	\begin{itemize}
 		\item
-		A Type I error, on the other hand, is an error in every sense of the word. A conclusion is drawn that the null hypothesis is false when, in fact, it is true. \item Therefore, Type I errors are generally considered more serious than Type II errors.
+		A Type I error, on the other hand, is an error in every sense of the word. A conclusion is drawn that the null hypothesis is false when, in fact, it is true. \item Therefore, Type I errors are generally considered more serious than Type II errors. \smallskip
 		\item
-		The probability of a Type I error ($\alpha$ ) is set by the experimenter. \item There is a trade-off between Type I and Type II errors. The more an experimenter protects himself or herself against Type I errors by choosing a low level, the greater the chance of a Type II error.
+		The probability of a Type I error ($\alpha$ ) is set by the experimenter. \smallskip \item There is a trade-off between Type I and Type II errors. The more an experimenter protects himself or herself against Type I errors by choosing a low level, the greater the chance of a Type II error.
 	\end{itemize}
 \end{frame}
 %---------------------------------------------------------------------------%
@@ -83,9 +94,9 @@
 	\large
 	\begin{itemize}
 		\item
-		Requiring very strong evidence to reject the null hypothesis makes it very unlikely that a true null hypothesis will be rejected. \item However, it increases the chance that a false null hypothesis will not be rejected, thus increasing the likelihood of Type II error.
+		Requiring very strong evidence to reject the null hypothesis makes it very unlikely that a true null hypothesis will be rejected. \smallskip \item However, it increases the chance that a false null hypothesis will not be rejected, thus increasing the likelihood of Type II error.\smallskip
 		\item
-		The Type I error rate is almost always set at 0.05 or at 0.01, the latter being more conservative since it requires stronger evidence to reject the null hypothesis at the 0.01 level then at the 0.05 level.
+		The Type I error rate is almost always set at 0.05 or at 0.01, the latter being more conservative since it requires stronger evidence to reject the null hypothesis at the 0.01 level then at the 0.05 level. \smallskip
 		\item \textbf{Important}In this module, the significance level $\alpha$ can be assumed to be 0.05, unless explicitly stated otherwise.
 	\end{itemize}
 \end{frame}
@@ -112,7 +123,7 @@
 	\large
 	\begin{itemize}
 		\item 
-	Statistical classification in general is one of the problems studied in computer science, in order to automatically learn classification systems.
+	Statistical classification in general is one of the problems studied in computer science, in order to automatically learn classification systems. \smallskip
 	\item Some methods suitable for learning binary classifiers include the decision trees, Bayesian networks, support vector machines, neural networks, probit regression, and logit regression.
 	\end{itemize}
 \end{frame}
@@ -143,7 +154,38 @@
 
 
 \end{frame}
+%--------------------------------%
 
+\begin{frame}
+	\frametitle{Medical testing example}
+	\begin{itemize}
+		\item True positive = Sick people correctly diagnosed as sick
+		
+		\item False positive= Healthy people incorrectly identified as sick
+		
+		\item True negative = Healthy people correctly identified as healthy
+		
+		\item False negative = Sick people incorrectly identified as healthy.
+	\end{itemize}
+\end{frame}
+\subsection*{Definitions}
+\begin{frame}
+	\textbf{Accuracy Rate}\\
+	The accuracy rate calculates the proportion ofobservations being allocated to the \textbf{correct} group by the predictive model. It is calculated as follows:
+	\[ \frac{
+		\mbox{Number of Correct Classifications }}{\mbox{Total Number of Classifications }} \]
+	
+	\[ = \frac{TP + TN}{TP+FP+TN+FN}\]
+	
+\end{frame}
+\begin{frame}
+	\noindent \textbf{Misclassification Rate}\\
+	The misclassification rate calculates the proportion ofobservations being allocated to the \textbf{incorrect} group by the predictive model. It is calculated as follows:
+	\[ \frac{
+		\mbox{Number of Incorrect Classifications }}{\mbox{Total Number of Classifications }} \]
+	
+	\[ = \frac{FP + FN}{TP+FP+TN+FN}\]
+\end{frame}
 %==================================================================== %
 \begin{frame}	\frametitle{Binary Classification}
 	\large
@@ -173,11 +215,13 @@ Thus sensitivity quantifies the avoiding of false negatives, as specificity does
 \begin{frame}
 	\frametitle{Accuracy, Precision and Recall}
 	\large
+	\noindent \textbf{Confusion Matrix}
 	\begin{itemize}
 	\item A confusion matrix is a table with two rows and two columns that reports the number of false positives, false negatives, true positives, and true negatives. \item This allows more detailed analysis than mere proportion of correct guesses (accuracy). \item Accuracy is not a reliable metric for the real performance of a classifier, because it will yield misleading results if the data set is unbalanced (that is, when the number of samples in different classes vary greatly).
 	\end{itemize}
 
 \end{frame}
+
 %------------------------------------------------------%
 \begin{frame}
 	\frametitle{Accuracy, Precision and Recall}
@@ -194,6 +238,16 @@ Thus sensitivity quantifies the avoiding of false negatives, as specificity does
 		\end{tabular} 
 	\end{center}
 \textit{	(Notice that ``Negative" precedes ``Positive")}
+\end{frame}
+\begin{frame}
+	\frametitle{Precision and Recall}
+	\Large
+	\begin{itemize}
+		\item \textbf{Precision} is the number of correct positive results divided by the number of \textit{\textbf{predicted positive}} results.
+		\[ \mbox{Precision}= \frac{TP}{TP+FP}  \]
+		\item \textbf{Recall} is the number of correct positive results divided by the number of \textit{\textbf{actual positive}} results. 
+		\[ \mbox{Recall}= \frac{TP}{TP+FN}  \]
+	\end{itemize}
 \end{frame}
 %------------------------------------------------------%
 \begin{frame}
@@ -268,16 +322,7 @@ Thus sensitivity quantifies the avoiding of false negatives, as specificity does
 	\end{itemize}
 \end{frame}
 %-------------------------------------------%
-\begin{frame}
-	\frametitle{The F-score}
-	\Large
-	\begin{itemize}
-		\item \textbf{Precision} is the number of correct positive results divided by the number of \textit{\textbf{predicted positive}} results.
-		\[ \mbox{Precision}= \frac{TP}{TP+FP}  \]
-		\item \textbf{Recall} is the number of correct positive results divided by the number of \textit{\textbf{actual positive}} results. 
-		\[ \mbox{Recall}= \frac{TP}{TP+FN}  \]
-	\end{itemize}
-\end{frame}
+
 %-------------------------------------------%
 \begin{frame}
 	\frametitle{The F-score}
@@ -287,7 +332,18 @@ Thus sensitivity quantifies the avoiding of false negatives, as specificity does
 	\[ F = 2 \times \left( \frac{\mbox{Precision} \times \mbox{Recall}}{\mbox{Precision} + \mbox{Recall}} \right) \] 
 \end{frame}
 %-------------------------------------------%
-
+\begin{frame}
+	\frametitle{Class Imbalance}
+	\large
+	\noindent \textbf{Class Imbalance Problem}
+	\begin{itemize}
+		\item It is the problem in machine learning where the total number of one class of data (\textbf{positive}) is far less than the total number of another class of data (\textbf{negative}). 
+		\item This problem is extremely common in practice and can be observed in various disciplines including fraud detection, anomaly detection, medical diagnosis, oil spillage detection, facial recognition, etc.
+		\item Most machine learning algorithms and works best when the number of instances of each classes are roughly equal. 
+		\item When the number of instances of one class far exceeds the other, problems arise (\textit{Type I  and Type II error}).
+	\end{itemize}
+	
+\end{frame}
 
 
 %--------------------------------%
@@ -305,13 +361,24 @@ Thus sensitivity quantifies the avoiding of false negatives, as specificity does
 %				\midrule
 %				Negative   & \phantom{spa} TN & \textbf{97750}\phantom{spa}   & FP  & \textbf{150}\\
 %				Positive   & \phantom{spa} FN & \textbf{330} \phantom{spa}   & TP  & \textbf{1770}\\
-%				
-%				%3   &  6.6  &  5.6   & 35.9  & 37.4\\
 %				\bottomrule
 %			\end{tabular}
 %		\end{table}
 %	\end{center}
-%	
+{
+	\large
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline  & Predicted Negative & Predicted Positive \\ 
+			\hline Observed Negative & True Negative & False Positive \\
+			& 97750 & 150  
+			\\
+			\hline Observed Positive & False Negative & True Positive \\ 
+			& 330 & 1770  \\
+			\hline 
+		\end{tabular} 
+	\end{center}
+}
 	\begin{itemize}
 		\item \textbf{Accuracy} = 0.9952
 		\item \textbf{Recall} = 0.8428
@@ -333,38 +400,7 @@ Thus sensitivity quantifies the avoiding of false negatives, as specificity does
 		\[F = 0.8804\] 
 	
 \end{frame}
-%--------------------------------%
 
-\begin{frame}
-	\frametitle{Medical testing example}
-	\begin{itemize}
-		\item True positive = Sick people correctly diagnosed as sick
-		
-		\item False positive= Healthy people incorrectly identified as sick
-		
-		\item True negative = Healthy people correctly identified as healthy
-		
-		\item False negative = Sick people incorrectly identified as healthy.
-	\end{itemize}
-\end{frame}
-\subsection*{Definitions}
-\begin{frame}
-	\textbf{Accuracy Rate}\\
-	The accuracy rate calculates the proportion ofobservations being allocated to the \textbf{correct} group by the predictive model. It is calculated as follows:
-	\[ \frac{
-		\mbox{Number of Correct Classifications }}{\mbox{Total Number of Classifications }} \]
-	
-	\[ = \frac{TP + TN}{TP+FP+TN+FN}\]
-	
-\end{frame}
-\begin{frame}
-	\noindent \textbf{Misclassification Rate}\\
-	The misclassification rate calculates the proportion ofobservations being allocated to the \textbf{incorrect} group by the predictive model. It is calculated as follows:
-	\[ \frac{
-		\mbox{Number of Incorrect Classifications }}{\mbox{Total Number of Classifications }} \]
-	
-	\[ = \frac{FP + FN}{TP+FP+TN+FN}\]
-\end{frame}
 
 
 %---------------------------- %
