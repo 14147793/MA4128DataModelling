@@ -40,7 +40,7 @@
 \tableofcontents
 \newpage
 
-\chapter{Introductuin to Cluster Analysis}
+\chapter{Introduction to Cluster Analysis}
 \section{Introduction to Cluster Analysis}
 
 
@@ -68,8 +68,7 @@
 	
 	\item In other words cluster analysis is an exploratory data analysis tool which aims at sorting different objects into groups in a way that the degree of association between two objects is maximal if they belong to the same group and minimal otherwise. Given the above, cluster analysis can be used to discover structures in data without providing an explanation/interpretation. 
 	
-	\item \textbf{Important:} cluster analysis simply discovers structures in data without explaining why they exist. Like factor 
-	analysis, it examines the full complement
+	\item \textbf{Important:} Cluster analysis simply discovers structures in data without explaining why they exist. It examines the full complement
 	of inter-relationships between variables. Cluster Analysis provides no explanation as to why the clusters exist nor is any
 	interpretation made. 
 	
@@ -94,8 +93,8 @@ There are three main types of cluster analysis.
 	\item Non-hierarchical Clustering Analysis (K-means clustering)
 	\item Two Step Clustering Analysis
 \end{itemize}
-
-Within hierarchical clustering analysis there are two subcategories: 
+\smallskip
+\noindent Within hierarchical clustering analysis there are two subcategories: 
 \begin{itemize}
 	\item Agglomerative (start from n clusters,to get to 1 cluster)
 	\item Divisive (start from 1 cluster, to get to $n$ cluster)
@@ -111,10 +110,10 @@ Within hierarchical clustering analysis there are two subcategories:
 	\item Validate the analysis
 \end{enumerate}
 
-Because we usually don't know the number of groups or clusters that will emerge in our sample and because we want an optimum solution, a two-stage sequence of analysis occurs as follows:
+\noindent Because we usually don't know the number of groups or clusters that will emerge in our sample and because we want an optimum solution, a two-stage sequence of analysis occurs as follows:
 
 \begin{enumerate}
-	\item We carry out a hierarchical cluster analysis using Ward' method applying squared
+	\item We carry out a hierarchical cluster analysis using \textbf{Ward' Method} applying squared
 	\textit{\textbf{Euclidean Distance}} as the distance or similarity measure. This helps to determine the
 	optimum number of clusters we should work with.
 	\item The next stage is to rerun the hierarchical cluster analysis with our selected number
@@ -142,11 +141,71 @@ Because we usually don't know the number of groups or clusters that will emerge 
 \item The branches represent clusters obtained on each step of hierarchical clustering. 
 \item The result of a clustering is presented either as the \textbf{\textit{distance}} or the similarity between the clustered rows or columns depending on the selected distance measure.
 \end{itemize}
+\begin{figure}
+\centering
+\includegraphics[width=0.7\linewidth]{images/dendrogram1}
+\end{figure}
 
 %----------------------------------------------------------%
 % http://www2.statistics.com/resources/glossary/h/hclusteran.php
 
 % http://mlsc.lboro.ac.uk/resources/statistics/Clusteranalysis.pdf
+
+
+\section{Simple Case Studies}
+\subsection{Applications of Cluster Analysis}
+
+We deal with clustering in almost every aspect of daily life. For example, a group of diners sharing the same table in a restaurant may be regarded as a cluster of people. In food stores items of similar nature, such as different types of meat or vegetables are displayed in the same or nearby locations. There is a countless number of examples in which clustering plays an important role. Clustering techniques have been applied to a wide variety of scientific research problems. For example, in the field of medicine, clustering diseases, cures for diseases, or symptoms of diseases can lead to very useful taxonomies. In the field of psychiatry, the correct diagnosis of clusters of symptoms such as paranoia, schizophrenia, etc. is essential for successful therapy. In archeology, researchers have attempted to establish taxonomies of stone tools, funeral objects, etc. by applying cluster analytic techniques. According to the modern system employed in biology, man belongs to the primates, the mammals, the amniotes, the vertebrates, and the animals.
+
+Note how in this classification, the higher the level of aggregation the less similar are the members in the respective class. Man has more in common with all other primates (e.g., apes) than it does with the more "distant" members of the mammals (e.g., dogs), etc.
+
+In general, whenever we need to classify a "mountain" of information into manageable meaningful piles, cluster analysis is of great utility.
+
+
+%---------------------------------------------------------------%
+\subsection{Market Segmentation}
+Suppose a market research company wants to undertake direct mail advertising with specific advertisements
+for different groups of people. You could use a variety of independent variabless like \textbf{\textit{family income}}
+, \textbf{\textit{age}}, \textbf{\textit{number of cars per family}}, \textbf{\textit{number of mobile phones per family}},\textbf{\textit{number of school children per family}}  etc., to see if different postal or zip codes are characterized by particular combinations of demographic variables which could be grouped together to create a better way of directing the mail out.
+
+This firm might in fact find that postal codes could be grouped into a number of clusters, characterized as ``the retirement zone", ``nappy valley", ``the golf club set", the ``rottweiler in a pick-up" district, etc. This sort of grouping might  be valuable in deciding where to place several new wine stores, or `Tummy to Toddler" shops.
+
+Using cluster analysis, a customer ``type" can represent a homogeneous market segment.
+Identifying their particular needs in that market allows products to be designed with greater
+precision and direct appeal within the segment. Targeting specific segments is cheaper and
+more accurate than broad-scale marketing. Customers respond better to segment marketing
+which addresses their specific needs, leading to increased market share and customer
+retention.
+
+This is valuable, for example, in banking, insurance and tourism markets. Suppose
+four clusters or market segments in the vacation travel industry. They are:
+\begin{itemize}
+	\item[(1)] The high spending elite - they want top level service and expect to be pampered;
+	\item[(2)] The escapists - they want to get away and just relax;
+	\item[(3)] The educationalist - they want to see new things, go to museums,
+	have a safari, or experience new cultures;
+	\item[(4)] the sports person - they want the golf course, tennis court, surfing, deep-sea fishing, climbing, etc.
+\end{itemize}
+Different brochures and advertising is required for each of these.
+
+Brand image analysis, or defining product `types' by customer perceptions, allows
+a company to see where its products are positioned in the market relative to those of its
+competitors. This type of modelling is valuable for branding new products or identifying
+possible gaps in the market. Clustering supermarket products by linked purchasing patterns
+can be used to plan store layouts, maximizing spontaneous purchasing opportunities.
+
+\subsection{A Banking example}
+Banking institutions have used hierarchical cluster analysis to develop a typology of customers, for two purposes, as follows:
+\begin{itemize}
+	\item To retain the loyalty of members by designing the best possible new financial products to meet the needs of different groups (clusters), i.e. new product opportunities.
+	\item To capture more market share by identifying which existing services are most profitable for which type of customer and improve market penetration.
+\end{itemize}
+One major bank completed a cluster analysis on a representative sample of its members, according to 16 variables chosen to reflect the characteristics of their financial transaction patterns. From this analysis, 30 types of members were identified. The results were useful for marketing, enabling the bank to focus on products which had the best financial performance; reduce direct mailing costs and increase response rates by targeting product promotions at those customer types most likely to respond; and consequently, to achieve better branding and customer retention.
+
+This facilitated a differential direct advertising of services
+and products to the various clusters that differed inter alia by age, income, risk taking levels, and self-perceived financial needs. In this way, the bank could retain and win the business of more profitable customers at lower costs.
+
+%---------------------------------------------------------------------------------%
 
 
  \section{Summary}
@@ -261,61 +320,6 @@ Because we usually don't know the number of groups or clusters that will emerge 
  \end{itemize}
  \newpage
 
-\section{Simple Case Studies}
-\subsection{Applications of Cluster Analysis}
-
-We deal with clustering in almost every aspect of daily life. For example, a group of diners sharing the same table in a restaurant may be regarded as a cluster of people. In food stores items of similar nature, such as different types of meat or vegetables are displayed in the same or nearby locations. There is a countless number of examples in which clustering plays an important role. Clustering techniques have been applied to a wide variety of scientific research problems. For example, in the field of medicine, clustering diseases, cures for diseases, or symptoms of diseases can lead to very useful taxonomies. In the field of psychiatry, the correct diagnosis of clusters of symptoms such as paranoia, schizophrenia, etc. is essential for successful therapy. In archeology, researchers have attempted to establish taxonomies of stone tools, funeral objects, etc. by applying cluster analytic techniques. According to the modern system employed in biology, man belongs to the primates, the mammals, the amniotes, the vertebrates, and the animals.
-
-Note how in this classification, the higher the level of aggregation the less similar are the members in the respective class. Man has more in common with all other primates (e.g., apes) than it does with the more "distant" members of the mammals (e.g., dogs), etc.
-
-In general, whenever we need to classify a "mountain" of information into manageable meaningful piles, cluster analysis is of great utility.
-
-
-%---------------------------------------------------------------%
-\subsection{Market Segmentation}
-Suppose a market research company wants to undertake direct mail advertising with specific advertisements
-for different groups of people. You could use a variety of independent variabless like \textbf{\textit{family income}}
-, \textbf{\textit{age}}, \textbf{\textit{number of cars per family}}, \textbf{\textit{number of mobile phones per family}},\textbf{\textit{number of school children per family}}  etc., to see if different postal or zip codes are characterized by particular combinations of demographic variables which could be grouped together to create a better way of directing the mail out.
-
-This firm might in fact find that postal codes could be grouped into a number of clusters, characterized as ``the retirement zone", ``nappy valley", ``the golf club set", the ``rottweiler in a pick-up" district, etc. This sort of grouping might  be valuable in deciding where to place several new wine stores, or `Tummy to Toddler" shops.
-
-Using cluster analysis, a customer ``type" can represent a homogeneous market segment.
-Identifying their particular needs in that market allows products to be designed with greater
-precision and direct appeal within the segment. Targeting specific segments is cheaper and
-more accurate than broad-scale marketing. Customers respond better to segment marketing
-which addresses their specific needs, leading to increased market share and customer
-retention.
-
-This is valuable, for example, in banking, insurance and tourism markets. Suppose
-four clusters or market segments in the vacation travel industry. They are:
-\begin{itemize}
-	\item[(1)] The high spending elite - they want top level service and expect to be pampered;
-	\item[(2)] The escapists - they want to get away and just relax;
-	\item[(3)] The educationalist - they want to see new things, go to museums,
-	have a safari, or experience new cultures;
-	\item[(4)] the sports person - they want the golf course, tennis court, surfing, deep-sea fishing, climbing, etc.
-\end{itemize}
-Different brochures and advertising is required for each of these.
-
-Brand image analysis, or defining product `types' by customer perceptions, allows
-a company to see where its products are positioned in the market relative to those of its
-competitors. This type of modelling is valuable for branding new products or identifying
-possible gaps in the market. Clustering supermarket products by linked purchasing patterns
-can be used to plan store layouts, maximizing spontaneous purchasing opportunities.
-
-\subsection{A Banking example}
-Banking institutions have used hierarchical cluster analysis to develop a typology of customers, for two purposes, as follows:
-\begin{itemize}
-	\item To retain the loyalty of members by designing the best possible new financial products to meet the needs of different groups (clusters), i.e. new product opportunities.
-	\item To capture more market share by identifying which existing services are most profitable for which type of customer and improve market penetration.
-\end{itemize}
-One major bank completed a cluster analysis on a representative sample of its members, according to 16 variables chosen to reflect the characteristics of their financial transaction patterns. From this analysis, 30 types of members were identified. The results were useful for marketing, enabling the bank to focus on products which had the best financial performance; reduce direct mailing costs and increase response rates by targeting product promotions at those customer types most likely to respond; and consequently, to achieve better branding and customer retention.
-
-This facilitated a differential direct advertising of services
-and products to the various clusters that differed inter alia by age, income, risk taking levels, and self-perceived financial needs. In this way, the bank could retain and win the business of more profitable customers at lower costs.
-
-%---------------------------------------------------------------------------------%
-
 
 \chapter{Fundamentals of Cluster Analysis}
 
@@ -409,9 +413,52 @@ The actual measure of dissimilarity depends on the measure used.
 \begin{itemize}
 	\item There are different distance measure choices depending on the level of measurement
 	of the data: interval, count, or binary.
-	\item For nearly all of this module example,the data were on an interval scale, and the squared euclidean measure will suffice.
+	\item For nearly all of this module example,the data were on an interval scale, and the euclidean and squared euclidean measure will suffice.
 \end{itemize} 
 
+
+\newpage
+\section{Cluster Analysis : Proximity Matrices}
+
+Using \textbf{\textit{nearest neighbour}} linkage, describe how the agglomeration schedule based on the following 
+proximity matrix. With nearest neighbour, a case is assigned to the cluster of the case with which it has the shortest distance. Cluster are also joined on this basis.
+
+
+% latex table generated in R 2.15.2 by xtable 1.7-1 package
+% Tue May 14 19:17:33 2013
+\begin{table}[ht]
+	\centering
+	\begin{tabular}{|r|rrrrrrrrrr|}
+		\hline
+		Case & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+		\hline
+		1 & 0.00 & \textbf{4.82} & 89.39 & 85.97 & 46.26 & 71.87 & 56.42 & 23.75 & 31.57 & 11.70 \\
+		2 & \textbf{4.82} & 0.00 & 94.24 & 38.96 & \textbf{5.55} & 35.07 & 74.52 & 71.27 & 61.84 & \textbf{4.84} \\
+		3 & 89.39 & 94.24 & 0.00 & 57.65 & 27.27 & 25.31 & 20.89 & \textbf{2.84} & 63.50 & 89.39 \\
+		4 & 85.97 & 38.96 & 57.65 & 0.00 & \textbf{22.94} & \textbf{7.13} & 70.49 & 23.09 & \textbf{12.75} & 85.97 \\
+		5 & 46.26 & \textbf{5.55} & 27.27 & \textbf{22.94} & 0.00 & 39.44 & 17.43 & 79.22 & 14.47 & 46.26 \\
+		6 & 71.87 & 35.07 & 25.31 & \textbf{7.13} & 39.44 & 0.00 & 27.50 & 30.65 & 13.34 & 71.87 \\
+		7 & 56.42 & 74.52 & 20.89 & 70.49 & 17.43 & 27.50 & 0.00 & 91.16 & 44.92 & \textbf{6.42} \\
+		8 & 23.75 & 71.27 & \textbf{2.84} & 23.09 & 79.22 & 30.65 & 91.16 & 0.00 & \textbf{3.18} & 23.75 \\
+		9 & 31.57 & 61.84 & 63.50 & \textbf{12.75} & 14.47 & 13.34 & 44.92 & \textbf{3.18} & 0.00 & 31.57 \\
+		10 & 11.70 & \textbf{4.84} & 89.39 & 85.97 & 46.26 & 71.87 & \textbf{6.42} & 23.75 & 31.57 & 0.00 \\
+		\hline
+	\end{tabular}
+\end{table}
+
+
+\begin{itemize}
+	\item The closest pair in terms of distance (2.84) are cases 3 and 8. So this is the first linkage.
+	\item The next closest pair (3.18) are 8 and 9. The next linkage joins case 9 to 3 and 8.
+	\item The next closest pair (4.82) are 1 and 2. So this is the next linkage. [ So far (3,8,9) and (2,10) ] 
+	\item The next closest pair (4.84) are 2 and 10. The next linkage joins case 1 to 2 and 10.
+	\item The next closest pair (5.55) are 2 and 5. The next linkage joins case 5 to 1, 2 and 10. [ So far (3,8,9) and (1,2,5,10)]
+	\item The next closest pair (6.42) are 7 and 10. The next linkage joins case 7 to 1, 2, 5 and 10.
+	\item The next closest pair (7.13) are 4 and 6. The next linkage joins case 4 to 6. [ So far (3,8,9), (4,6) and (1,2,5,10) All cases are in clusters. This is a 3 cluster solution. ]
+	\item The next closest pair (11.70) are 1 and 10. Disregard, because they are already clustered together.
+	\item The next closest pair (19.44) are 4 and 9. This joins cluster (4,6) to cluster (3,8,9) [ So far (3,4,6,8,9) and (1,2,5,10). This is a 2 cluster solution.]
+	\item The next closest pairing is 4 and 5. This linkage joins all cases together in one cluster.
+\end{itemize}
 
 \newpage
 \section{Distance measures}
@@ -629,9 +676,13 @@ distance(x,y) = (Number of xi  yi)/ i
 %-------------------------------------------------------------------------------------------------%
 \section{Standardizing the Variables}
 % % Moved to CA Notes
-Note that Euclidean (and squared Euclidean) distances are usually computed from raw data, and not from standardized data. This method has certain advantages (e.g., the distance between any two objects is not affected by the addition of new objects to the analysis, which may be outliers). However, the distances can be greatly affected by differences in scale among the dimensions from which the distances are computed. 
-
+\begin{itemize}
+\item Note that Euclidean (and squared Euclidean) distances are usually computed from raw data, and not from standardized data. This method has certain advantages (e.g., the distance between any two objects is not affected by the addition of new objects to the analysis, which may be outliers). 
+\item However, the distances can be greatly affected by differences in scale among the dimensions from which the distances are computed. 
+\item 
 For example, if one of the dimensions denotes a measured length in centimeters, and you then convert it to millimeters (by multiplying the values by 10), the resulting Euclidean or squared Euclidean distances (computed from multiple dimensions) can be greatly affected (i.e., biased by those dimensions which have a larger scale), and consequently, the results of cluster analyses may be very different. 
+\end{itemize}
+
 
 \begin{framed}
 	Generally, it is good practice to transform the dimensions of all variables so they have similar scales.
@@ -743,49 +794,7 @@ As as alternative to scaling or standardization, the user may opt to use the log
 
 
 
-\section{Cluster Analysis : Proximity Matrices}
 
-Using \textbf{\textit{nearest neighbour}} linkage, describe how the agglomeration schedule based on the following 
-proximity matrix. With nearest neighbour, a case is assigned to the cluster of the case with which it has the shortest distance. Cluster are also joined on this basis.
-
-
-% latex table generated in R 2.15.2 by xtable 1.7-1 package
-% Tue May 14 19:17:33 2013
-\begin{table}[ht]
-	\centering
-	\begin{tabular}{|r|rrrrrrrrrr|}
-		\hline
-		Case & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
-		\hline
-		1 & 0.00 & \textbf{4.82} & 89.39 & 85.97 & 46.26 & 71.87 & 56.42 & 23.75 & 31.57 & 11.70 \\
-		2 & \textbf{4.82} & 0.00 & 94.24 & 38.96 & \textbf{5.55} & 35.07 & 74.52 & 71.27 & 61.84 & \textbf{4.84} \\
-		3 & 89.39 & 94.24 & 0.00 & 57.65 & 27.27 & 25.31 & 20.89 & \textbf{2.84} & 63.50 & 89.39 \\
-		4 & 85.97 & 38.96 & 57.65 & 0.00 & \textbf{22.94} & \textbf{7.13} & 70.49 & 23.09 & \textbf{12.75} & 85.97 \\
-		5 & 46.26 & \textbf{5.55} & 27.27 & \textbf{22.94} & 0.00 & 39.44 & 17.43 & 79.22 & 14.47 & 46.26 \\
-		6 & 71.87 & 35.07 & 25.31 & \textbf{7.13} & 39.44 & 0.00 & 27.50 & 30.65 & 13.34 & 71.87 \\
-		7 & 56.42 & 74.52 & 20.89 & 70.49 & 17.43 & 27.50 & 0.00 & 91.16 & 44.92 & \textbf{6.42} \\
-		8 & 23.75 & 71.27 & \textbf{2.84} & 23.09 & 79.22 & 30.65 & 91.16 & 0.00 & \textbf{3.18} & 23.75 \\
-		9 & 31.57 & 61.84 & 63.50 & \textbf{12.75} & 14.47 & 13.34 & 44.92 & \textbf{3.18} & 0.00 & 31.57 \\
-		10 & 11.70 & \textbf{4.84} & 89.39 & 85.97 & 46.26 & 71.87 & \textbf{6.42} & 23.75 & 31.57 & 0.00 \\
-		\hline
-	\end{tabular}
-\end{table}
-
-
-\begin{itemize}
-	\item The closest pair in terms of distance (2.84) are cases 3 and 8. So this is the first linkage.
-	\item The next closest pair (3.18) are 8 and 9. The next linkage joins case 9 to 3 and 8.
-	\item The next closest pair (4.82) are 1 and 2. So this is the next linkage. [ So far (3,8,9) and (2,10) ] 
-	\item The next closest pair (4.84) are 2 and 10. The next linkage joins case 1 to 2 and 10.
-	\item The next closest pair (5.55) are 2 and 5. The next linkage joins case 5 to 1, 2 and 10. [ So far (3,8,9) and (1,2,5,10)]
-	\item The next closest pair (6.42) are 7 and 10. The next linkage joins case 7 to 1, 2, 5 and 10.
-	\item The next closest pair (7.13) are 4 and 6. The next linkage joins case 4 to 6. [ So far (3,8,9), (4,6) and (1,2,5,10) All cases are in clusters. This is a 3 cluster solution. ]
-	\item The next closest pair (11.70) are 1 and 10. Disregard, because they are already clustered together.
-	\item The next closest pair (19.44) are 4 and 9. This joins cluster (4,6) to cluster (3,8,9) [ So far (3,4,6,8,9) and (1,2,5,10). This is a 2 cluster solution.]
-	\item The next closest pairing is 4 and 5. This linkage joins all cases together in one cluster.
-\end{itemize}
-
-\newpage
 \chapter{Linkage}
 \section{Linkage Methods for Cluster Analysis}
 Having selected how we will measure distance, we must now choose the clustering algorithm, i.e. the rules that govern between which points distances are measured to determine cluster membership. There are many methods available, the criteria used differ and hence
