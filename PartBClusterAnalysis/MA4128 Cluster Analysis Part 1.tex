@@ -46,6 +46,17 @@
 
 %Introduction
 \begin{itemize}
+	 	\item \textbf{Cluster analysis} is a convenient method for identifying homogenous groups of
+	 	objects called clusters. Objects (or cases, observations) in a specific cluster share
+	 	many characteristics, but are very dissimilar to objects not belonging to that cluster.
+	 	\item  There are three cluster analysis approaches: hierarchical methods,
+	 	partitioning methods (more precisely, k-means), and two-step clustering,
+	 	which is largely a combination of the first two methods. 
+	 	%In the last class we looked as hierarchical clustering analysis.
+	 	\item Each of these procedures
+	 	follows a different approach to grouping the most similar objects into a cluster and
+	 	to determining each object’s cluster membership.
+
 	\item \textbf{\textit{A cluster is a group of relatively homogeneous cases or observations.}}
 	\item Cluster analysis is a major technique for classifying a large volumes of information into
 	manageable meaningful piles. Cluster analysis is a \textbf{data reduction} tool that creates subgroups that are
@@ -77,7 +88,11 @@
 	\item The grouping 	or clusters are defined through an analysis of the data. Subsequent multivariate analyses
 	can be performed on the clusters as groups.
 
-
+	 	\item Some approaches – most notably hierarchical methods – require us to specify how similar or different objects
+	 	are in order to identify different clusters. Most software packages, such as SPSS, calculate a measure
+	 	of (dis)similarity by estimating the distance between pairs of objects. Objects with
+	 	smaller distances between one another are more similar, whereas objects with larger
+	 	distances are more dissimilar.
 	
 	\item Cluster analysis is a tool of discovery revealing associations and structure in data which, though not previously
 	evident, are sensible and useful when discovered. Importantly, CA enables new
@@ -103,22 +118,23 @@ There are three main types of cluster analysis.
 %------------------------------------------------------------------------------%
 
 \subsection{Steps to conduct a Cluster Analysis}
+The process of conducting a hierarchical cluster analysis can be broken into four steps.
 \begin{enumerate}
-	\item Select a distance measure
-	\item Select a clustering algorithm
-	\item Determine the number of clusters
+	\item Select a distance measure (e.g. Euclidean Distance).
+	\item Select a clustering algorithm (e.g. Ward's Linkage).
+	\item Determine the number of clusters (subjective decision based on inspection of the dendrogram).
 	\item Validate the analysis
 \end{enumerate}
 
-\noindent Because we usually don't know the number of groups or clusters that will emerge in our sample and because we want an optimum solution, a two-stage sequence of analysis occurs as follows:
+\noindent \textbf{Exercise} Because we usually don't know the number of groups or clusters that will emerge in our sample and because we want an optimum solution, a two-stage sequence of analysis occurs as follows:
 
 \begin{enumerate}
-	\item We carry out a hierarchical cluster analysis using \textbf{Ward' Method} applying squared
-	\textit{\textbf{Euclidean Distance}} as the distance or similarity measure. This helps to determine the
+	\item We carry out a hierarchical cluster analysis using \textbf{\textit{Ward' Method}} applying squared
+	\textit{\textbf{Euclidean Distance}} as the distance or similarity measure. \item Inspectionf of the dendrogram helps to determine the
 	optimum number of clusters we should work with.
 	\item The next stage is to rerun the hierarchical cluster analysis with our selected number
 	of clusters, which enables us to allocate every case in our sample to a particular
-	cluster.
+	cluster. \textit{(N.B. SPSS allows for an $n$-cluster solution for hierarchical clsutering.)}
 \end{enumerate}
 
 %This sequence and methodology using SPSS will be described in more detail later. There are a variety of clustering procedures of which hierarchical cluster analysis is the major one.
@@ -132,58 +148,88 @@ There are three main types of cluster analysis.
 	\item In a sense, cluster analysis finds the ``most significant solution possible." Therefore, statistical significance testing is really not appropriate here, even in cases when p-values are reported.
 \end{itemize}
 
-\newpage
+
 \subsection{Dendrograms}
 
 \begin{itemize}
+		\item An important question is how to decide on the number of
+		clusters to retain from the data. Unfortunately, hierarchical methods provide only
+		very limited guidance for making this decision. T
 \item The dendrogram is a tree-structured graphical representation, used to visualize of the results of \textbf{\textit{hierarchical cluster analysis}}. 
 \item This is a tree-like plot where each step of hierarchical clustering is represented as a joining (or fusion) of two branches of the tree into a single one. 
 \item The branches represent clusters obtained on each step of hierarchical clustering. 
 \item The result of a clustering is presented either as the \textbf{\textit{distance}} or the similarity between the clustered rows or columns depending on the selected distance measure.
+\item T
+he only meaningful indicator
+relates to the distances at which the objects are combined. Similar to factor
+analysis’s scree plot, we can seek a solution in which an additional combination
+of clusters or objects would occur at a greatly increased distance. This raises the
+issue of what a great distance is, of course. For this purpose, we can make use of the dendrogram.
 \end{itemize}
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.7\linewidth]{images/dendrogram1}
 \end{figure}
-
+ \begin{itemize}
+ 	
+ 	
+ 	
+ 	\item A common way to visualize the cluster analysis’s progress is by drawing a
+ 	dendrogram, which displays the distance level at which there was a combination
+ 	of objects and clusters.
+ 	Here is an example of a dendrogram (which corresponds to the example in the next section of material.
+ 	
+ 	
+ 	\begin{figure}[h!]
+ 		\begin{center}
+ 			% Requires \usepackage{graphicx}
+ 			\includegraphics[scale=0.6]{images/Dendrogram.jpg}\\
+ 		\end{center}
+ 	\end{figure}
+ 	
+ 
+ 	
+ 	\item In constructing the dendrogram, SPSS rescales the distances to a range
+ 	of 0–25; that is, the last merging step to a one-cluster solution takes place at a
+ 	(rescaled) distance of 25. The rescaling often lengthens the merging steps, thus
+ 	making breaks occurring at a greatly increased distance level more obvious.
+ 	Despite this, this distance-based decision rule does not work very well in all
+ 	cases.
+ 	
+ 	It is often difficult to identify where the break actually occurs. This is also
+ 	the case in our example above. By looking at the dendrogram, we could justify
+ 	a two-cluster solution ([A,B,C,D,E,F] and [G]), as well as a five-cluster solution
+ 	([B,C,E], [A], [D], [F], [G]).
+ 	
+ 	
+ \end{itemize}
 %----------------------------------------------------------%
 % http://www2.statistics.com/resources/glossary/h/hclusteran.php
 
 % http://mlsc.lboro.ac.uk/resources/statistics/Clusteranalysis.pdf
-\newpage
 
 
- \section{Summary}
+
+ \section{Optimal Number of Clusters}
+\textit{ (Relevant to all types of clustering analysis)}
  \begin{itemize}
- 	\item \textbf{Cluster analysis} is a convenient method for identifying homogenous groups of
- 	objects called clusters. Objects (or cases, observations) in a specific cluster share
- 	many characteristics, but are very dissimilar to objects not belonging to that cluster.
- 	\item  There are three cluster analysis approaches: hierarchical methods,
- 	partitioning methods (more precisely, k-means), and two-step clustering,
- 	which is largely a combination of the first two methods. 
- 	%In the last class we looked as hierarchical clustering analysis.
- 	\item Each of these procedures
- 	follows a different approach to grouping the most similar objects into a cluster and
- 	to determining each object’s cluster membership.
- 	\item Some approaches – most notably hierarchical methods – require us to specify how similar or different objects
- 	are in order to identify different clusters. Most software packages, such as SPSS, calculate a measure
- 	of (dis)similarity by estimating the distance between pairs of objects. Objects with
- 	smaller distances between one another are more similar, whereas objects with larger
- 	distances are more dissimilar.
+
  	\item An important problem in the application of cluster analysis is the decision
  	regarding how many clusters should be derived from the data. This question is
- 	explored in the next step of the analysis. Sometimes, however,
+ 	explored in the next step of the analysis. 
+ 	\item A determination may be made by inspection of the dendrogram. Sometimes, however,
  	number of segments that have to be derived from the data will be known in advance.
  	\item
  	By choosing a specific clustering procedure, we determine how clusters are to be
  	formed. (This always involves optimizing some kind of criterion, such as minimizing
  	the within-cluster variance (i.e., the clustering variables’ overall variance of
  	objects in a specific cluster), or maximizing the distance between the objects or
- 	clusters). The procedure could also address the question of how to determine the
+ 	clusters).
+ 	\item The procedure could also address the question of how to determine the
  	(dis)similarity between objects in a newly formed cluster and the remaining objects
  	in the dataset.
  \end{itemize}
- \subsection{Hierarchical Clustering}
+ \subsection{Types of Hierarchical Clustering}
  \begin{itemize}
  	\item
  	Hierarchical clustering procedures are characterized by the tree-like structure
@@ -198,16 +244,18 @@ There are three main types of cluster analysis.
  	higher level of the hierarchy, and so on. This allows a hierarchy of clusters to be
  	established from the bottom up.
  	\item A cluster hierarchy can also be generated top-down. In \textbf{divisive clustering},
- 	all objects are initially merged into a single cluster, which is then gradually split up. Divisive procedures are quite rarely used in practice. We therefore
+ 	all objects are initially merged into a single cluster, which is then gradually split up.
+ 	\item  \textbf{Important} Divisive procedures are quite rarely used in practice. We therefore
  	concentrate on the agglomerative clustering procedures.
  	\item This means that if an object is assigned
  	to a certain cluster, there is no possibility of reassigning this object to another
  	cluster. This is an important distinction between these types of clustering and
- 	partitioning methods such as \textbf{\textit{k-means}}.
+ 	partitioning methods such as \textbf{\textit{k-means}}. \medskip
+ 	\item \textbf{SUMMARY} Agglomerative clustering starts with each case as a separate cluster, i.e. there are as many clusters as cases, and then combines the clusters sequentially, reducing the number of clusters at each step until only one cluster is left.
  \end{itemize}
  \subsection{Things to Watch Out For}
  \begin{itemize}
- 	\newpage
+
  	\item
  	In statistics, the occurrence of several variables in a multiple regression model are \textbf{closely correlated} to one another, and carrying the same information, more or less. Multi-collinearity can cause strange results when attempting to study how well individual independent variables contribute to an understanding of the dependent variable, often undermining the analysis.
  	
@@ -224,66 +272,35 @@ There are three main types of cluster analysis.
  	in general, even though this procedure can potentially reduce or inflate the variables’ influence
  	on the clustering solution.
  	
- 	
- 	
- 	An understanding of linkage method's other than than Ward method will be expected in the end of year examination.
- 	
- 	\item A common way to visualize the cluster analysis’s progress is by drawing a
- 	dendrogram, which displays the distance level at which there was a combination
- 	of objects and clusters.
- 	Here is an example of a dendrogram (which corresponds to the example in the next section of material.
- 	
- 	
- 	\begin{figure}[h!]
- 		\begin{center}
- 			% Requires \usepackage{graphicx}
- 			\includegraphics[scale=0.6]{images/Dendrogram.jpg}\\
- 		\end{center}
- 	\end{figure}
- 	
- 	\item An important question is how to decide on the number of
- 	clusters to retain from the data. Unfortunately, hierarchical methods provide only
- 	very limited guidance for making this decision. The only meaningful indicator
- 	relates to the distances at which the objects are combined. Similar to factor
- 	analysis’s scree plot, we can seek a solution in which an additional combination
- 	of clusters or objects would occur at a greatly increased distance. This raises the
- 	issue of what a great distance is, of course. For this purpose, we can make use of the dendrogram.
- 	
- 	\item In constructing the dendrogram, SPSS rescales the distances to a range
- 	of 0–25; that is, the last merging step to a one-cluster solution takes place at a
- 	(rescaled) distance of 25. The rescaling often lengthens the merging steps, thus
- 	making breaks occurring at a greatly increased distance level more obvious.
- 	Despite this, this distance-based decision rule does not work very well in all
- 	cases.
- 	
- 	It is often difficult to identify where the break actually occurs. This is also
- 	the case in our example above. By looking at the dendrogram, we could justify
- 	a two-cluster solution ([A,B,C,D,E,F] and [G]), as well as a five-cluster solution
- 	([B,C,E], [A], [D], [F], [G]).
- 	
- 	
  \end{itemize}
+ 
+ 
+
+\textit{ An understanding of linkage method's other than than Ward method will be expected in the end of year examination.}
  \newpage
 
 
 \chapter{Fundamentals of Cluster Analysis}
 
+\noindent \textbf{Recall}
+\begin{itemize}
+\item This is the major statistical method for finding relatively homogeneous clusters of cases based on measured characteristics.
 
-\section{Hierarchical cluster analysis}
-This is the major statistical method for finding relatively homogeneous clusters of cases based on measured characteristics.
+\item The clustering method uses the dissimilarities or distances between objects when forming the clusters. The SPSS programme calculates \textbf{\textit{distances}} between data points in terms of the specified variables.
 
-Agglomerative clustering starts with each case as a separate cluster, i.e. there are as many clusters as cases, and then combines the clusters sequentially, reducing the number of clusters at each step until only one cluster is left.
-
-The clustering method uses the dissimilarities or distances between objects when forming the clusters. The SPSS programme calculates \textbf{\textit{distances}} between data points in terms of the specified variables.
-
+\item 
 A hierarchical tree diagram, called a \textbf{\textit{dendrogram }} on SPSS, can be produced to show the linkage points. The clusters are linked at increasing levels of \textbf{\textit{dissimilarity}}.
-The actual measure of dissimilarity depends on the measure used.
+\item The actual measure of dissimilarity depends on the measure used.
+\end{itemize}
 
-\newpage
+
+
  \section{Clustering Linkage Algorithm : The Fundamentals}
  To better understand how a clustering algorithm works, let’s manually examine
  some of the single linkage procedure’s calculation steps. We start off by looking at
- the initial (Euclidean) distance matrix displayed previously.
+ the initial (Euclidean) distance matrix displayed below. For the time being, we will work on the basis of N\textbf{earest-Neighbour Linkage}.
+ 
+ 
  
  \begin{figure}[h!]
  	\begin{center}
@@ -294,12 +311,12 @@ The actual measure of dissimilarity depends on the measure used.
  
  \begin{itemize}
  	\item In the very first step, the two
- 	objects exhibiting the smallest distance in the matrix are merged. Note that we
+ 	objects exhibiting the smallest distance (hence the name: nearest neighbour) in the matrix are linked. Note that we
  	always merge those objects with the smallest distance, regardless of the clustering
- 	procedure (e.g., single or complete linkage). (N.B. In the following example, ties will be broken at random.)
+ 	procedure (e.g., single or complete linkage). \\\textit{(N.B. In the following example, ties will be broken at random.)}
  	\item As we can see, this happens to two
  	pairs of objects, namely B and C (\textbf{d(B, C)} = 1.414), as well as C and E (\textbf{d(C, E)} =
- 	1.414). In the next step, we will see that it does not make any difference whether we
+ 	1.414). \\ In the next step, we will see that it does not make any difference whether we
  	first merge the one or the other, so let’s proceed by forming a new cluster, using
  	objects B and C.
  	\begin{figure}[h!]
@@ -309,10 +326,10 @@ The actual measure of dissimilarity depends on the measure used.
  		\end{center}
  	\end{figure}
  	\item Having made this decision, we then form a new distance matrix by considering
- 	the single linkage decision rule as discussed above. According to this rule, the
+ 	the single linkage decision rule as discussed above. \\ According to this rule, the
  	distance from, for example, object A to the newly formed cluster is the minimum of
- 	\textbf{d(A, B)} and \textbf{d(A, C)}. As \textbf{d(A, C)} is smaller than d(A, B), the distance from A to the
- 	newly formed cluster is equal to d(A, C); that is, 2.236.
+ 	\textbf{d(A, B)} and \textbf{d(A, C)}. As \textbf{d(A, C)} is smaller than \textbf{d(A, B)}, the distance from A to the
+ 	newly formed cluster is equal to \textbf{d(A, C)}; that is, 2.236.
  	\item We also compute the
  	distances from cluster [B,C] (clusters are indicated by means of squared brackets)
  	to all other objects (i.e. D, E, F, G) and simply copy the remaining distances – such
@@ -333,6 +350,7 @@ The actual measure of dissimilarity depends on the measure used.
  			\includegraphics[scale=0.6]{images/DistanceMatrix4.jpg}\\
  		\end{center}
  	\end{figure}
+ 	\newpage
  	\item We continue in the same fashion until one cluster is left. By following the single linkage procedure, the last steps involve the merger
  	of cluster [A,B,C,D,E,F] and object G at a distance of 3.162.
  	\begin{figure}[h!]
@@ -356,49 +374,82 @@ The actual measure of dissimilarity depends on the measure used.
 
 \chapter{Linkage}
 \section{Linkage Methods for Cluster Analysis}
-Having selected how we will measure distance, we must now choose the clustering algorithm, i.e. the rules that govern between which points distances are measured to determine cluster membership. There are many methods available, the criteria used differ and hence
+\begin{itemize}
+\item Having selected how we will measure distance, we must now choose the clustering algorithm, i.e. the rules that govern between which points distances are measured to determine cluster membership.
+\item  There are many methods available, the criteria used differ and hence
 different classifications may be obtained for the same data. This is important since it tells us that, although cluster analysis may provide an objective method for the clustering of cases, there can be subjectivity in the choice of method. 
 
-The linkage distances are calculated by SPSS. The goal of the clustering algorithm is to join objects together into successively larger clusters, using some measure of similarity or distance. SPSS provides seven clustering algorithms, the most commonly used one being  \textbf{\textit{Ward's method}}.
+\item The linkage distances are calculated by SPSS. The goal of the clustering algorithm is to join objects together into successively larger clusters, using some measure of similarity or distance. 
+\item SPSS provides seven clustering algorithms, the most commonly used one being  \textbf{\textit{Ward's method}}.
+\end{itemize}
+
 
 
 \section{Summary of Linkage methods}
+\begin{framed}
+	\noindent \textbf{Blackboard Examples}
 \begin{itemize}
 	\item  Single linkage (minimum distance)
 	\item  Complete linkage (maximum distance)
 	\item  Average linkage
 \end{itemize}
+\end{framed}
 
 %http://www.rdg.ac.uk/~aes02mm/supermarket.sav
-
-\subsubsection{Ward's method}
+\newpage
+\subsection{Ward’s Linkage method (IMPORTANT)}
 \begin{itemize}
-	\item  Compute sum of squared distances within clusters
-	\item  Aggregate clusters with the minimum increase in the
-	overall sum of squares
+\item This method is distinct from other methods because it uses an \textbf{\textit{analysis of variance}} approach to evaluate the distances between clusters. In general, this method is very efficient.
+\item Cluster membership is assessed by calculating the total sum of squared deviations from the mean of a cluster. The criterion for fusion is that it should produce the smallest possible increase
+in the error sum of squares.
+\item In this method all possible pairs of clusters are combined and the sum of the squared
+distances within each cluster is calculated. This is then summed over all clusters. 
+\item The
+combination that gives the lowest sum of squares is chosen. This method tends to
+produce clusters of approximately equal size, which is not always desirable. It is also
+quite sensitive to outliers. 
+\item Despite this, it is one of the most popular methods, along
+with the average linkage method.
 \end{itemize}
-\subsubsection{Centroid method}
-The distance between two clusters is defined as the
-difference between the centroids (cluster averages)
 
-
-% http://www.norusis.com/pdf/SPC_v13.pdf
+\subsection{Ward's method}
+\begin{itemize}
+	\item A commonly used approach in hierarchical clustering is \textbf{\textit{Ward’s linkage method}}.
+	\item This approach does not combine the two most similar objects successively. Instead,
+	those objects whose merger optimises the overall \textbf{within-cluster variance} to the
+	smallest possible degree, are combined. 
+	\item \textbf{IMPORTANT} If you expect somewhat equally sized
+	clusters and the data set does not include outliers, you should always use Ward’s
+	method. We will use the Ward's linkage method for laboratory exercises.
+\end{itemize}
+\subsection{Ward’s method}
+In this method all possible pairs of clusters are combined and the sum of the squared
+distances within each cluster is calculated. This is then summed over all clusters. The
+combination that gives the lowest sum of squares is chosen. This method tends to
+produce clusters of approximately equal size, which is not always desirable. It is also
+quite sensitive to outliers. Despite this, it is one of the most popular methods, along
+with the average linkage method.
+%\begin{itemize}
+%	\item  Compute sum of squared distances within clusters
+%	\item  Aggregate clusters with the minimum increase in the
+%	overall sum of squares
+%\end{itemize}
+%\subsubsection{Centroid method}
+%The distance between two clusters is defined as the
+%difference between the centroids (cluster averages)
+%
+%
+%% http://www.norusis.com/pdf/SPC_v13.pdf
 \subsection{Centroid method}
 Here the centroid (mean value for each variable) of each cluster is calculated and the
 distance between centroids is used. Clusters whose centroids are closest together are
 merged. This method is also fairly robust.
 
-\subsection{Nearest neighbour method} 
-\begin{itemize}
-	\item A commonly used approach in hierarchical clustering is \textbf{\textit{Ward’s linkage method}}.
-	This approach does not combine the two most similar objects successively. Instead,
-	those objects whose merger increases the overall within-cluster variance to the
-	smallest possible degree, are combined. If you expect somewhat equally sized
-	clusters and the data set does not include outliers, you should always use Ward’s
-	method.
+\subsection{Linkage Method} 
+
 	
-	We will use the Ward's linkage method for laboratory exercises.
-	
+
+	\begin{itemize}
 	\item Other most popular
 	agglomerative clustering procedures include the following:
 	\begin{description}
@@ -467,13 +518,7 @@ The distance between two clusters is calculated as the average distance between 
 of subjects in the two clusters. This is considered to be a fairly robust method.
 
 
-\subsection{Ward’s method}
-In this method all possible pairs of clusters are combined and the sum of the squared
-distances within each cluster is calculated. This is then summed over all clusters. The
-combination that gives the lowest sum of squares is chosen. This method tends to
-produce clusters of approximately equal size, which is not always desirable. It is also
-quite sensitive to outliers. Despite this, it is one of the most popular methods, along
-with the average linkage method.
+
 
 %\subsection{Ward's Method}
 %This method is distinct from other methods because it uses an \textbf{\textit{analysis of variance}} approach to evaluate the distances between clusters. In general, this method is very efficient.
@@ -488,19 +533,9 @@ with the average linkage method.
 %Ward's linkage is a method for hierarchical cluster analysis . The idea has much in common with analysis of variance (ANOVA). The linkage function specifying the distance between two clusters is computed as the increase in the "error sum of squares" (ESS) after fusing two clusters into a single cluster. Ward's Method seeks to choose the successive clustering steps so as to minimize the increase in ESS at each step.
 
 
-\subsection{Ward’s Linkage method (IMPORTANT)}
-In this method all possible pairs of clusters are combined and the sum of the squared
-distances within each cluster is calculated. This is then summed over all clusters. The
-combination that gives the lowest sum of squares is chosen. This method tends to
-produce clusters of approximately equal size, which is not always desirable. It is also
-quite sensitive to outliers. Despite this, it is one of the most popular methods, along
-with the average linkage method.
 
-%\subsection{Ward's Method}
-%This method is distinct from other methods because it uses an \textbf{\textit{analysis of variance}} approach to evaluate the distances between clusters. In general, this method is very efficient.
-%
-%Cluster membership is assessed by calculating the total sum of squared deviations from the mean of a cluster. The criterion for fusion is that it should produce the smallest possible increase
-%in the error sum of squares.
+
+
 %
 %
 %
@@ -627,7 +662,7 @@ backwards down the branches to the name.
 
 
 \chapter{Kmeans Clustering}
-\section{Non-Hierarchical Clustering (Kmeans)}
+\section{Non-Hierarchical Clustering (k-Means)}
 This method of clustering is very different from the hierarchical clustering and Ward method, which are applied when there is no prior knowledge of how many clusters there may be or what they are characterized by. The k-means clustering approach is used when you already have hypotheses concerning the number of clusters in your cases or variables. For example, you may want to specify exactly three clusters that are to be as distinct as possible.
 
 This is the type of research question that can be addressed by the k-means clustering algorithm. In general, the k-means method will produce the exact k different clusters demanded of greatest possible distinction. Very often, both the hierarchical and the k-means techniques are used successively.
@@ -637,6 +672,7 @@ This is the type of research question that can be addressed by the k-means clust
 the cases (i.e. k means clustering).
 \end{itemize}
 
+\subsection{Procedure for k-means}
 In these methods the desired number of clusters is specified in advance and the `best' solution
 is chosen. The steps in such a method are as follows:
 \begin{itemize}
@@ -651,15 +687,16 @@ are not in the cluster that they are closest to.
 \item[5] Continue until the centroids remain relatively stable.
 \end{itemize}
 
+\subsection{Considerations for Usage of k-means}
 Non-hierarchical cluster analysis tends to be used when large data sets are involved. It is
 sometimes preferred because it allows subjects to move from one cluster to another (this is
 not possible in hierarchical cluster analysis where a subject, once assigned, cannot move to a
 different cluster). Two disadvantages of non-hierarchical cluster analysis are: 
 \begin{itemize}
-\item[1]it is often
+\item[1] It is often
 diffcult to know how many clusters you are likely to have and therefore the analysis may have
 to be repeated several times 
-\item[2] it can be very sensitive to the choice of initial cluster centres. Again, it may be worth trying di?erent ones to see what impact this has.
+\item[2] It can be very sensitive to the choice of initial cluster centres. Again, it may be worth trying different ones to see what impact this has.
 \end{itemize}
 
 
