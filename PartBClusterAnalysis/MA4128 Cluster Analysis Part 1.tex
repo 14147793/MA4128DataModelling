@@ -397,6 +397,38 @@ different classifications may be obtained for the same data. This is important s
 
 %http://www.rdg.ac.uk/~aes02mm/supermarket.sav
 \newpage
+\subsection{Nearest neighbour method} 
+\textit{(Also known as the single linkage method)}.
+\begin{itemize}
+\item In this method the distance between two clusters is defined to be the distance between
+the two closest members, or neighbours. 
+\item This method is relatively simple but is often
+criticised because it doesn’t take account of cluster structure and can result in a problem
+called chaining whereby clusters end up being long and straggly.
+\item  However, it is better
+than the other methods when the natural clusters are not spherical or elliptical in shape.
+
+\end{itemize}
+\subsection{Furthest neighbour method}
+\textit{(Also known as the complete linkage method)}.
+\begin{itemize}
+\item In this case the distance between two clusters is defined to be the maximum distance
+between members  i.e. the distance between the two subjects that are furthest apart.
+
+\item \textbf{IMPORTANT:} The link between two clusters contains all element pairs, and the distance between clusters equals the distance between those two elements (one in each cluster) that are farthest away from each other. The shortest of these links that remains at any step causes the fusion of the two clusters whose elements are involved. 
+\item This method tends to produce compact clusters of similar size but, as for the nearest
+neighbour method, does not take account of cluster structure. 
+\item The Furthest neighbour method is also quite sensitive
+to outliers.
+\item \textbf{SUMMARY:} linking the nearest of the ``\textit{furthest away}" from each cluster.
+\end{itemize}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.45\linewidth]{images/linkage}
+
+\end{figure}
+
 \subsection{Ward’s Linkage method (IMPORTANT)}
 \begin{itemize}
 \item This method is distinct from other methods because it uses an \textbf{\textit{analysis of variance}} approach to evaluate the distances between clusters. In general, this method is very efficient.
@@ -495,21 +527,8 @@ merged. This method is also fairly robust.
 	However, both procedures are affected by outliers, though not as much as complete linkage.
 \end{itemize}
 
-\subsection{Nearest neighbour method} 
-(Also known as the single linkage method).\\
-In this method the distance between two clusters is defined to be the distance between
-the two closest members, or neighbours. This method is relatively simple but is often
-criticised because it doesn’t take account of cluster structure and can result in a problem
-called chaining whereby clusters end up being long and straggly. However, it is better
-than the other methods when the natural clusters are not spherical or elliptical in shape.
 
-\subsection{Furthest neighbour method}
-\textit{(Also known as the complete linkage method)}.\\
-In this case the distance between two clusters is defined to be the maximum distance
-between members  i.e. the distance between the two subjects that are furthest apart.
-This method tends to produce compact clusters of similar size but, as for the nearest
-neighbour method, does not take account of cluster structure. It is also quite sensitive
-to outliers.
+
 
 
 \subsection{Average (between groups) linkage method }
