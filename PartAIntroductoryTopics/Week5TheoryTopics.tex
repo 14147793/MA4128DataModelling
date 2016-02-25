@@ -31,7 +31,7 @@
 \Large
 \tableofcontents
 \newpage
-\section{ Week 5 General Theory Topics}
+\section{Week 6 General Theory Topics}
 
 
 \subsection{Steps in Building a Predictive Model}
@@ -66,9 +66,9 @@
 
 \subsection{Overfitting}
 \begin{itemize}
-	\item The flaw with evaluating a predictive model on training data is that it does not inform you on how well the model has generalized to new unseen data.
+	\item The problem with evaluating a predictive model on training data is that it does not inform you on how well the model has generalized to new unseen data.
 	
-\item 	A model that is selected for its accuracy on the training dataset rather than its accuracy on an unseen test dataset is very likely have lower accuracy on an unseen test dataset. The reason is that the model is not as generalized. It has specalized to the structure in the training dataset. This is called overfitting.
+\item 	A model that is selected for its accuracy on the training dataset rather than its accuracy on an unseen test dataset is very likely have lower accuracy on an unseen test dataset. The reason is that the model is not as generalized. It has specalized to the structure in the training dataset. This is called \textbf{overfitting}.
 \end{itemize}
 
 \subsection{Cross-Validation and Testing}
@@ -83,16 +83,13 @@
 \subsection{Cross Validation}
 %-------------------------------------------------------------------------------------%
 \begin{itemize}	
-	\item 	The confusion
-	table is a table in which the rows are the observed categories of the dependent and
-	the columns are the predicted categories. When prediction is perfect all cases will lie on the
-	diagonal. The percentage of cases on the diagonal is the percentage of correct classifications. 
-	
-	\item	The cross validated set of data is a more honest presentation of the power of the
-	discriminant function than that provided by the original classifications and often produces
-	a poorer outcome. 
+%	\item 	
+%	
+%	\item	The cross validated set of data is a more honest presentation of the power of the
+%	discriminant function than that provided by the original classifications and often produces
+%	a poorer outcome. 
 	\item The cross validation is often termed a jack-knife classification, in that
-	it successively classifies \textbf{all cases but one} to develop a discriminant function and then
+	it successively classifies \textbf{all cases but one} to develop a predictive model and then
 	categorizes the case that was left out. This process is repeated with each case left out in
 	turn.This is known as leave-1-out cross validation. 
 	
@@ -205,6 +202,12 @@ In general, Positive = identified and negative = rejected. Therefore:
 %-------------------------------------------------- %
 \newpage
 \subsection{Definitions (From Week 1)}
+\textbf{Confusion Matrix} \\
+The confusion
+table is a table in which the rows are the observed categories of the dependent and
+the columns are the predicted categories. When prediction is perfect all cases will lie on the
+diagonal. The percentage of cases on the diagonal is the percentage of correct classifications. 
+
 \textbf{Accuracy Rate}\\
 The accuracy rate calculates the proportion ofobservations being allocated to the \textbf{correct} group by the predictive model. It is calculated as follows:
 \[ \frac{
@@ -224,7 +227,7 @@ The misclassification rate calculates the proportion ofobservations being alloca
 
 \subsection{Misclassification Cost}
 \begin{itemize}
-	\item As in all statistical procedures it is helpful to use diagnostic procedures to asses the efficacy of the discriminant analysis. We use \textbf{cross-validation} to assess the classification probability.
+	\item As in all statistical procedures it is helpful to use diagnostic procedures to assess the efficacy of the analysis. We use \textbf{cross-validation} to assess the classification probability.
 	Typically you are going to have some prior rule as to what is an \textbf{acceptable misclassification rate}.
 	
 	\item	Those rules might involve things like, \textit{``what is the cost of misclassification?"} Consider a medical study where you might be able to diagnose cancer.
