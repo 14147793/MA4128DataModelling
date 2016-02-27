@@ -84,6 +84,24 @@ A binomial logistic regression (often referred to simply as logistic regression)
 \end{verbatim}
 
 
+\section*{Logistic function} 
+
+The logistic function, with $\beta_0 + \beta_1 x$ on the horizontal axis and $\pi(x)$ on the vertical axis
+An explanation of logistic regression begins with an explanation of the logistic function, which always takes on values between zero and one:
+\[
+F(t) = \frac{e^t}{e^t+1} = \frac{1}{1+e^{-t}},
+\]
+and viewing t as a linear function of an explanatory variable x (or of a linear combination of explanatory variables), the logistic function can be written as:
+\[\pi(x) = \frac{e^{(\beta_0 + \beta_1 x)}} {e^{(\beta_0 + \beta_1 x)} + 1} = \frac {1} {1+e^{-(\beta_0 + \beta_1 x)}}.
+\]
+This will be interpreted as the probability of the dependent variable equalling a "success" or "case" rather than a failure or non-case. We also define the inverse of the logistic function, the logit:
+\[g(x) = \ln \frac {\pi(x)} {1 - \pi(x)} = \beta_0 + \beta_1 x ,
+\]and equivalently:
+\[\frac{\pi(x)} {1 - \pi(x)} = e^{(\beta_0 + \beta_1 x)}.
+\]
+
+
+
 \section{Binomial Logistic Regression}
 Binomial logistic regression estimates the probability of an event (as an example, having heart disease) occurring. 
 \begin{itemize}
