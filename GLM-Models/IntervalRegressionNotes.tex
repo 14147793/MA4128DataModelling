@@ -1,5 +1,31 @@
+\documentclass[a4paper,12pt]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{eurosym}
+\usepackage{vmargin}
+\usepackage{amsmath}
+\usepackage{graphics}
+\usepackage{epsfig}
+\usepackage{framed}
+\usepackage{subfigure}
+\usepackage{fancyhdr}
 
-\subsection{Interval Regression}
+\setcounter{MaxMatrixCols}{10}
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.00.0.2570}
+%TCIDATA{<META NAME="SaveForMode"CONTENT="1">}
+%TCIDATA{LastRevised=Wednesday, February 23, 201113:24:34}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{Language=American English}
+
+\pagestyle{fancy}
+\setmarginsrb{20mm}{0mm}{20mm}{25mm}{12mm}{11mm}{0mm}{11mm}
+\lhead{Advanced Data Modelling} \rhead{Logistic Regression} \chead{MA4128} %\input{tcilatex}
+
+%http://www.electronics.dit.ie/staff/ysemenova/Opto2/CO_IntroLab.pdf
+\begin{document}
+	\Large
+
+\section{Interval Regression}
 
 Interval regression is used to model outcomes that have interval censoring.  In other words, you know the ordered category into which each observation falls, but you do not know the exact value of the observation.  Interval regression is a generalization of censored regression.
 
@@ -16,12 +42,19 @@ Please note: The purpose of this page is to show how to use various data analysi
 \end{description}
 
 %============================================================%
-Description of the data
-Let's pursue Example 3 from above. We have a hypothetical data file, intreg_data.dta with 30 observations. The GPA score is represented by two values, the lower interval score (lgpa) and the upper interval score (ugpa). The writing test scores, the teacher rating and the type of program (a nominal variable which has three levels) are write, rating and type, respectively. Let's look at the data. It is always a good idea to start with descriptive statistics.
+\subsection*{Description of the data}
+Let's pursue Example 3 from above. We have a hypothetical data file, \texttt{intreg\_data.dta} with 30 observations.
 
-dat <- read.dta("http://www.ats.ucla.edu/stat/data/intreg_data.dta")
+The GPA score is represented by two values, the lower interval score (lgpa) and the upper interval score (ugpa). 
+
+The writing test scores, the teacher rating and the type of program (a nominal variable which has three levels) are write, rating and type, respectively. Let's look at the data. It is always a good idea to start with descriptive statistics.
+
+
 \begin{framed}
 \begin{verbatim}
+dat <- read.dta("http://www.ats.ucla.edu/stat/data/intreg_data.dta")\\
+
+
 # summary of the variables
 summary(dat)
 ##        id             lgpa          ugpa         write         rating    
@@ -143,7 +176,7 @@ Y <- with(dat, seq(from = min(rating), to = max(rating), length.out = 10))
 Z <- outer(X, Y, f)
 \end{verbatim}
 \end{framed}
-# Create 3d scatter plot and add the regression surface
+% # Create 3d scatter plot and add the regression surface
 \begin{framed}
 \begin{verbatim}
 open3d(windowRect = c(100, 100, 700, 700))
@@ -163,7 +196,7 @@ surface3d(X, Y, outer(X, Y, f, type = "academic"), col = "green", alpha = 0.5)
 \end{verbatim}
 \end{framed}
 
-animated gif of a rotating 3d regression surface
+% animated gif of a rotating 3d regression surface
 It is not a true R2, but we can get a rough idea by computing the correlation between the expected values from the model and the lower and upper bounds of gpa, lgpa and ugpa. Then the squared correlation is something like an R2.
 \begin{framed}
 \begin{verbatim}
@@ -185,3 +218,4 @@ r^2
 Long, J. S. (1997). Regression Models for Categorical and Limited Dependent Variables. Thousand Oaks, CA: Sage Publications.
 Stewart, M. B. (1983). On least squares estimation when the dependent variable is grouped. Review of Economic Studies 50: 737-753.
 Tobin, J. (1958). Estimation of relationships for limited dependent variables. Econometrica 26: 24-36.
+\end{document}
