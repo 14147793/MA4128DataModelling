@@ -131,7 +131,7 @@ Use the Dixon Q-test to determine if there is an outlier present in this data. Y
 \end{itemize}
 \end{itemize} 
 %--------------------------------------------------------------------------------------------------------%
-\newpage
+
 
 
 \subsection*{Question 2. (10 marks) Binary Classification }
@@ -158,10 +158,10 @@ Use the Dixon Q-test to determine if there is an outlier present in this data. Y
 	
 	\begin{itemize}	
 		\item[(v)] (2 Marks) Explain why the F-measure is considered a more informative measure of performance than the Accuracy score.
-		
+			\item[(iii.)](2 Marks) Define Specificity and Sensitivity. You make reference to previous answers.
+			\item[(iv.)](3 Marks) What is a ROC curve? Explain its function, how it is determined, and the means of interpreting the curve. Support your answer with a sketch.
 	\end{itemize}
-	\item[iii.](2 Marks) Define Specificity and Sensitivity. You make reference to previous answers.
-	\item[iv.](3 Marks) What is a ROC curve? Explain its function, how it is determined, and the means of interpreting the curve. Support your answer with a sketch.
+
 \end{itemize}
 
 
@@ -185,65 +185,7 @@ Use the Dixon Q-test to determine if there is an outlier present in this data. Y
 %\begin{center}
 %\includegraphics[scale=0.55]{ExamQ2diag2}
 %\end{center}
-%
-%\begin{center}
-%\includegraphics[scale=0.55]{ExamQ2diag3}
-%\end{center}
 
-%-------------------------------End  of Question 2B%
-\begin{center}
-\begin{tabular}{|c|cccccccccc|}
-  \hline
-  % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
-ISE method & 108 & 12& 152 & 3 & 106 & 11 &  128 & 12& 160& 128 \\
-gravimetry & 105 & 16& 113 & 1 & 108 &  11 & 141 & 161 & 182& 118\\
-  \hline
-\end{tabular}
-\end{center}
-Two simple linear models are fitted to the data. Model C uses the gravimetric determination as an independent variable used to predict the ISE determination. Conversely, Model D uses the ISE determination as an independent variable used to predict the gravimetric determination. The relevant \texttt{R} output is presented on the following page.
-%Method Comparison Studies
-\newpage
-\begin{itemize}
-\begin{framed}
-\item[\textbf{Model C}]
-\begin{verbatim}
-Call:
-lm(formula = ISE ~ grav)
-...
-Coefficients:
-            Estimate Std. Error t value Pr(>|t|)
-(Intercept)  15.1125    28.8487   0.524    0.615
-grav          0.6997     0.2543   2.751    0.025 *
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-....
-\end{verbatim}
-\end{framed}
-\begin{framed}
-\item[\textbf{Model D}]
-\begin{verbatim}
-Call:
-lm(formula = grav ~ ISE)
-..
-Coefficients:
-            Estimate Std. Error t value Pr(>|t|)
-(Intercept)  38.6215    25.8542   1.494    0.174
-ISE           0.6949     0.2526   2.751    0.025 *
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-....
-\end{verbatim}
-\end{framed}
-\end{itemize}
-
-\begin{itemize}
-\item[i.] (4 marks) Write the regression equation for both of the fitted models.
-\item[ii.] (3 marks) Is a simple linear regression model an suitable approach for this type of analysis? Explain why or why not? What alternatives might you recommend?
-\item[iii.] (3 marks) Discuss an alternative approach for this analysis, mentioning any disadvantages in using this alternative approach. 	
-\end{itemize}
-
-
-%-------------------------------End  of Question 2B%
 
 
 
@@ -251,26 +193,6 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 
 \newpage
-
-
-
-
-
-
-%\item[(b)]
-%Explain the following terms in the context of linear regression models.
-%\begin{itemize}
-%\item[i.] (2 marks) Influence,
-%\item[ii.] (2 marks) Leverage,
-%\item[iii.] (2 marks) Cook's Distance.	
-%\end{itemize}
-
-%---------------------%
-
-
-
-%\item[(c)] (6 marks)
-% Write a brief explanation of how robust regression differs from linear models computed using the \emph{Ordinary Least Squares method}, making reference to one particular weighting method only. Provide a description on how this weighting method works.
 
 
 
@@ -354,6 +276,11 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 	
 	\item[iv.](2 Marks)  Compare and contrast any two linkage methods.
 	
+	\item 
+	
+	Why do you standardize variables before carrying out a cluster analysis.
+	
+	Explain why using the standardized value may not be suitable in some cases?
 	
 	\item[v.](2 Marks)  How do we determine the appropriate number of clusters?  Give two different visualization methods that are used to display the outcome of a cluster analysis.
 	
@@ -371,63 +298,6 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 	
 \end{itemize}
 
-\begin{itemize}
-\item[(b)] A normally distributed quality characteristic is monitored through the use of control charts. These charts have the following parameters. All charts are in control.
-\begin{center}
-\begin{tabular}{|c|c|c|c|}
-\hline  & LCL & Centre Line & UCL \\
-\hline $\bar{X}$-Chart & 542 & 550 & 558 \\
-\hline $R$-Chart & 0 & 8.236 & 16.504 \\ \hline
-\end{tabular}
-\end{center}
-
-\begin{itemize}
-\item[i] (2 marks) What sample size is being used for this analysis?
-\item[ii.] (2 marks) Estimate the standard deviation of this process.
-\item[iii.] (2 marks) Compute the control limits for the process standard deviation chart (i.e. the s-chart).
-\end{itemize}
-
-\item[(c)] An automobile assembly plant concerned about quality improvement measured sets of five camshafts on twenty occasions throughout the day. The specifications for the process state that the design specification limits at 600$\pm$3mm.
-
-
-\begin{itemize}
-\item[i.] (4 marks) Determine the \emph{Process Capability Indices} $C_p$ and $C_{pk}$, commenting on the respective values. You may use the \texttt{R} code output on the following page.
-\item[ii.] (2 marks)  The value of $C_{pm}$ is $1.353$. Explain why there would be a discrepancy between $C_p$ and $C_{pm}$.
-\item[iii.] (2 marks) Comment on the graphical output of the \emph{Process Capability Analysis}, also presented on the next page.
-\end{itemize}
-
-
-\newpage
-\begin{framed}
-\begin{verbatim}
-Process Capability Analysis
-
-Call:
-process.capability(object = obj, spec.limits = c(597, 603))
-Number of obs = 100          Target = 600
-       Center = 599.548         LSL = 597
-       StdDev = 0.5846948       USL = 603
-
-Capability indices:
-      Value   2.5%  97.5%
-Cp    ...
-Cp_l  ...
-Cp_u  ...
-Cp_k  ...
-Cpm   1.353  1.134  1.572
-Exp<LSL 0%   Obs<LSL 0%
-\end{verbatim}
-\end{framed}
-
-
-
-%
-%Lengths = Values
-%
-%obj <- qcc(Lengths, type="xbar")
-%
-%process.capability(obj, spec.limits=c(597,603))
-\end{itemize}
 
 
 %-----------------------------------------------------------%
@@ -435,16 +305,7 @@ Exp<LSL 0%   Obs<LSL 0%
 
 \subsection*{Question 4. (10 marks) K-Means Clustering}
 
-% Definitions
-% One Way ANOVA
-% Checking Assumptions
 
-\begin{itemize}
-\item[(a)] Explain the following terms in the context of experimental design
-\begin{itemize}
-\item[i.] (2 marks) levels of a factor.
-\item[ii.] (2 marks) randomized block design.
-\end{itemize}
 
 \begin{figure}[h!]
 \centering
@@ -454,102 +315,6 @@ Exp<LSL 0%   Obs<LSL 0%
 \end{figure}
 
 
-\item[(b)] Six analysts each made seven determinations of the paracetamol content of the same batch of tablets.
-The results are shown below. There are 42 determinations in total. The mean determination for each analysts is also tabulated. \\
-
-
-%Analyst= structure(c(1L, 2L, 3L, 4L, 5L, 6L, 1L, 2L, 3L, 4L, 5L, 6L, 1L,
-%2L, 3L, 4L, 5L, 6L, 1L, 2L, 3L, 4L, 5L, 6L, 1L, 2L, 3L, 4L, 5L,
-%6L, 1L, 2L, 3L, 4L, 5L, 6L, 1L, 2L, 3L, 4L, 5L, 6L), .Label = c("A",
-%"B", "C", "D", "E", "F"), class = "factor")
-
-%Determinations= c(84.32, 84.24, 84.29, 84.14, 84.5, 84.7, 84.61, 84.13, 84.28,
-%84.48, 83.91, 84.36, 84.64, 84, 84.4, 84.27, 84.11, 84.61, 84.62,
-%84.02, 84.63, 84.22, 83.99, 84.15, 84.51, 84.25, 84.4, 84.22,
-%83.88, 84.17, 84.63, 84.41, 84.68, 84.02, 84.49, 84.11, 84.51,
-%84.3, 84.36, 84.33, 84.06, 83.81)
-
-\begin{center}
-\begin{tabular}{|c|ccccccc|}
-\hline
-Analyst	& Content		&		&		&		&		&		&		 \\ \hline
-A	&	84.32	&	84.61	&	84.64	&	84.62	&	84.51	&	84.63	&	84.51	 \\
-B	&	84.24	&	84.13	&	84.00	&	84.02	&	84.25	&	84.41	&	84.30	 \\
-C	&	84.29	&	84.28	&	84.40	&	84.63	&	84.40	&	84.68	&	84.36	 \\
-D	&	84.14	&	84.48	&	84.27	&	84.22	&	84.22	&	84.02	&	84.33	 \\
-E	&	84.50	&	83.91	&	84.11	&	83.99	&	83.88	&	84.49	&	84.06	 \\
-F	&	84.70	&	84.36	&	84.61	&	84.15	&	84.17	&	84.11	&	83.81	 \\
-\hline
-\end{tabular}
-\end{center}
-\bigskip
-The following \texttt{R} output has been produced as a result of analysis of these data:
-
-%Experiment=data.frame(Determinations, Analyst)
-%Model=aov(Determinations~Analyst)
-%summary(Model)
-
-%Analysis of Variance Table
-%
-%            Df Sum Sq Mean Sq F value  Pr(>F)
-%Analyst      5 0.8611 0.17222   4.236 0.00394 **
-%Residuals   36 1.4635 0.04065
-%---
-%Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-\begin{center}
-\texttt{
-\begin{tabular}{|c|cccccc|}
-  \hline
-  % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
-	&&		&		&		&		&		\\
-  Response: Y        	&&	Df  	&	Sum Sq 	&	Mean Sq 	&	F value    	&	$Pr(>F)$    	\\
-  	&&		&		&		&		&		\\\hline
-	&&		&		&		&		&		\\
-Analyst 	&&	\textbf{?}	&	\textbf{?}	&	\textbf{?}	&	\textbf{?}	&	0.00394 **	\\
-	&&		&		&		&		&		\\ \hline
-&&		&		&		&		&		\\
-Residuals	&&	\textbf{?}	&	\textbf{?}	&	0.04065	&	&		\\
-	&&		&		&		&		&		\\ \hline
-&&		&		&		&		&		\\
-Total	&&	\textbf{?}	&	2.3246	&		&		&		\\
-	&&		&		&		&		&		\\ \hline
-\end{tabular}
-}
-\end{center}
-\begin{itemize}
-\item[i.] (5 marks) Complete the ANOVA table in your answer sheet, replacing the "?" entries with the correct values.
-\item[ii.] (2 marks) What hypothesis is being considered by this procedure.
-\item[iii.] (2 marks) What is the conclusion following from the above analysis? State the null and alternative hypothesis clearly.
-\end{itemize}
-\newpage
-
-\item[(c)] The \texttt{R} code and graphical procedures, below and on the following page, are relevant to checking whether the underlying assumptions are met for the ANOVA model in part (b).
-\begin{itemize}
-\item[i.] (3 marks) What are the assumptions underlying ANOVA?
-\item[ii.] (4 marks)  Assess the validity of these assumptions for the ANOVA model in part(b).
-
-\end{itemize}
-\begin{framed}
-\begin{verbatim}
-        Shapiro-Wilk normality test
-
-data:  Residuals
-W = 0.9719, p-value = 0.3819
-\end{verbatim}
-\end{framed}
-\begin{framed}
-\begin{verbatim}
-        Bartlett test of homogeneity of variances
-
-data:  Experiment
-Bartlett's K-squared = 105.9585, df = 1, p-value < 2.2e-16
-\end{verbatim}
-\end{framed}
-
-\end{itemize}
-
-%-----------------------------------------------------------------%
 %-----------------------------------------------------------------%
 \newpage
 
@@ -601,37 +366,8 @@ Bartlett's K-squared = 105.9585, df = 1, p-value < 2.2e-16
 		\end{center}
 	}
 	
-\subsection*{Factors for Control Charts}
-\begin{tabular}{|c|c|c|c|c|c|c|}
-\hline
-Sample Size (n) 	&	c4 	&	c5 	&	d2 	&	d3 	&	D3 	&	D4	\\	\hline
-2	&	0.7979	&	0.6028	&	1.128	&	0.853	&	0	&	3.267	\\	
-3	&	0.8862	&	0.4633	&	1.693	&	0.888	&	0	&	2.574	\\	
-4	&	0.9213	&	0.3889	&	2.059	&	0.88	&	0	&	2.282	\\	
-5	&	0.9400	&	0.3412	&	2.326	&	0.864	&	0	&	2.114	\\	
-6	&	0.9515	&	0.3076	&	2.534	&	0.848	&	0	&	2.004	\\	
-7	&	0.9594	&	0.282	&	2.704	&	0.833	&	0.076	&	1.924	\\	
-8	&	0.9650	&	0.2622	&	2.847	&	0.82	&	0.136	&	1.864	\\	
-9	&	0.9693	&	0.2459	&	2.970	&	0.808	&	0.184	&	1.816	\\	
-10	&	0.9727	&	0.2321	&	3.078	&	0.797	&	0.223	&	1.777	\\	
-11	&	0.9754	&	0.2204	&	3.173	&	0.787	&	0.256	&	1.744	\\	
-12	&	0.9776	&	0.2105	&	3.258	&	0.778	&	0.283	&	1.717	\\	
-13	&	0.9794	&	0.2019	&	3.336	&	0.770	&	0.307	&	1.693	\\	
-14	&	0.9810	&	0.1940	&	3.407	&	0.763	&	0.328	&	1.672	\\	
-15	&	0.9823	&	0.1873	&	3.472	&	0.756	&	0.347	&	1.653	\\	
-16	&	0.9835	&	0.1809	&	3.532	&	0.750	&	0.363	&	1.637	\\
-17	&	0.9845	&	0.1754	&	3.588	&	0.744	&	0.378	&	1.622	\\
-18	&	0.9854	&	0.1703	&	3.64	&	0.739	&	0.391	&	1.608	\\
-19	&	0.9862	&	0.1656	&	3.689	&	0.734	&	0.403	&	1.597	\\
-20	&	0.9869	&	0.1613	&	3.735	&	0.729	&	0.415	&	1.585	\\
-21	&	0.9876	&	0.1570	&	3.778	&	0.724	&	0.425	&	1.575	\\
-22	&	0.9882	&	0.1532	&	3.819	&	0.720	&	0.434	&	1.566	\\
-23	&	0.9887	&	0.1499	&	3.858	&	0.716	&	0.443	&	1.557	\\
-24	&	0.9892	&	0.1466	&	3.895	&	0.712	&	0.451	&	1.548	\\
-25	&	0.9896	&	0.1438	&	3.931	&	0.708	&	0.459	&	1.541	\\
-\hline
-\end{tabular}
-} % End Large Font
+
+
 \end{document}
 
 
