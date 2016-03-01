@@ -1,0 +1,639 @@
+\documentclass[a4paper,12pt]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{eurosym}
+\usepackage{vmargin}
+\usepackage{amsmath}
+\usepackage{graphics}
+\usepackage{epsfig}
+\usepackage{subfigure}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{framed}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{chngpage}
+%\usepackage{bigints}
+
+
+\setcounter{MaxMatrixCols}{10}
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.00.0.2570}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{LastRevised=Wednesday, February 23, 2011 13:24:34}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{Language=American English}
+
+%\pagestyle{fancy}
+%\setmarginsrb{20mm}{0mm}{20mm}{25mm}{12mm}{11mm}{0mm}{11mm}
+%\lhead{MA4413} \rhead{Mr. Kevin O'Brien}
+%\chead{Statistics For Computing}
+%\input{tcilatex}
+
+\begin{document}
+\begin{center}
+       \includegraphics[scale=0.55]{shieldtransparent2}
+\end{center}
+
+\begin{center}
+\vspace{1cm}
+\large \bf {FACULTY OF SCIENCE AND ENGINEERING} \\[0.5cm]
+\normalsize DEPARTMENT OF MATHEMATICS AND STATISTICS \\[1.25cm]
+\large \bf {MID-SEMESTER ASSESSMENT} \\[1.5cm]
+\end{center}
+
+\begin{tabular}{ll}
+MODULE CODE: MA4128 & SEMESTER: Spring \\[1cm]
+MODULE TITLE: Advanced Data Modeling & DURATION OF EXAM: 1 hour \\[1cm]
+LECTURER: Mr. Kevin O'Brien & GRADING SCHEME: 100 marks \\
+& \phantom{GRADING SCHEME:} \footnotesize {20\% of module grade} \\[0.8cm]
+\\[1cm]
+\end{tabular}
+\begin{center}
+{\bf INSTRUCTIONS TO CANDIDATES}
+\end{center}
+
+{\noindent \\ Scientific calculators approved by the University of Limerick can be used. \\
+Formula sheet and statistical tables provided at the end of the exam paper.\\
+Students must attempt any 4 questions from 5.}
+\newpage
+
+
+
+% - Section 1 Inference Procedures
+        % a. Parametric
+        % b. Non Parametric
+% - Section 2 Linear Models
+        % a. SLR
+        % b. MLR
+% - Section 3 Linear Models
+        % a. Robust Regression
+        % b. AIC
+% - Section 4 Statistical Process control
+        % a. Control Limits
+        % b. Theory Questions
+        % c. Interpreting Charts
+        % d. CUSUM and ARL
+% - Section 5 Experimental Design 1
+        % a. Definitions for ED
+        % b. One Way ANOVA
+% - Section 6 Experimental Design 2
+        % a.
+        % b.
+
+
+\subsection*{Question 1. (10 marks) Distriutional Assumptions}
+\begin{itemize}
+\item[(a)] (10 Marks) 
+
+The data set \texttt{X} and \texttt{Y} are both assumed to be normally distributed. The Shapiro-Wilk test was carried out to assess whether or not this assumption is valid for data set \texttt{X}.
+\begin{itemize}
+	\item[i.] (1 marks) Formally state the null and alternative hypothesis.
+	\item[ii.] (2 marks) What is your conclusion for this procedure? Justify your answer.
+\end{itemize}
+\begin{framed}
+\begin{verbatim}
+> shapiro.test(X)
+	
+Shapiro-Wilk normality test
+data:  X
+W = 0.9292, p-value = 0.372
+\end{verbatim}
+\end{framed}
+
+\item [(c)] The data set \texttt{X} and \texttt{Y} are both assumed to be normally distributed. A graphical procedure was carried out to assess whether or not this assumption of normality is valid for data set \texttt{Y}. Consider the Q-Q plot in the figure below.
+
+\begin{center}
+	\includegraphics[scale=0.55]{Q5examQQplot}
+\end{center}
+
+\begin{itemize}
+	\item[i.] (2 marks) Provide a brief description on how to interpret this plot.
+	\item[ii.] (1 marks) What is your conclusion for this procedure? Justify your answer.
+\end{itemize}
+
+\item[(b)] The typing speeds for one group of 12 Engineering students were recorded both at the beginning of year 1 of their studies. The results (in words per minute) are given below:
+
+\begin{center}
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline
+		% Subject& A& B& C& D& E &F &G &H \\ \hline
+		149  & 146 & 122 & 142 &  153\\ \hline
+		137 & 161 & 156&   170&  159
+		\\ \hline
+	\end{tabular}
+\end{center}
+Use the Dixon Q-test to determine if there is an outlier present in this data. You may assume a significance level of 5\%.
+\begin{itemize}
+	\item[(i.)](1 Mark)	State the null and alternative Hypothesis for this test.
+	\item[(ii.)](2 Marks) Compute the test statistic
+	\item[(iii.)](1 Mark) State the appropriate critical value.
+	\item[(iv.)](1 Mark) What is your conclusion to this procedure.
+\end{itemize}
+\end{itemize} 
+%--------------------------------------------------------------------------------------------------------%
+\newpage
+
+
+\subsection*{Question 2. (10 marks) Binary Classification }
+%\subsection*{Question 4. (20 marks) }
+
+\begin{itemize}
+	\item[(a)] \textbf{\textit{Binary Classification (6 Marks)}}\\
+	For following binary classification outcome table, calculate the following appraisal metrics.
+	\begin{itemize}	
+		\item[(i)] (1 Mark)	accuracy;
+		\item[(ii)] (1 Mark)	recall;
+		\item[(iii)] (1 Mark)	precision;
+		\item[(iv)] (1 Mark)	F-measure.
+	\end{itemize}	
+	
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline  & \phantom{spa}Predict Negative\phantom{spa} & \phantom{spa}Predict Positive\phantom{spa} \\ 
+			\hline\phantom{spa} Observed Negative \phantom{spa}&	9530	&	10	\\ 
+			\hline \phantom{spa}Observed Positive\phantom{spa} & 	300	&	160	\\ 
+			\hline 
+		\end{tabular} 
+	\end{center}
+	
+	\begin{itemize}	
+		\item[(v)] (2 Marks) Explain why the F-measure is considered a more informative measure of performance than the Accuracy score.
+		
+	\end{itemize}
+	\item[iii.](2 Marks) Define Specificity and Sensitivity. You make reference to previous answers.
+	\item[iv.](3 Marks) What is a ROC curve? Explain its function, how it is determined, and the means of interpreting the curve. Support your answer with a sketch.
+\end{itemize}
+
+
+%-------------------------------Start of Question 2A%
+\newpage
+
+
+%-------------------------------End  of Question 2A%
+%-------------------------------Start of Question 2B%
+%\item[(b)](6 marks)
+%The scatter-plot contains the regression line for the fitted model. Three diagnostic plots, used to assess the suitability of the fitted model, are presented on the following pages. Provide a brief interpretation for each of the three diagnostic plots described in part(a). The scatter-plot for the data is also presented.
+
+%\begin{center}
+%\includegraphics[scale=0.60]{ExamQ2plot2}
+%\end{center}
+%\newpage
+%\begin{center}
+%\includegraphics[scale=0.55]{ExamQ2diag1}
+%\end{center}
+%
+%\begin{center}
+%\includegraphics[scale=0.55]{ExamQ2diag2}
+%\end{center}
+%
+%\begin{center}
+%\includegraphics[scale=0.55]{ExamQ2diag3}
+%\end{center}
+
+%-------------------------------End  of Question 2B%
+\begin{center}
+\begin{tabular}{|c|cccccccccc|}
+  \hline
+  % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+ISE method & 108 & 12& 152 & 3 & 106 & 11 &  128 & 12& 160& 128 \\
+gravimetry & 105 & 16& 113 & 1 & 108 &  11 & 141 & 161 & 182& 118\\
+  \hline
+\end{tabular}
+\end{center}
+Two simple linear models are fitted to the data. Model C uses the gravimetric determination as an independent variable used to predict the ISE determination. Conversely, Model D uses the ISE determination as an independent variable used to predict the gravimetric determination. The relevant \texttt{R} output is presented on the following page.
+%Method Comparison Studies
+\newpage
+\begin{itemize}
+\begin{framed}
+\item[\textbf{Model C}]
+\begin{verbatim}
+Call:
+lm(formula = ISE ~ grav)
+...
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)
+(Intercept)  15.1125    28.8487   0.524    0.615
+grav          0.6997     0.2543   2.751    0.025 *
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+....
+\end{verbatim}
+\end{framed}
+\begin{framed}
+\item[\textbf{Model D}]
+\begin{verbatim}
+Call:
+lm(formula = grav ~ ISE)
+..
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)
+(Intercept)  38.6215    25.8542   1.494    0.174
+ISE           0.6949     0.2526   2.751    0.025 *
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+....
+\end{verbatim}
+\end{framed}
+\end{itemize}
+
+\begin{itemize}
+\item[i.] (4 marks) Write the regression equation for both of the fitted models.
+\item[ii.] (3 marks) Is a simple linear regression model an suitable approach for this type of analysis? Explain why or why not? What alternatives might you recommend?
+\item[iii.] (3 marks) Discuss an alternative approach for this analysis, mentioning any disadvantages in using this alternative approach. 	
+\end{itemize}
+
+
+%-------------------------------End  of Question 2B%
+
+
+
+
+
+
+\newpage
+
+
+
+
+
+
+%\item[(b)]
+%Explain the following terms in the context of linear regression models.
+%\begin{itemize}
+%\item[i.] (2 marks) Influence,
+%\item[ii.] (2 marks) Leverage,
+%\item[iii.] (2 marks) Cook's Distance.	
+%\end{itemize}
+
+%---------------------%
+
+
+
+%\item[(c)] (6 marks)
+% Write a brief explanation of how robust regression differs from linear models computed using the \emph{Ordinary Least Squares method}, making reference to one particular weighting method only. Provide a description on how this weighting method works.
+
+
+
+
+
+
+
+
+
+%%-------------------------------------%
+%\subsection*{Question 3. (20 marks) Multiple Linear Regression Models }
+%\begin{itemize}
+%
+%\item[(a)] Explain the following terms:
+%\begin{itemize}
+%\item[i.] (2 marks) Over-fitting,
+%\item[ii.] (2 marks) Multicollinearity,
+%\item[iii.] (2 Marks) Heteroscedascity.
+%\end{itemize}
+%\item[(b)] Answer the following questions related to model selection techniques for linear models.
+%\begin{itemize}
+%\item[i.] (2 marks) Explain why the adjusted $R^2$ value may differ in value from the corresponding multiple $R^2$ value for the same fitted model.
+%\item[ii.] (2 marks) Explain how the \emph{Akaike information criterion} would used to compare two models fitted for the same data.
+%\end{itemize}
+%
+%\item[(c)]
+%In an experiment to determine hydrolysable tannins in plants by absorption spectroscopy, the following results from ten samples were obtained and are tabulated below. A simple linear regression model, predicting absorbance values using concentration as the independent variable, was fitted to the data.
+%
+%
+%%Absorbance= c(0.084, 0.183, 0.326, 0.464, 0.643, 0.707, 0.717, 0.734 ,0.749 ,0.732) ;
+%%Concentration= c(0.123, 0.288, 0.562, 0.921, 1.420, 1.717, 1.921, 2.137 ,2.321, 2.467) ;
+%%plot(Concentration,Absorbance,pch=18,col="red",font.axis=2,font.lab=2)
+%%abline(coef(lm(Absorbance~Concentration)))
+%%
+%%Conc.Squared = (Concentration^2)
+%%Conc.Cubed = (Concentration^3)
+%%ModelA = lm(Absorbance~Concentration)
+%%ModelB = lm(Absorbance~Concentration+Conc.Squared)
+%%ModelC = lm(Absorbance~Concentration+Conc.Squared+Conc.Cubed)
+%
+%\begin{center}
+%\begin{tabular}{|c||c|c|c|c|c|}
+%  \hline
+%  % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+%Sample & 1 & 2 & 3 & 4 & 5 \\ \hline
+%Absorbance & 0.084& 0.183& 0.326& 0.464& 0.643\\
+%Concentration & 0.123& 0.288& 0.562& 0.921& 1.420\\ \hline
+%Sample & 6 & 7 & 8 & 9 & 10 \\ \hline
+%Absorbance & 0.707& 0.717& 0.734 &0.749 &0.732\\
+%Concentration & 1.717& 1.921& 2.137 &2.321&2.467\\
+%  \hline
+%\end{tabular}
+%\end{center}
+%
+%\begin{center}
+%\includegraphics[scale=0.55]{ExamQ3plot}
+%\end{center}
+%
+%
+%\begin{itemize}
+%\item[i.] (2 marks) Is the simple linear regression model approach suitable for this study? Explain your answer with reference to the scatter-plot.
+%%\item[ii] (2 marks) Two polynomial models were also fitted to the data. Description of all three fitted models are found in the three blocks of \texttt{R} code below. The \emph{Akaike information criterion} is also listed, for each of the three fitted models.
+%\end{itemize}
+%
+%
+%
+%\item[(d)] 
+%
+%%\end{document}
+%--------------------------------------------------------%
+\newpage
+\subsection*{Question 3. (10 marks) Hierarchical Clustering}
+
+
+\begin{itemize}
+	\item[i.](2 Marks) What is the purpose of a cluster analysis?
+	
+	\item[ii.](2 Marks)  A discriminant analysis is similar to a cluster analysis; however, there is one fundamental difference.  Explain this difference.
+	
+	\item[iii.](2 Marks)  What is the difference between a linkage method and a distance measure?
+	
+	\item[iv.](2 Marks)  Compare and contrast any two linkage methods.
+	
+	
+	\item[v.](2 Marks)  How do we determine the appropriate number of clusters?  Give two different visualization methods that are used to display the outcome of a cluster analysis.
+	
+	\item[vi.](2 Marks) Standardization
+	
+	\item[vii.](2 Marks)  Explain the difference between Ward's method and k-means
+	clustering.
+	%\item[7.] Vertical Icicle Plot
+
+	\item[viii.](2 Marks)  In the context of hierarchical cluster analysis, distinguish between agglomerative clustering and divisive clustering.
+	\item[ix.](2 Marks)  What is a vertical icicle plot used for? Give a brief description, supporting your answer with sketches.
+	\item[x.](2 Marks)  Compute the Euclidean distance between the following points.
+	\[ A = \c(4,6,8,2)\]
+	\[ B = \c(3,6,1,6)\]
+	
+\end{itemize}
+
+\begin{itemize}
+\item[(b)] A normally distributed quality characteristic is monitored through the use of control charts. These charts have the following parameters. All charts are in control.
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline  & LCL & Centre Line & UCL \\
+\hline $\bar{X}$-Chart & 542 & 550 & 558 \\
+\hline $R$-Chart & 0 & 8.236 & 16.504 \\ \hline
+\end{tabular}
+\end{center}
+
+\begin{itemize}
+\item[i] (2 marks) What sample size is being used for this analysis?
+\item[ii.] (2 marks) Estimate the standard deviation of this process.
+\item[iii.] (2 marks) Compute the control limits for the process standard deviation chart (i.e. the s-chart).
+\end{itemize}
+
+\item[(c)] An automobile assembly plant concerned about quality improvement measured sets of five camshafts on twenty occasions throughout the day. The specifications for the process state that the design specification limits at 600$\pm$3mm.
+
+
+\begin{itemize}
+\item[i.] (4 marks) Determine the \emph{Process Capability Indices} $C_p$ and $C_{pk}$, commenting on the respective values. You may use the \texttt{R} code output on the following page.
+\item[ii.] (2 marks)  The value of $C_{pm}$ is $1.353$. Explain why there would be a discrepancy between $C_p$ and $C_{pm}$.
+\item[iii.] (2 marks) Comment on the graphical output of the \emph{Process Capability Analysis}, also presented on the next page.
+\end{itemize}
+
+
+\newpage
+\begin{framed}
+\begin{verbatim}
+Process Capability Analysis
+
+Call:
+process.capability(object = obj, spec.limits = c(597, 603))
+Number of obs = 100          Target = 600
+       Center = 599.548         LSL = 597
+       StdDev = 0.5846948       USL = 603
+
+Capability indices:
+      Value   2.5%  97.5%
+Cp    ...
+Cp_l  ...
+Cp_u  ...
+Cp_k  ...
+Cpm   1.353  1.134  1.572
+Exp<LSL 0%   Obs<LSL 0%
+\end{verbatim}
+\end{framed}
+
+
+
+%
+%Lengths = Values
+%
+%obj <- qcc(Lengths, type="xbar")
+%
+%process.capability(obj, spec.limits=c(597,603))
+\end{itemize}
+
+
+%-----------------------------------------------------------%
+\newpage
+
+\subsection*{Question 4. (10 marks) K-Means Clustering}
+
+% Definitions
+% One Way ANOVA
+% Checking Assumptions
+
+\begin{itemize}
+\item[(a)] Explain the following terms in the context of experimental design
+\begin{itemize}
+\item[i.] (2 marks) levels of a factor.
+\item[ii.] (2 marks) randomized block design.
+\end{itemize}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=1.1\linewidth]{ANOVA}
+\caption{}
+\label{fig:ANOVA}
+\end{figure}
+
+
+\item[(b)] Six analysts each made seven determinations of the paracetamol content of the same batch of tablets.
+The results are shown below. There are 42 determinations in total. The mean determination for each analysts is also tabulated. \\
+
+
+%Analyst= structure(c(1L, 2L, 3L, 4L, 5L, 6L, 1L, 2L, 3L, 4L, 5L, 6L, 1L,
+%2L, 3L, 4L, 5L, 6L, 1L, 2L, 3L, 4L, 5L, 6L, 1L, 2L, 3L, 4L, 5L,
+%6L, 1L, 2L, 3L, 4L, 5L, 6L, 1L, 2L, 3L, 4L, 5L, 6L), .Label = c("A",
+%"B", "C", "D", "E", "F"), class = "factor")
+
+%Determinations= c(84.32, 84.24, 84.29, 84.14, 84.5, 84.7, 84.61, 84.13, 84.28,
+%84.48, 83.91, 84.36, 84.64, 84, 84.4, 84.27, 84.11, 84.61, 84.62,
+%84.02, 84.63, 84.22, 83.99, 84.15, 84.51, 84.25, 84.4, 84.22,
+%83.88, 84.17, 84.63, 84.41, 84.68, 84.02, 84.49, 84.11, 84.51,
+%84.3, 84.36, 84.33, 84.06, 83.81)
+
+\begin{center}
+\begin{tabular}{|c|ccccccc|}
+\hline
+Analyst	& Content		&		&		&		&		&		&		 \\ \hline
+A	&	84.32	&	84.61	&	84.64	&	84.62	&	84.51	&	84.63	&	84.51	 \\
+B	&	84.24	&	84.13	&	84.00	&	84.02	&	84.25	&	84.41	&	84.30	 \\
+C	&	84.29	&	84.28	&	84.40	&	84.63	&	84.40	&	84.68	&	84.36	 \\
+D	&	84.14	&	84.48	&	84.27	&	84.22	&	84.22	&	84.02	&	84.33	 \\
+E	&	84.50	&	83.91	&	84.11	&	83.99	&	83.88	&	84.49	&	84.06	 \\
+F	&	84.70	&	84.36	&	84.61	&	84.15	&	84.17	&	84.11	&	83.81	 \\
+\hline
+\end{tabular}
+\end{center}
+\bigskip
+The following \texttt{R} output has been produced as a result of analysis of these data:
+
+%Experiment=data.frame(Determinations, Analyst)
+%Model=aov(Determinations~Analyst)
+%summary(Model)
+
+%Analysis of Variance Table
+%
+%            Df Sum Sq Mean Sq F value  Pr(>F)
+%Analyst      5 0.8611 0.17222   4.236 0.00394 **
+%Residuals   36 1.4635 0.04065
+%---
+%Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+\begin{center}
+\texttt{
+\begin{tabular}{|c|cccccc|}
+  \hline
+  % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+	&&		&		&		&		&		\\
+  Response: Y        	&&	Df  	&	Sum Sq 	&	Mean Sq 	&	F value    	&	$Pr(>F)$    	\\
+  	&&		&		&		&		&		\\\hline
+	&&		&		&		&		&		\\
+Analyst 	&&	\textbf{?}	&	\textbf{?}	&	\textbf{?}	&	\textbf{?}	&	0.00394 **	\\
+	&&		&		&		&		&		\\ \hline
+&&		&		&		&		&		\\
+Residuals	&&	\textbf{?}	&	\textbf{?}	&	0.04065	&	&		\\
+	&&		&		&		&		&		\\ \hline
+&&		&		&		&		&		\\
+Total	&&	\textbf{?}	&	2.3246	&		&		&		\\
+	&&		&		&		&		&		\\ \hline
+\end{tabular}
+}
+\end{center}
+\begin{itemize}
+\item[i.] (5 marks) Complete the ANOVA table in your answer sheet, replacing the "?" entries with the correct values.
+\item[ii.] (2 marks) What hypothesis is being considered by this procedure.
+\item[iii.] (2 marks) What is the conclusion following from the above analysis? State the null and alternative hypothesis clearly.
+\end{itemize}
+\newpage
+
+\item[(c)] The \texttt{R} code and graphical procedures, below and on the following page, are relevant to checking whether the underlying assumptions are met for the ANOVA model in part (b).
+\begin{itemize}
+\item[i.] (3 marks) What are the assumptions underlying ANOVA?
+\item[ii.] (4 marks)  Assess the validity of these assumptions for the ANOVA model in part(b).
+
+\end{itemize}
+\begin{framed}
+\begin{verbatim}
+        Shapiro-Wilk normality test
+
+data:  Residuals
+W = 0.9719, p-value = 0.3819
+\end{verbatim}
+\end{framed}
+\begin{framed}
+\begin{verbatim}
+        Bartlett test of homogeneity of variances
+
+data:  Experiment
+Bartlett's K-squared = 105.9585, df = 1, p-value < 2.2e-16
+\end{verbatim}
+\end{framed}
+
+\end{itemize}
+
+%-----------------------------------------------------------------%
+%-----------------------------------------------------------------%
+\newpage
+
+\subsection*{Question 5. (10 marks) Modelling Count Variables }
+
+
+\begin{itemize}
+	\item[(i)] 
+	
+	\item[(ii)]
+	
+	\item[(iii)] 
+	
+	\item[(iv)] 
+	
+	\item[(v)] 
+\end{itemize}
+
+
+
+
+%------------------------------------------------------------------------ %
+\Large{
+\newpage
+	\section*{Formulas and Tables}
+	
+	\subsection*{Critical Values for Dixon Q Test}
+	{
+		\Large
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|}
+				\hline  N  & $\alpha=0.10$  & $\alpha=0.05$  & $\alpha=0.01$  \\ 
+			    &{\normalsize \textit{Confidence}$=0.90$ } & {\normalsize \textit{Confidence}$=0.95$ }  & {\normalsize \textit{Confidence}$=0.99$ }   \\ \hline
+				3  & 0.941 & 0.97  & 0.994 \\ \hline
+				4  & 0.765 & 0.829 & 0.926 \\ \hline
+				5  & 0.642 & 0.71  & 0.821 \\ \hline
+				6  & 0.56  & 0.625 & 0.74  \\ \hline
+				7  & 0.507 & 0.568 & 0.68  \\ \hline
+				8  & 0.468 & 0.526 & 0.634 \\ \hline
+				9  & 0.437 & 0.493 & 0.598 \\ \hline
+				10 & 0.412 & 0.466 & 0.568 \\ \hline
+				11 & 0.392 & 0.444 & 0.542 \\ \hline
+				12 & 0.376 & 0.426 & 0.522 \\ \hline
+				13 & 0.361 & 0.41  & 0.503 \\ \hline
+				14 & 0.349 & 0.396 & 0.488 \\ \hline
+				15 & 0.338 & 0.384 & 0.475 \\ \hline
+			\phantom{sp}	16 \phantom{sp} & 0.329 & 0.374 & 0.463 \\ \hline
+			\end{tabular} 
+		\end{center}
+	}
+	
+\subsection*{Factors for Control Charts}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+Sample Size (n) 	&	c4 	&	c5 	&	d2 	&	d3 	&	D3 	&	D4	\\	\hline
+2	&	0.7979	&	0.6028	&	1.128	&	0.853	&	0	&	3.267	\\	
+3	&	0.8862	&	0.4633	&	1.693	&	0.888	&	0	&	2.574	\\	
+4	&	0.9213	&	0.3889	&	2.059	&	0.88	&	0	&	2.282	\\	
+5	&	0.9400	&	0.3412	&	2.326	&	0.864	&	0	&	2.114	\\	
+6	&	0.9515	&	0.3076	&	2.534	&	0.848	&	0	&	2.004	\\	
+7	&	0.9594	&	0.282	&	2.704	&	0.833	&	0.076	&	1.924	\\	
+8	&	0.9650	&	0.2622	&	2.847	&	0.82	&	0.136	&	1.864	\\	
+9	&	0.9693	&	0.2459	&	2.970	&	0.808	&	0.184	&	1.816	\\	
+10	&	0.9727	&	0.2321	&	3.078	&	0.797	&	0.223	&	1.777	\\	
+11	&	0.9754	&	0.2204	&	3.173	&	0.787	&	0.256	&	1.744	\\	
+12	&	0.9776	&	0.2105	&	3.258	&	0.778	&	0.283	&	1.717	\\	
+13	&	0.9794	&	0.2019	&	3.336	&	0.770	&	0.307	&	1.693	\\	
+14	&	0.9810	&	0.1940	&	3.407	&	0.763	&	0.328	&	1.672	\\	
+15	&	0.9823	&	0.1873	&	3.472	&	0.756	&	0.347	&	1.653	\\	
+16	&	0.9835	&	0.1809	&	3.532	&	0.750	&	0.363	&	1.637	\\
+17	&	0.9845	&	0.1754	&	3.588	&	0.744	&	0.378	&	1.622	\\
+18	&	0.9854	&	0.1703	&	3.64	&	0.739	&	0.391	&	1.608	\\
+19	&	0.9862	&	0.1656	&	3.689	&	0.734	&	0.403	&	1.597	\\
+20	&	0.9869	&	0.1613	&	3.735	&	0.729	&	0.415	&	1.585	\\
+21	&	0.9876	&	0.1570	&	3.778	&	0.724	&	0.425	&	1.575	\\
+22	&	0.9882	&	0.1532	&	3.819	&	0.720	&	0.434	&	1.566	\\
+23	&	0.9887	&	0.1499	&	3.858	&	0.716	&	0.443	&	1.557	\\
+24	&	0.9892	&	0.1466	&	3.895	&	0.712	&	0.451	&	1.548	\\
+25	&	0.9896	&	0.1438	&	3.931	&	0.708	&	0.459	&	1.541	\\
+\hline
+\end{tabular}
+} % End Large Font
+\end{document}
+
+
+
+
