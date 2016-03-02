@@ -44,7 +44,7 @@
 \begin{tabular}{ll}
 MODULE CODE: MA4128 & SEMESTER: Spring \\[1cm]
 MODULE TITLE: Advanced Data Modeling & DURATION OF EXAM: 1 hour \\[1cm]
-LECTURER: Mr. Kevin O'Brien & GRADING SCHEME: 60 marks \\
+LECTURER: Mr. Kevin O'Brien & GRADING SCHEME: 50 marks \\
 & \phantom{GRADING SCHEME:} \footnotesize {20\% of module grade} \\[0.8cm]
 \\[1cm]
 \end{tabular}
@@ -53,7 +53,7 @@ LECTURER: Mr. Kevin O'Brien & GRADING SCHEME: 60 marks \\
 \end{center}
 
 {\noindent \\ Scientific calculators approved by the University of Limerick can be used. \\
-Formula sheet and statistical tables provided at the end of the exam paper.\\
+Statistical tables provided at the end of the exam paper.\\
 Students must attempt ALL questions}
 \newpage
 
@@ -81,13 +81,13 @@ Students must attempt ALL questions}
         % b.
 
 
-\subsection*{Question 1. (10 marks) Distriutional Assumptions}
+\subsection*{Question 1. (10 marks) Distributional Assumptions}
 \begin{itemize}
 \item[(a)] (5 Marks) 
 
 The data set \texttt{X} and \texttt{Y} are both assumed to be normally distributed. The Shapiro-Wilk test was carried out to assess whether or not this assumption is valid for data set \texttt{X}.
 \begin{itemize}
-	\item[(i.)] (1 Marks) Formally state the null and alternative hypothesis.
+	\item[(i.)] (1 Mark) Formally state the null and alternative hypothesis.
 	\item[(ii.)] (2 Marks) What is your conclusion for this procedure? Justify your answer.
 \end{itemize}
 \begin{framed}
@@ -107,20 +107,20 @@ W = 0.9292, p-value = 0.372
 \end{center}
 
 \begin{itemize}
-	\item[(iii).] (1 Mark) Provide a brief description on how to interpret this plot.
+	\item[(iii.)] (1 Mark) Provide a brief description on how to interpret this plot.
 	\item[(iv.)] (1 Mark) What is your conclusion for this procedure? Justify your answer.
 \end{itemize}
 
 \item[(b)] (5 Marks) 
 
-The typing speeds for one group of 12 Engineering students were recorded both at the beginning of year 1 of their studies. The results (in words per minute) are given below:
+The typing speeds for one group of 10 Engineering students were recorded both at the beginning of year 1 of their studies. The results (in words per minute) are given below:
 
 \begin{center}
 	\begin{tabular}{|c|c|c|c|c|}
 		\hline
 		% Subject& A& B& C& D& E &F &G &H \\ \hline
 		149  & 146 & 122 & 142 &  153\\ \hline
-		137 & 161 & 156&   170&  159
+		137 & 151 & 156&   170&  149
 		\\ \hline
 	\end{tabular}
 \end{center}
@@ -136,12 +136,12 @@ Use the Dixon Q-test to determine if there is an outlier present in this data. Y
 %--------------------------------------------------------------------------------------------------------%
 
 
-
+\newpage
 \subsection*{Question 2. (10 marks) Binary Classification }
 %\subsection*{Question 4. (20 marks) }
 
 \begin{itemize}
-	\item[(a)] \textbf{\textit{Binary Classification (6 Marks)}}\\
+	\item[(a)] \textbf{\textit{Performance Metrics (6 Marks)}}\\
 	For following binary classification outcome table, calculate the following appraisal metrics.
 	\begin{itemize}	
 		\item[(i.)] (1 Mark)	Accuracy;
@@ -164,7 +164,7 @@ Use the Dixon Q-test to determine if there is an outlier present in this data. Y
 		%	\item[(iii.)](2 Marks) Define Specificity and Sensitivity. You make reference to previous answers.
 	
 	\end{itemize}
-	\newpage
+\bigskip
 \begin{itemize}
 	\item[(b)]  \textbf{\textit{ROC Curves	(4 Marks) }}\\
 		What is a ROC curve? Explain its function, how it is determined, and the means of interpreting the curve. Support your answer with a sketchs.
@@ -174,28 +174,6 @@ Use the Dixon Q-test to determine if there is an outlier present in this data. Y
 
 %-------------------------------Start of Question 2A%
 \newpage
-
-
-%-------------------------------End  of Question 2A%
-%-------------------------------Start of Question 2B%
-%\item[(b)](6 marks)
-%The scatter-plot contains the regression line for the fitted model. Three diagnostic plots, used to assess the suitability of the fitted model, are presented on the following pages. Provide a brief interpretation for each of the three diagnostic plots described in part(a). The scatter-plot for the data is also presented.
-
-%\begin{center}
-%\includegraphics[scale=0.60]{ExamQ2plot2}
-%\end{center}
-%\newpage
-%\begin{center}
-%\includegraphics[scale=0.55]{ExamQ2diag1}
-%\end{center}
-%
-%\begin{center}
-%\includegraphics[scale=0.55]{ExamQ2diag2}
-%\end{center}
-
-
-
-
 
 
 
@@ -275,33 +253,34 @@ Use the Dixon Q-test to determine if there is an outlier present in this data. Y
 
 
 \begin{itemize}
-	\item[i.](2 Marks) What is the purpose of a cluster analysis?
+		\item[(i.)](1 Mark)  Compute the Euclidean distance between the following points.
+		\[ A = \c(4,6,8,2)\]
+		\[ B = \c(3,6,1,6)\]
+%		
+%	\item[(i.)](2 Marks) What is the purpose of a cluster analysis?
 	
-	\item[ii.](2 Marks)  A discriminant analysis is similar to a cluster analysis; however, there is one fundamental difference.  Explain this difference.
+%	\item[ii.](2 Marks)  A discriminant analysis is similar to a cluster analysis; however, there is one fundamental difference.  Explain this difference.
 	
-	\item[iii.](2 Marks)  What is the difference between a linkage method and a distance measure?
+	\item[(ii.)](2 Marks) Why do you standardize variables before carrying out a cluster analysis.
+		Explain why using the standardized value may not be suitable in some cases? Give another example of numeric transformation. 
+	%What is the difference between a linkage method and a distance measure?
 	
-	\item[iv.](2 Marks)  Compare and contrast any two linkage methods.
+	\item[(iii.)](4 Marks)  Compare and contrast any three linkage methods. Support your answer with sketches
 	
-	\item 
-	
-	Why do you standardize variables before carrying out a cluster analysis.
-	
-	Explain why using the standardized value may not be suitable in some cases?
-	
-	\item[v.](2 Marks)  How do we determine the appropriate number of clusters?  Give two different visualization methods that are used to display the outcome of a cluster analysis.
-	
-	\item[vi.](2 Marks) Standardization
-	
-	\item[vii.](2 Marks)  Explain the difference between Ward's method and k-means
-	clustering.
-	%\item[7.] Vertical Icicle Plot
+	\item[(iv.)](1 Mark)  In the context of hierarchical cluster analysis, distinguish between agglomerative clustering and divisive clustering.
+	%	\item[ix.](2 Marks)  What is a vertical icicle plot used for? Give a brief description, supporting your answer with sketches.
 
-	\item[viii.](2 Marks)  In the context of hierarchical cluster analysis, distinguish between agglomerative clustering and divisive clustering.
-	\item[ix.](2 Marks)  What is a vertical icicle plot used for? Give a brief description, supporting your answer with sketches.
-	\item[x.](2 Marks)  Compute the Euclidean distance between the following points.
-	\[ A = \c(4,6,8,2)\]
-	\[ B = \c(3,6,1,6)\]
+	
+	
+	\item[(v.)](2 Marks)  How do we determine the appropriate number of clusters?  Give two different visualization methods that are used to display the outcome of a cluster analysis.
+	
+%	\item[vi.](2 Marks) Standardization
+%	
+%	\item[vii.](2 Marks)  Explain the difference between Ward's method and k-means
+%	clustering.
+%	%\item[7.] Vertical Icicle Plot
+
+
 	
 \end{itemize}
 
@@ -312,13 +291,16 @@ Use the Dixon Q-test to determine if there is an outlier present in this data. Y
 
 \subsection*{Question 4. (10 marks) K-Means Clustering}
 
+\begin{itemize}
+	\item[(i.)] (5 Marks) Explain the process of k-means clustering, starting with initial cluster allocation. You may work on the basis of a two-cluster solution. Support your answer with several sketches.
+	\item[(ii.)] (2 Marks) Compare and contrast k-means clustering and hierarchical clustering in terms of the number of cluster determined.
+	\item[(iii.)] (3 Marks) For a 4 cluster solution, Interpret the ANOVA table below.
+\end{itemize}
 
 
 \begin{figure}[h!]
 \centering
 \includegraphics[width=1.1\linewidth]{ANOVA}
-\caption{}
-\label{fig:ANOVA}
 \end{figure}
 
 
@@ -329,19 +311,20 @@ Use the Dixon Q-test to determine if there is an outlier present in this data. Y
 
 
 \begin{itemize}
-	\item[(i)] 
-	Describe Poisson Processes and Count Variables
-	Be able to give some examples
-	Checking Assumptions for Poisson Regression
-
-	Simulation Studies to Check range of ratio values to be expected.
+	\item[(i.)] (2 Marks)
+	What is Poisson regression used to model. State any assumptions that must be checked before it can be used as an analysis.
+%	Poisson Processes and Count Variables
+%	Be able to give some examples
+%	Checking 
+%
+%	Simulation Studies to Check range of ratio values to be expected.
 	
-	\item[(ii)] The R Code output given below is used to predict the number of awards won by students. \begin{itemize} 
-		\item Information is provided on which of the three school programs the student takes part in (\textit{General}, \textit{Vocational} or \textit{Academic}). 
-		\item Also we know the mathematics test score.
+	\item[(ii.)] (1 Mark) The \texttt{R} Code output given below is used to predict the number of awards won by students. \begin{itemize} 
+		\item[$\bullet$] Information is provided on which of the three school programs the student takes part in (\textit{General}, \textit{Vocational} or \textit{Academic}). 
+		\item[$\bullet$] Also we are given the mathematics test score.
 		\end{itemize}
-		– be able to state mathematical model and compute predicted value
-		\\ \textit{You can denote \textbf{progAcademic}, \textbf{progVocational} and \textbf{math} as $x_1$,$x_2$ and $x_3$ respectively.}
+		State the mathematical formula used to predict the numer of awards won.\\
+\textit{You can denote \textbf{progAcademic}, \textbf{progVocational} and \textbf{math} as $x_1$,$x_2$ and $x_3$ respectively.}
 
 
 \begin{framed}
@@ -357,20 +340,21 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 \end{verbatim}
 \end{framed}
+%	\item[(iii)] Use the model in Part (ii) to predict the number ofawards won by a general program student, witha maths score of 60.
+	
+	\item[(iii.)] (2 Marks) Use the model in Part (ii) to predict the number ofawards won by a general program student, witha maths score of 60.
+	
 
-% - 	Expect Dummy Variables as stand-in for categorical variables.
-	\item[(ii)]
+	\item[(iv.)] (3 Marks)
+	What is Zero Inflation? Explain the Modelling Process for a Zero Inflated Model. Give an Example of Zero-Inflated Count Process. \textit{Support your answer with a sketch, if necessary.	}
+	
+%	\item[(iv.)] (1 Mark) 		What is Vuong Test for?
 
-	Negative Binomial Regression Models – When to use it
+	\item[(v.)] (1 Mark) Describe a situation whereby Negative Binomial Regression Models would be used instead of Poisson Models.
 	
-	\item[(iii)] 
-		What is Zero Inflation? Explain Modelling Process for ZI Model
-		Give an Example of Zero-Inflated Count Process
-		What is Vuong Test for?
+
 	
-	\item[(iv)] 
-	
-	\item[(v)] 	What is Zero Truncation? Give an Example of a Zero Truncated Count Process
+	\item[(vi.)] (1 Mark) 	What is Zero Truncation? Give an example of a Zero Truncated Count Process
 \end{itemize}
 
 
