@@ -44,7 +44,7 @@
 \begin{tabular}{ll}
 MODULE CODE: MA4128 & SEMESTER: Spring \\[1cm]
 MODULE TITLE: Advanced Data Modeling & DURATION OF EXAM: 1 hour \\[1cm]
-LECTURER: Mr. Kevin O'Brien & GRADING SCHEME: 100 marks \\
+LECTURER: Mr. Kevin O'Brien & GRADING SCHEME: 60 marks \\
 & \phantom{GRADING SCHEME:} \footnotesize {20\% of module grade} \\[0.8cm]
 \\[1cm]
 \end{tabular}
@@ -54,7 +54,7 @@ LECTURER: Mr. Kevin O'Brien & GRADING SCHEME: 100 marks \\
 
 {\noindent \\ Scientific calculators approved by the University of Limerick can be used. \\
 Formula sheet and statistical tables provided at the end of the exam paper.\\
-Students must attempt any 4 questions from 5.}
+Students must attempt ALL questions}
 \newpage
 
 
@@ -83,12 +83,12 @@ Students must attempt any 4 questions from 5.}
 
 \subsection*{Question 1. (10 marks) Distriutional Assumptions}
 \begin{itemize}
-\item[(a)] (10 Marks) 
+\item[(a)] (5 Marks) 
 
 The data set \texttt{X} and \texttt{Y} are both assumed to be normally distributed. The Shapiro-Wilk test was carried out to assess whether or not this assumption is valid for data set \texttt{X}.
 \begin{itemize}
-	\item[i.] (1 marks) Formally state the null and alternative hypothesis.
-	\item[ii.] (2 marks) What is your conclusion for this procedure? Justify your answer.
+	\item[(i.)] (1 Marks) Formally state the null and alternative hypothesis.
+	\item[(ii.)] (2 Marks) What is your conclusion for this procedure? Justify your answer.
 \end{itemize}
 \begin{framed}
 \begin{verbatim}
@@ -100,18 +100,20 @@ W = 0.9292, p-value = 0.372
 \end{verbatim}
 \end{framed}
 
-\item [(c)] The data set \texttt{X} and \texttt{Y} are both assumed to be normally distributed. A graphical procedure was carried out to assess whether or not this assumption of normality is valid for data set \texttt{Y}. Consider the Q-Q plot in the figure below.
+ Continuing with the data sets \texttt{X} and \texttt{Y}, graphical procedure was carried out to assess whether or not this assumption of normality is valid for data set \texttt{Y}. Consider the Q-Q plot in the figure below.
 
 \begin{center}
-	\includegraphics[scale=0.55]{Q5examQQplot}
+	\includegraphics[scale=0.45]{Q5examQQplot}
 \end{center}
 
 \begin{itemize}
-	\item[i.] (2 marks) Provide a brief description on how to interpret this plot.
-	\item[ii.] (1 marks) What is your conclusion for this procedure? Justify your answer.
+	\item[(iii).] (1 Mark) Provide a brief description on how to interpret this plot.
+	\item[(iv.)] (1 Mark) What is your conclusion for this procedure? Justify your answer.
 \end{itemize}
 
-\item[(b)] The typing speeds for one group of 12 Engineering students were recorded both at the beginning of year 1 of their studies. The results (in words per minute) are given below:
+\item[(b)] (5 Marks) 
+
+The typing speeds for one group of 12 Engineering students were recorded both at the beginning of year 1 of their studies. The results (in words per minute) are given below:
 
 \begin{center}
 	\begin{tabular}{|c|c|c|c|c|}
@@ -122,12 +124,13 @@ W = 0.9292, p-value = 0.372
 		\\ \hline
 	\end{tabular}
 \end{center}
-Use the Dixon Q-test to determine if there is an outlier present in this data. You may assume a significance level of 5\%.
+Use the Dixon Q-test to determine if there is an outlier present in this data. You may assume a significance level of 5\%. Critical values are tabulated at the back of this exam paper.
 \begin{itemize}
 	\item[(i.)](1 Mark)	State the null and alternative Hypothesis for this test.
-	\item[(ii.)](2 Marks) Compute the test statistic
+	\item[(ii.)](1 Mark) Compute the test statistic
 	\item[(iii.)](1 Mark) State the appropriate critical value.
 	\item[(iv.)](1 Mark) What is your conclusion to this procedure.
+	\item[(v.)] (1 Mark ) Briefly discuss any limitations upon using this test.
 \end{itemize}
 \end{itemize} 
 %--------------------------------------------------------------------------------------------------------%
@@ -141,13 +144,13 @@ Use the Dixon Q-test to determine if there is an outlier present in this data. Y
 	\item[(a)] \textbf{\textit{Binary Classification (6 Marks)}}\\
 	For following binary classification outcome table, calculate the following appraisal metrics.
 	\begin{itemize}	
-		\item[(i)] (1 Mark)	accuracy;
-		\item[(ii)] (1 Mark)	recall;
-		\item[(iii)] (1 Mark)	precision;
-		\item[(iv)] (1 Mark)	F-measure.
+		\item[(i.)] (1 Mark)	Accuracy;
+		\item[(ii.)] (1 Mark)	Recall;
+		\item[(iii.)] (1 Mark)	Precision;
+		\item[(iv.)] (1 Mark)	F-measure.
 	\end{itemize}	
-	
-	\begin{center}
+	\vspace{-0.6cm}
+		\begin{center}
 		\begin{tabular}{|c|c|c|}
 			\hline  & \phantom{spa}Predict Negative\phantom{spa} & \phantom{spa}Predict Positive\phantom{spa} \\ 
 			\hline\phantom{spa} Observed Negative \phantom{spa}&	9530	&	10	\\ 
@@ -157,11 +160,15 @@ Use the Dixon Q-test to determine if there is an outlier present in this data. Y
 	\end{center}
 	
 	\begin{itemize}	
-		\item[(v)] (2 Marks) Explain why the F-measure is considered a more informative measure of performance than the Accuracy score.
-			\item[(iii.)](2 Marks) Define Specificity and Sensitivity. You make reference to previous answers.
-			\item[(iv.)](3 Marks) What is a ROC curve? Explain its function, how it is determined, and the means of interpreting the curve. Support your answer with a sketch.
+		\item[(v.)] (2 Marks) Explain why the F-measure is considered a more informative measure of performance than the Accuracy score.
+		%	\item[(iii.)](2 Marks) Define Specificity and Sensitivity. You make reference to previous answers.
+	
 	\end{itemize}
-
+	\newpage
+\begin{itemize}
+	\item[(b)]  \textbf{\textit{ROC Curves	(4 Marks) }}\\
+		What is a ROC curve? Explain its function, how it is determined, and the means of interpreting the curve. Support your answer with a sketchs.
+\end{itemize}
 \end{itemize}
 
 
@@ -263,7 +270,7 @@ Use the Dixon Q-test to determine if there is an outlier present in this data. Y
 %
 %%\end{document}
 %--------------------------------------------------------%
-\newpage
+
 \subsection*{Question 3. (10 marks) Hierarchical Clustering}
 
 
@@ -323,14 +330,47 @@ Use the Dixon Q-test to determine if there is an outlier present in this data. Y
 
 \begin{itemize}
 	\item[(i)] 
+	Describe Poisson Processes and Count Variables
+	Be able to give some examples
+	Checking Assumptions for Poisson Regression
+
+	Simulation Studies to Check range of ratio values to be expected.
 	
+	\item[(ii)] The R Code output given below is used to predict the number of awards won by students. \begin{itemize} 
+		\item Information is provided on which of the three school programs the student takes part in (\textit{General}, \textit{Vocational} or \textit{Academic}). 
+		\item Also we know the mathematics test score.
+		\end{itemize}
+		– be able to state mathematical model and compute predicted value
+		\\ \textit{You can denote \textbf{progAcademic}, \textbf{progVocational} and \textbf{math} as $x_1$,$x_2$ and $x_3$ respectively.}
+
+
+\begin{framed}
+\begin{verbatim}
+Coefficients:
+               Estimate Std. Error z value Pr(>|z|)    
+(Intercept)     -5.2471     0.6585   -7.97  1.6e-15 ***
+progAcademic     1.0839     0.3583    3.03   0.0025 ** 
+progVocational   0.3698     0.4411    0.84   0.4018    
+math             0.0702     0.0106    6.62  3.6e-11 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+\end{verbatim}
+\end{framed}
+
+% - 	Expect Dummy Variables as stand-in for categorical variables.
 	\item[(ii)]
+
+	Negative Binomial Regression Models – When to use it
 	
 	\item[(iii)] 
+		What is Zero Inflation? Explain Modelling Process for ZI Model
+		Give an Example of Zero-Inflated Count Process
+		What is Vuong Test for?
 	
 	\item[(iv)] 
 	
-	\item[(v)] 
+	\item[(v)] 	What is Zero Truncation? Give an Example of a Zero Truncated Count Process
 \end{itemize}
 
 
