@@ -32,31 +32,37 @@ presented simultaneously to predict membership of one or other of the two
 dependent variable categories.
 
 \subsection{The purpose of logistic regression}
-The crucial limitation of linear regression is that it cannot deal with Dependent Variables’s that are \textbf{\textit{dichotomous}} and categorical. Many interesting variables in the business world are dichotomous: for
-example, consumers make a decision to buy or not buy (\textit{\textbf{Buy/Don't Buy}}), a product may pass or fail quality control (\textit{\textbf{Pass/Fail}}), there are good or poor credit risks (\textit{\textbf{Good/Poor}}), an employee may be promoted or not (\textit{\textbf{Promote/Don't Promote}}).
+\begin{itemize}
+	\item The crucial limitation of linear regression is that it cannot deal with Dependent Variables’s that are \textbf{\textit{dichotomous}} and categorical. Many interesting variables in the business world are dichotomous: for
+	example, consumers make a decision to buy or not buy (\textit{\textbf{Buy/Don't Buy}}), a product may pass or fail quality control (\textit{\textbf{Pass/Fail}}), there are good or poor credit risks (\textit{\textbf{Good/Poor}}), an employee may be promoted or not (\textit{\textbf{Promote/Don't Promote}}).
+	
+\item 	A range of regression techniques have been developed for analysing data with categorical dependent
+	variables, including logistic regression and discriminant analysis (Hence referred to as DA, which is the next section of course).
+	
+\item 	Logistical regression is regularly used rather than discriminant analysis when there are only two categories
+	for the dependent variable. Logistic regression is also easier to use with SPSS than DA when
+	there is a mixture of numerical and categorical Independent Variables’s, because it includes procedures for
+	generating the necessary dummy variables automatically, requires fewer assumptions, and
+	is more statistically robust. DA strictly requires the continuous independent variables  (though dummy variables can be used as in multiple regression). Thus, in instances where
+	the independent variables are categorical, or a mix of continuous and categorical, and the
+	DV is categorical, logistic regression is necessary.
+\end{itemize}
 
-
-A range of regression techniques have been developed for analysing data with categorical dependent
-variables, including logistic regression and discriminant analysis (Hence referred to as DA, which is the next section of course).
-
-Logistical regression is regularly used rather than discriminant analysis when there are only two categories
-for the dependent variable. Logistic regression is also easier to use with SPSS than DA when
-there is a mixture of numerical and categorical Independent Variables’s, because it includes procedures for
-generating the necessary dummy variables automatically, requires fewer assumptions, and
-is more statistically robust. DA strictly requires the continuous independent variables  (though dummy variables can be used as in multiple regression). Thus, in instances where
-the independent variables are categorical, or a mix of continuous and categorical, and the
-DV is categorical, logistic regression is necessary.
 
 \subsection{Use of Binomial Probability Theory}
-Since the dependent variable is dichotomous we cannot predict a numerical value for it
-using logistic regression, so the usual regression least squares deviations criteria for best fit
-approach of minimizing error around the line of best fit is inappropriate.
+\begin{itemize}
+	\item Since the dependent variable is dichotomous we cannot predict a numerical value for it
+	using logistic regression, so the usual regression least squares deviations criteria for best fit
+	approach of minimizing error around the line of best fit is inappropriate.
+	
+\item 	Instead, logistic regression employs binomial probability theory in which there are only two values to
+	predict: that probability (p) is 1 rather than 0, i.e. the event/person belongs to one group
+	rather than the other.
+\item Logistic regression forms a best fitting equation or function using the
+	maximum likelihood method (not part of course), which maximizes the probability of classifying the observed
+	data into the appropriate category given the regression coefficients.
+\end{itemize}
 
-Instead, logistic regression employs binomial probability theory in which there are only two values to
-predict: that probability (p) is 1 rather than 0, i.e. the event/person belongs to one group
-rather than the other. Logistic regression forms a best fitting equation or function using the
-maximum likelihood method (not part of course), which maximizes the probability of classifying the observed
-data into the appropriate category given the regression coefficients.
 	
 	\section{Introduction to Logistic Regression}
 	\begin{itemize}
@@ -112,12 +118,9 @@ data into the appropriate category given the regression coefficients.
 		\item[Example 2:]  A researcher is interested in how variables, such as GRE (Graduate Record Exam scores), GPA (grade point average) and prestige of the undergraduate institution, effect admission into graduate school. The response variable, \textit{admit/don't admit}, is a binary variable.
 	\end{description}
 	
-	%You could use binomial logistic regression to understand whether exam performance can be predicted based on revision time, test anxiety and lecture attendance (i.e., where the dependent variable is ``exam performance", measured on a dichotomous scale ? ``passed" or ``failed" ? and you have three independent variables: ``revision time", ``test anxiety" and ``lecture attendance"). 
-	%
-	%
-	%Alternately, you could use binomial logistic regression to understand whether drug use can be predicted based on prior criminal convictions, drug use amongst friends, income, age and gender (i.e., where the dependent variable is ``drug use", measured on a dichotomous scale ? ``yes" or ``no" ? and you have five independent variables: ``prior criminal convictions", ``drug use amongst friends", ``income", ``age" and "gender").
-	\newpage
-	\subsection{Assumptions}
+
+\subsection{Assumptions of logistic regression}
+
 	
 	\begin{description}
 		\item[Assumption 1:] Your dependent variable should be measured on a \textbf{dichotomous scale}. Examples of dichotomous variables include gender (two groups: "males" and "females"), presence of heart disease (two groups: "yes" and "no"), personality type (two groups: "introversion" or "extroversion"), body composition (two groups: "obese" or "not obese"), and so forth. \\
@@ -132,7 +135,19 @@ data into the appropriate category given the regression coefficients.
 		
 		\item[Assumption 4:] There needs to be a linear relationship between any continuous independent variables and the logit transformation of the dependent variable. 
 	\end{description}
-	
+\begin{itemize}
+	\item Logistic regression does not assume a linear relationship between the dependent and
+	independent variables.
+	\item The dependent variable must be a dichotomy (2 categories).
+	\textit{(Remark: Dichotomous refers to two outcomes. Multichotomous refers to more than two outcomes)}.
+	\item The independent variables need not be interval, nor normally distributed, nor linearly
+	related, nor of equal variance within each group.
+	\item The categories (groups) must be mutually exclusive and exhaustive; a case can only be
+	in one group and every case must be a member of one of the groups.
+	\item Larger samples are needed than for linear regression because maximum likelihood
+	coefficients are large sample estimates. A minimum of 50 cases per predictor is
+	recommended.
+\end{itemize}	
 	%----------------------------------------------------------------------------------------%
 	
 	\begin{framed}
@@ -150,139 +165,28 @@ data into the appropriate category given the regression coefficients.
 	
 	
 	
-	\section{Logistic Regression}
-	Logistic regression, also called a logit model, is used to model \textbf{dichotomous outcome} variables. 
-	In the logit model the \textbf{log odds} of the outcome is modeled as a linear combination of the predictor variables.
+	\subsection*{Logistic function} 
 	
-	In logistic regression theory, the predicted dependent variable is a function of the probability that a particular subject will be in one of the categories (for example, the probability that a patient has the disease, given his or her set of scores on the predictor variables).
-	%------------------------------------------------------------------------------------------------------------------------- %
-	\subsection{Logistic Regression: Odds Ratio}
-	What are odds?
-	The odds of outcome 1 versus outcome 2 are the probability (or frequency) of outcome 1 divided by the probability (or frequency) of outcome 2.
-	
-	
-	\[ \hat{Y} = \frac{\mbox{Odds}}{1+\mbox{Odds}} \]
-	
-	
-	Loglinear models essentially define a pattern of odds ratios, apply the marginals to them, and compare the resulting table with the observed table, in pretty much the same way we apply the Pearson  $\chi^2$ test for association. The big difference is the pattern we define can be much more complicated than independence.
-	%---------------------------------------------------------- %
-	\subsection{Odds}
-	The odds in favor of an event or a proposition are the ratio of the probability that an event will happen to the probability that it will not happen.
-	'Odds' are an expression of relative probabilities. Often 'odds' are quoted as odds against, rather than as odds in favor of, because of the possibility of confusion of the latter with the fractional probability of an event occurring.
-	\[ \operatorname{Odds} = \frac{p}{1-p} \]
-	
-	\subsubsection{Example}
-	There are 5 pink marbles, 2 blue marbles, and 8 purple marbles.
-	
-	\begin{itemize}
-		\item What is the probability of picking a blue marble? (Answer: 2/15).
-		\item What are the odds in favor of picking a blue marble? (Answer: 2/13).
-	\end{itemize}
+	The logistic function, with $\beta_0 + \beta_1 x$ on the horizontal axis and $\pi(x)$ on the vertical axis
+	An explanation of logistic regression begins with an explanation of the logistic function, which always takes on values between zero and one:
+	\[
+	F(t) = \frac{e^t}{e^t+1} = \frac{1}{1+e^{-t}},
+	\]
+	and viewing $t$ as a linear function of an explanatory variable x (or of a linear combination of explanatory variables), the logistic function can be written as:
+	\[\pi(x) = \frac{e^{(\beta_0 + \beta_1 x)}} {e^{(\beta_0 + \beta_1 x)} + 1} = \frac {1} {1+e^{-(\beta_0 + \beta_1 x)}}.
+	\]
+	This will be interpreted as the probability of the dependent variable equalling a ``success" or ``case" rather than a failure or non-case. We also define the inverse of the logistic function, the logit:
+	\[g(x) = \log \frac {\pi(x)} {1 - \pi(x)} = \beta_0 + \beta_1 x ,
+	\]and equivalently:
+	\[\frac{\pi(x)} {1 - \pi(x)} = e^{(\beta_0 + \beta_1 x)}.
+	\]
+	%======================================================%
 	
 	
-	
-	%--------------------------------------------%
-	
-	\subsection{Introduction to the Odds Ratio}
-	Let's begin with probability. Suppose that the probability of success is 0.8, thus
-	p = 0.8
-	Then the probability of failure is
-	\[q = 1 - p = 0.2\]
-	The odds of success are defined as
-	\[odds(success) = p/q = 0.8/0.2 = 4\]
-	that is, the odds of success are 4 to 1. The odds of failure would be
-	\[odds(failure) = q/p = .2/.8 = .25\]
-	This looks a little strange but it is really saying that the odds of failure are 1 to 4.  The odds of success and the odds of failure are just reciprocals of one another, i.e., 1/4 = .25 and 1/.25 = 4. 
+	%---------------------------%
 	
 	
-	Next, we will add another variable to the equation so that we can compute an odds ratio.
-	
-	\noindent  \textbf{Another example}
-	
-	Suppose that seven out of 10 males are admitted to an engineering school while three of 10 females are admitted. 
-	
-	\begin{itemize}
-		\item The probabilities for admitting a male are,
-		p = 7/10 = 0.7      ( q = 1 - 0.7 = 0.3)
-		\item Here are the same probabilities for females,
-		p = 3/10 = 0.3       (q = 1 - 0.3 = 0.7)
-	\end{itemize}
-	Now we can use the probabilities to compute the admission odds for both males and females,
-	\begin{itemize}
-		\item \textit{odds(male) }= 0.7/0.3 = 2.33333
-		\item \textit{odds(female) }= 0.3/0.7 = 0.42857
-	\end{itemize}
-	Next, we compute the odds ratio for admission,
-	\[OR = 2.3333/0.42857 = 5.44\]
-	Thus, for a male, the odds of being admitted are 5.44 times as large than the odds for a female being admitted.
-	
-	\subsection{Odds Ratio Example}
-	These data are taken from the British Election Study 2005 pre-campaign and
-	post-election panel data. We will consider the propensity to vote (sometimes called ‘turnout’) as the
-	dependent variable, which has 2 categories. 0=did not turn out to vote, 1 turned
-	out to vote.
-	
-	\begin{center}
-		\begin{figure}[h!]
-			% Requires \usepackage{graphicx}
-			\includegraphics[scale=0.8]{LogWeek10A}\\
-			\caption{General Election 2005}
-		\end{figure}
-	\end{center}
-	
-	% Image LogWeek10-A
-	
-	The odds of a male turning out to vote are:
-	\[1346/491 = 2.741\]
-	The odds of female turning out to vote are
-	\[1729/587 = 2.945\]
-	The Odds ratio (female: male) are
-	(1729/587) / (1346/491) = 1.074
-	
-	\subsection{Logistic Regression: Odds Ratios and Log-Odds}
-	\begin{itemize}
-		\item Suppose that in a sample of 100 men, 90 drank wine in the previous week, while in a sample of 100 women only 20 drank wine in the same period. \item The odds of a man drinking wine are 90 to 10, or 9:1, while the odds of a woman drinking wine are only 20 to 80, or 1:4 = 0.25:1. 
-		\item The odds ratio is thus 9/0.25, or 36, showing that men are much more likely to drink wine than women. 
-		\item The detailed calculation is:
-		
-		
-		\[ { 0.9/0.1 \over 0.2/0.8}=\frac{\;0.9\times 0.8\;}{\;0.1\times 0.2\;} ={0.72 \over 0.02} = 36 \]
-		
-		\item This example also shows how odds ratios are sometimes sensitive in stating relative positions: in this sample men are 90/20 = 4.5 times more likely to have drunk wine than women, but have 36 times the odds. 
-		
-		
-		
-		\item The logarithm of the odds ratio, the difference of the logits of the probabilities, tempers this effect, and also makes the measure symmetric with respect to the ordering of groups. 
-		\item For example, using natural logarithms, an odds ratio of 36/1 maps to 3.584, and an odds ratio of 1/36 maps to -3.584.
-	\end{itemize}
-	
-	
-	
-	
-	
-	
-	
-	
-	%-------------------------------------------%
-	
-	
-	\subsubsection{Confidence Intervals for Odds Ratios}
-	\begin{itemize}
-		\item Many statistical implementations of logistic regression include Confidence Intervals for the odds ratios.
-		Odds ratios whose confidence limits exclude 1 are statistically significant.
-		\item The odds ratio is referred to in SPSS as \texttt{\textbf{Exp(B)}}, the exponentiation of the B coefficient
-	\end{itemize}
-	
-	%-------------------------------------------%
-	\subsection{Log-Odds}
-	As an alternative to modeling the value of the outcome, logistic regression focuses instead upon the
-	relative probability (odds) of obtaining a given result category. The natural logarithm of the odds is
-	linear across most of its range, allowing us to continue using many of the methods developed for linear models.
-	The result of this type of regression can be expressed as follows:
-	\[ \operatorname{Ln} \left[ \frac{p}{1-p} \right] = b_0 + b_1x_1 + b_2x_2 + b_3x_3 \ldots b_kx_k + e \]
-	
-	%-------------------------------------------%
-	
+
 	\subsection{About logits}
 	
 	
@@ -303,6 +207,7 @@ data into the appropriate category given the regression coefficients.
 	%---------------------------------------------------------- %
 	\newpage
 	
+
 	\subsection{The Sigmoid Graph}
 	While logistic regression gives each predictor (IV) a coefficient \textbf{b} which measures its
 	independent contribution to variations in the dependent variable, the dependent variable
@@ -314,14 +219,20 @@ data into the appropriate category given the regression coefficients.
 	probabilities can only take values between 0 and 1). Additionally, because logistic regression
 	has only two y values – in the category or not in the category – a straight line best fit (as in
 	linear regression) is not possible to draw.
-	\subsubsection{Hypothetical Example}
-	Consider the following hypothetical example:
-	200 accountancy first year students are graded on a pass-fail dichotomy on the end of the
-	semester accountancy exam. At the start of the course, they all took a maths pre-test with
-	results reported in interval data ranging from 0–50 – the higher the pretest score the more
-	competency in maths. Logistic regression is applied to determine the relationship between
-	maths pretest score (IV or predictor) and whether a student passed the course (DV). Students
-	who passed the accountancy course are coded 1 while those who failed are coded 0.
+	\subsection{Hypothetical Example}
+	\begin{itemize}
+		\item 	Consider the following hypothetical example:
+		200 accountancy first year students are graded on a pass-fail dichotomy on the end of the
+		semester accountancy exam. 
+		\item At the start of the course, they all took a maths pre-test with
+		results reported in interval data ranging from 0–50 – the higher the pretest score the more
+		competency in maths. 
+		\item Logistic regression is applied to determine the relationship between
+		maths pretest score (IV or predictor) and whether a student passed the course (DV). 
+		\item Students
+		who passed the accountancy course are coded 1 while those who failed are coded 0.
+	\end{itemize}
+	
 	\begin{center}
 		\begin{figure}[h!]
 			% Requires \usepackage{graphicx}
@@ -348,258 +259,37 @@ data into the appropriate category given the regression coefficients.
 			\caption{Accountancy Exam Results - Fitted Curve}
 		\end{figure}
 	\end{center}
-	
-	The solution is to convert or transform these results into probabilities. We might compute
-	the average of the Y values at each point on the X axis. We could then plot the probabilities
-	of Y at each value of X and it would look something like the wavy graph line superimposed
-	on the original data in Figure 2. This is a smoother curve, and it is easy to see that the
-	probability of passing the accountancy course (Y axis) increases as values of X increase.
-	What we have just done is transform the scores so that the curve now fits a cumulative
-	probability curve, i.e. adding each new probability to the existing total. As you can see, this
-	curve is not a straight line; it is more of an s-shaped curve (A sigmoid curve).
-	
-	Predicted values are interpreted as probabilities and are now not just two conditions with a value of either 0 or 1 but continuous data that can take any value from 0 to 1.
-	The slope of the curve in Figure 2 is low at the lower and upper extremes of the
-	independent variable and greatest in the middle where it is most sensitive. In the middle, of
-	course, are a number of cases that are out of order, in the sense that there is an overlap with
-	average maths scores in both accountancy pass and fail categories, while at the extremes are
-	cases which are almost universally allocated to their correct group. The outcome is not a prediction of a Y value, as in linear regression, but a probability of belonging to one of two conditions
-	of Y, which can take on any value between 0 and 1 rather than just 0 and 1 in Figure 1.
-	
-	\subsubsection{Log transformation}
-	Unfortunately a further mathematical transformation – a log transformation – is needed
-	to normalize the distribution. Transformations, such as log transformations and
-	square root transformations transform non-normal/skewed distributions closer to normality.
-	
-	This log transformation of the p values to a log distribution enables us to create a link with the normal regression equation. The log distribution (or logistic transformation of p) is also called the logit of p or \textbf{\textit{logit(p)}}.
-	
-	\newpage
-	\subsection{The Logit}
-	The convention for binomial logistic regression is to code the
-	dependent class of greatest interest as 1 and the other class as 0, because the coding will
-	affect the odds ratios and slope estimates.
-	
-	The logit(p) is the log (to base e) of the odds ratio or likelihood ratio that the dependent
-	variable is 1. In symbols it is defined as:
-	\[ logit(p) = ln \left(\frac{p}{(1-p)}\right) \]
-	
-	Whereas p can only range from 0 to 1, logit(p) scale ranges from negative infinity to positive
-	infinity and is symmetrical around the logit of 0.5 (which is zero)
-	
-	\subsection{The Logistic Regression Equation}
-	The form of the logistic regression equation is:
-	\begin{framed}
-		\[ \mbox{logit}[p(x)] =  log \left(\frac{p(x)}{1-p(x)} \right) = b_0 + b_1x_1 + b_2x_2 + b_3x_3 + \ldots \]
-	\end{framed}
-	This looks just like a linear regression and although logistic regression finds a ‘best
-	fitting’ equation, just as linear regression does, the principles on which it does so are
-	rather different. Instead of using a least-squared deviations criterion for the best fit, it
-	uses a maximum likelihood method, which maximizes the probability of getting the
-	observed results given the fitted regression coefficients. A consequence of this is that the
-	goodness of fit and overall significance statistics used in logistic regression are different
-	from those used in linear regression.
-	
-	The probability that a case is in a particular category,p, can be calculated with the following formula (which is simply another rearrangement of the previous formula).
-	
-	\[p = \frac{exp(b_0 + b_1x_1 + b_2x_2 + b_3x_3 + \ldots)}{1 + exp(b_0 + b_1x_1 + b_2x_2 + b_3x_3 + \ldots)}\]
-	
-	\newpage
-	
-	\section*{Logistic function} 
-	
-	The logistic function, with $\beta_0 + \beta_1 x$ on the horizontal axis and $\pi(x)$ on the vertical axis
-	An explanation of logistic regression begins with an explanation of the logistic function, which always takes on values between zero and one:
-	\[
-	F(t) = \frac{e^t}{e^t+1} = \frac{1}{1+e^{-t}},
-	\]
-	and viewing t as a linear function of an explanatory variable x (or of a linear combination of explanatory variables), the logistic function can be written as:
-	\[\pi(x) = \frac{e^{(\beta_0 + \beta_1 x)}} {e^{(\beta_0 + \beta_1 x)} + 1} = \frac {1} {1+e^{-(\beta_0 + \beta_1 x)}}.
-	\]
-	This will be interpreted as the probability of the dependent variable equalling a ``success" or ``case" rather than a failure or non-case. We also define the inverse of the logistic function, the logit:
-	\[g(x) = \ln \frac {\pi(x)} {1 - \pi(x)} = \beta_0 + \beta_1 x ,
-	\]and equivalently:
-	\[\frac{\pi(x)} {1 - \pi(x)} = e^{(\beta_0 + \beta_1 x)}.
-	\]
-	%======================================================%
-	
-	\section{Logistic Regression: Logits}
-	%http://data.princeton.edu/wws509/notes/c3.pdf
-	
-	The logit transformation is given by the following formula: 
-	\[ \eta_i = \mbox{logit}(p_i)  = \mbox{log}\left( \frac{p_i}{1- p_i} \right) \]
-	
-	To inverse of the logit transformation is given by the following formula: 
-	\[ p_i = \mbox{logit}^{-1}(\eta_i)  =  \frac{e^{\eta_i}}{1 + e^{\eta_i}} \]
-	
-	%---------------------------%
-	
-	
-	\section{Review of Logistic Regression}
-	% http://www.nesug.org/proceedings/nesug06/an/da26.pdf
-	% http://www.ccsr.ac.uk/publications/teaching/blr.pdf
-	% http://www.southampton.ac.uk/ghp3/docs/unicef/presentation7.1a.pdf
-	% ftp://public.dhe.ibm.com/software/analytics/spss/documentation/statistics/20.0/en/client/Manuals/IBM_SPSS_Regression.pdf
-	% http://www.umass.edu/statdata/statdata/data/
-	
-	%---------------------------------------------------------------%
-	
-	
-	\subsection*{Example 1}
-	Given that $\pi_i = 0.2$, compute $\eta_i$.
-	
-	\[ \eta_i = \mbox{log}\left( \frac{0.2}{1-0.2} \right)= \mbox{log}\left( \frac{0.2}{0.8} \right)\] 
-	
-	\[ \eta_i =  \mbox{log}(0.25) =-1.386 \]
-	
-	%---------------------------%
-	\subsection{Example 2}
-	Let us suppose that the probability of survival of a marine species of fauna is dependent on pollution, depth and water temperature. Suppose the logit for the logistic regression was computed as follows:
-	\[ \eta_i = 0.14 + 0.76x_1 - 0.093x_2 + 1.2x_3  \]
-	\begin{center}
-		\begin{tabular}{|c|c|c|}
-			\hline
-			% after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
-			Variables & case 1 & case 2 \\ \hline
-			Pollution($x_1$) & 6.0 & 1.9 \\
-			Depth ($x_2$)& 51 & 99 \\
-			Temp ($x_3$) & 3.0 & 2.9 \\
-			\hline
-		\end{tabular}
-	\end{center}
-	Compute the probability of success for both case 1 and case 2.
-	
 	\begin{itemize}
-		\item case 1$ \eta_1 = 0.14 + (0.76 \times 6)	- (0.093\times 51) + (1.2\times 3) = 3.557$
-		\item case 2$ \eta_2 = 0.14 + (0.76 \times 1.9)	- (0.093\times 99) + (1.2\times 2.9) = -4.143$
+		\item 	The solution is to convert or transform these results into probabilities. We might compute
+		the average of the Y values at each point on the X axis. We could then plot the probabilities
+		of Y at each value of X and it would look something like the wavy graph line superimposed
+		on the original data in Figure 2. This is a smoother curve, and it is easy to see that the
+		probability of passing the accountancy course (Y axis) increases as values of X increase.
+		\item What we have just done is transform the scores so that the curve now fits a cumulative
+		probability curve, i.e. adding each new probability to the existing total. As you can see, this
+		curve is not a straight line; it is more of an s-shaped curve (A sigmoid curve).
+		
+		\item Predicted values are interpreted as probabilities and are now not just two conditions with a value of either 0 or 1 but continuous data that can take any value from 0 to 1.
+		The slope of the curve in Figure 2 is low at the lower and upper extremes of the
+		independent variable and greatest in the middle where it is most sensitive. 
+		\item In the middle, of
+		course, are a number of cases that are out of order, in the sense that there is an overlap with
+		average maths scores in both accountancy pass and fail categories, while at the extremes are
+		cases which are almost universally allocated to their correct group. The outcome is not a prediction of a Y value, as in linear regression, but a probability of belonging to one of two conditions
+		of Y, which can take on any value between 0 and 1 rather than just 0 and 1 in Figure 1.
+		
 	\end{itemize}
-	
-	The probabilities for success are therefore:
-	\[ \pi_1  =  \frac{e^{3.557}}{1 + e^{3.557}} = \frac{35.057}{1 + 35.057} = 0.972 \]
-	\[ \pi_2  =  \frac{e^{-4.143}}{1 + e^{-4.143}} = \frac{0.0158}{1 + 0.0158} = 0.0156 \]
-	
-	
+
+%	\subsubsection{Log transformation}
+%	Unfortunately a further mathematical transformation – a log transformation – is needed
+%	to normalize the distribution. Transformations, such as log transformations and
+%	square root transformations transform non-normal/skewed distributions closer to normality.
 %	
-%	\subsection*{Example 2}
-%	Given that $\eta_i = 2.3$, compute $\pi_i$.
+%	This log transformation of the p values to a log distribution enables us to create a link with the normal regression equation. The log distribution (or logistic transformation of p) is also called the logit of p or \textbf{\textit{logit(p)}}.
 %	
-%	\[ \pi_i  =  \frac{e^{2.3}}{1 + e^{2.3}} = \frac{9.974}{1 + 9.974} = 0.908 \]
+
 	
-	%--------------------------------------------------------------------------------------%
-	
-	\subsection*{Logistic Regression: Logit Transformation}
-	%http://data.princeton.edu/wws509/notes/c3.pdf
-	
-	The logit transformation is given by the following formula: 
-	\[ \eta_i = \mbox{logit}(\pi_i)  = \mbox{log}\left( \frac{\pi_i}{1- \pi_i} \right) \]
-	
-	\noindent 
-	The inverse of the logit transformation is given by the following formula: 
-	\[ \pi_i = \mbox{logit}^{-1}(\eta_i)  =  \frac{e^{\eta_i}}{1 + e^{\eta_i}} \]
-	
-	%---------------------------%
-	\subsection*{Logits}
-	In logistic regression, the logit may be computed in a manner similar to linear regression:
-	\[ \eta_i = \beta_0 + \beta_1x_1 + \beta_2x_2 + \ldots  \]
-	
-	%---------------------------%
-	
-	
-	
-	
-	\subsection{Logistic function}
-	
-	The logistic function of any number is given by the inverse-logit:
-	
-	\[\operatorname{logit}^{-1}(\alpha) = \frac{1}{1 + \operatorname{exp}(-\alpha)} = \frac{\operatorname{exp}(\alpha)}{1 + \operatorname{exp}(\alpha)}\]
-	
-	%-------------------------------------------%
-	
-	
-	\subsection{Dummy variables}
-	When an explanatory variable is categorical we can use \textbf{dummy variables} to contrast
-	the different categories. For each variable we choose a baseline category and then
-	contrast all remaining categories with the base line. If an explanatory variable
-	has k categories, we need k-1 dummy variables to investigate all the differences in
-	the categories with respect to the dependent variable.
-	
-	For example suppose the explanatory variable was \textbf{\textit{housing}} coded like this:
-	\begin{itemize}
-		\item[1:] Owner occupier
-		\item[2:] renting from a private landlord
-		\item[3:] renting from the local authority
-	\end{itemize}
-	
-	We would therefore need to choose a baseline category and create two dummy
-	variables. For example if we chose owner occupier as the baseline category we
-	would code the dummy variables (House1 and House2) like this
-	
-	%Tenure: &House1 &House2\\
-	%Owner occupier &0& 0\\
-	%Rented private &1 &0\\
-	%Rented local authority &0 &1\\
-	
-	\subsection{Log Likelihood}
-	A ``likelihood" is a probability, specifically the probability that the observed values of the dependent may be predicted from the observed values of the independents. 
-	
-	Like any probability, the likelihood varies from 0 to 1. The log likelihood (LL) is its log and varies from 0 to minus infinity (it is negative because the log of any number less than 1 is negative). LL is calculated through iteration, using maximum likelihood estimation (MLE).
-	
-	
-	\subsection{Maximum Likelihood Estimation}
-	\begin{itemize}
-		\item Maximum likelihood estimation, MLE, is the method used to calculate the logit coefficients. This contrasts to the use of ordinary least squares (OLS) estimation of coefficients in regression. OLS seeks to minimize the sum of squared distances of the data points to the regression line. 
-		\item MLE seeks to maximize the log likelihood, LL, which reflects how likely it is (the odds) that the observed values of the dependent may be predicted from the observed values of the independents. (Equivalently MLE seeks to minimize the -2LL value.)
-		
-		\item MLE is an iterative algorithm which starts with an initial arbitrary ``guesstimate" of what the logit coefficients should be, the MLE algorithm determines the direction and size change in the logit coefficients which will increase LL. 
-		\item After this initial function is estimated, the residuals are tested and a re-estimate is made with an improved function, and the process is repeated (usually about a half-dozen times) until convergence is reached (that is, until LL does not change significantly). There are several alternative convergence criteria.
-	\end{itemize}
-	
-	
-	\subsection{Wald statistic}
-	\begin{itemize}
-		\item Alternatively, when assessing the contribution of individual predictors in a given model, one may examine the significance of the Wald statistic. The Wald statistic, analogous to the t-test in linear regression, is used to assess the significance of coefficients. 
-		
-		\item The Wald statistic is commonly used to test the significance of individual logistic regression coefficients for each independent variable (that is, to test the null hypothesis in logistic regression that a particular logit (effect) coefficient is zero). 
-		
-		\item The Wald Statistic is the ratio of the unstandardized logit coefficient to its standard error. The Wald statistic and its corresponding p probability level is part of SPSS output in the section \textbf{\textit{Variables in the Equation.}} This corresponds to significance testing of b coefficients in OLS regression. The researcher may well want to drop independents from the model when their effect is not significant by the Wald statistic.
-		
-		
-		\item The Wald statistic is the ratio of the square of the regression coefficient to the square of the standard error of the coefficient and is asymptotically distributed as a chi-square distribution.
-	\end{itemize}
-	% Wald Test?
-	
-	\subsubsection*{Wald Test}
-	The Wald test is a way of testing the signi®cance of particular explanatory variables in a statistical model. In logistic regression we have a binary outcome variable and one or more explanatory variables. For each explanatory variable in the model there will be an associated parameter.
-	The Wald test, described by Polit (1996) and Agresti (1990), is one of a number of ways of testing whether the parameters associated with a group of
-	explanatory variables are zero.
-	
-	If for a particular explanatory variable, or group of explanatory variables, the Wald test is significant, then we would conclude that the parameters associated with these variables are not zero, so that the variables should be included in the model. If the Wald test is not significant then these explanatory variables can be omitted from the model. When considering a single explanatory variable, Altman (1991) uses a t-test to check whether the parameter is significant. 
-	
-	For a single parameter the Wald statistic is just the square of the t-statistic and so will give exactly equivalent results.
-	An alternative and widely used approach to testing the significance of a number of explanatory variables is to use the likelihood ratio test. This is
-	appropriate for a variety of types of statistical models. Agresti (1990) argues that the likelihood ratio test is better, particularly if the sample size is small or the parameters are large.
-	
-	\newpage
-	
-	The Wald Test is a statistical test used to determine whether an effect exists or not,
-	
-	It tests whether an independent variable has a statistically significant relationship with a dependent variable.
-	
-	It is used in a great variety of different models including models for dichotomous variables and model for continuous
-	variables.
-	
-	\begin{itemize}
-		\item $\hat{\theta}$ Maximum likelihood estimate of the parameter of interest $\theta$
-		\item $theta_o$ Proposed value.
-		This is an assumption of the fact that the differences between $\hat{\theta}$ and $theta_o$ is normal.
-		
-		Univariate case
-		\[ \frac{(\hat{\theta} - theta_o )^2}{\mbox{var}(\hat{\theta})} \sim \chi^2 \]
-		\[ \frac{(\hat{\theta} - theta_o )^2}{\mbox{s.e.}(\hat{\theta})} \sim \mbox{Normal} \]
-	\end{itemize}	
-	The likelihood ratio test is also used to determine whether an effect exists.
-	]
-	\newpage
-	%-------------------------------------------------------%
+\newpage
 	\subsection*{South Africa Heart Disease Data Example}
 	
 	\begin{framed}
@@ -686,6 +376,226 @@ data into the appropriate category given the regression coefficients.
 	%-------------------------------------------------------%
 	
 	%------------------------------------------------------------------------------------%
+	\section{Logistic Regression}
+	Logistic regression, also called a logit model, is used to model \textbf{dichotomous outcome} variables. 
+	In the logit model the \textbf{log odds} of the outcome is modeled as a linear combination of the predictor variables.
+	
+	In logistic regression theory, the predicted dependent variable is a function of the probability that a particular subject will be in one of the categories (for example, the probability that a patient has the disease, given his or her set of scores on the predictor variables).
+	%------------------------------------------------------------------------------------------------------------------------- %
+	\subsection{Odds}
+	\begin{itemize}
+		\item 	The odds in favor of an event or a proposition are the ratio of the probability that an event will happen to the probability that it will not happen.
+\item 		'Odds' are an expression of relative probabilities. Often 'odds' are quoted as odds against, rather than as odds in favor of, because of the possibility of confusion of the latter with the fractional probability of an event occurring.
+		\[ \operatorname{Odds} = \frac{p}{1-p} \]
+		
+		
+		
+		
+		
+		
+		
+		
+	\item 	Loglinear models essentially define a pattern of odds ratios, apply the marginals to them, and compare the resulting table with the observed table, in pretty much the same way we apply the Pearson  $\chi^2$ test for association. The big difference is the pattern we define can be much more complicated than independence.
+	\end{itemize}
+
+	
+	\[ \hat{Y} = \frac{\mbox{Odds}}{1+\mbox{Odds}} \]
+	%---------------------------------------------------------- %
+
+\subsection{Odds and Odds Ratio}
+Logistic regression calculates changes in the log odds of the dependent,
+not changes in the dependent value as OLS regression does. For a dichotomous variable the
+odds of membership of the target group are equal to the probability of membership in the
+target group divided by the probability of membership in the other group. Odds value can
+range from 0 to infinity and tell you how much more likely it is that an observation is a
+member of the target group rather than a member of the other group. If the probability is
+0.80, the odds are 4 to 1 or 0.80/0.20; if the probability is 0.25, the odds are .33 (0.25/0.75).
+
+If the probability of membership in the target group is 0.50, the odds are 1 to 1 (0.50/0.50), as
+in coin tossing when both outcomes are equally likely.
+
+Another important concept is the odds ratio (OR), which estimates the change in the
+odds of membership in the target group for a one unit increase in the predictor. It is calculated by using the regression coefficient of the predictor as the exponent. Suppose we were predicting exam success by a maths competency
+predictor with an estimate b = 2.69. Thus the odds ratio is exp(2.69) or 14.73. Therefore the odds of passing
+are 14.73 times greater for a student, for example, who had a pre-test score of 5, than for a
+student whose pre-test score was 4.
+%--------------------------------------------------------%
+
+	\subsection{Introduction to the Odds Ratio}
+	Let's begin with probability. Suppose that the probability of success is 0.8, thus
+	p = 0.8
+	Then the probability of failure is
+	\[q = 1 - p = 0.2\]
+	The odds of success are defined as
+	\[odds(success) = p/q = 0.8/0.2 = 4\]
+	that is, the odds of success are 4 to 1. The odds of failure would be
+	\[odds(failure) = q/p = .2/.8 = .25\]
+	This looks a little strange but it is really saying that the odds of failure are 1 to 4.  The odds of success and the odds of failure are just reciprocals of one another, i.e., 1/4 = 0.25 and 1/0.25 = 4. 
+	
+
+	\subsection{Confidence Intervals for Odds Ratios}
+	\begin{itemize}
+		\item Many statistical implementations of logistic regression include Confidence Intervals for the odds ratios.
+		Odds ratios whose confidence limits exclude 1 are statistically significant.
+		\item The odds ratio is referred to in SPSS as \texttt{\textbf{Exp(B)}}, the exponentiation of the B coefficient
+	\end{itemize}
+	
+	%-------------------------------------------%
+	\subsection{Log-Odds}
+	As an alternative to modeling the value of the outcome, logistic regression focuses instead upon the
+	relative probability (odds) of obtaining a given result category. The natural logarithm of the odds is
+	linear across most of its range, allowing us to continue using many of the methods developed for linear models.
+	The result of this type of regression can be expressed as follows:
+	\[ \operatorname{Ln} \left[ \frac{p}{1-p} \right] = b_0 + b_1x_1 + b_2x_2 + b_3x_3 \ldots b_kx_k + e \]
+	
+	%-------------------------------------------%
+	
+
+	\subsection*{Logits}
+	In logistic regression, the logit may be computed in a manner similar to linear regression:
+	\[ \eta_i = \beta_0 + \beta_1x_1 + \beta_2x_2 + \ldots  \]
+	
+	%---------------------------%
+	
+	
+	
+
+	\subsection{Logistic function}
+	
+	The logistic function of any number is given by the inverse-logit:
+	
+	\[\operatorname{logit}^{-1}(\alpha) = \frac{1}{1 + \operatorname{exp}(-\alpha)} = \frac{\operatorname{exp}(\alpha)}{1 + \operatorname{exp}(\alpha)}\]
+	
+	%-------------------------------------------%
+	
+
+	\subsection{The Logistic Regression Equation}
+	The form of the logistic regression equation is:
+	\begin{framed}
+		\[ \mbox{logit}[p(x)] =  log \left(\frac{p(x)}{1-p(x)} \right) = b_0 + b_1x_1 + b_2x_2 + b_3x_3 + \ldots \]
+	\end{framed}
+	This looks just like a linear regression and although logistic regression finds a ‘best
+	fitting’ equation, just as linear regression does, the principles on which it does so are
+	rather different. Instead of using a least-squared deviations criterion for the best fit, it
+	uses a maximum likelihood method, which maximizes the probability of getting the
+	observed results given the fitted regression coefficients. A consequence of this is that the
+	goodness of fit and overall significance statistics used in logistic regression are different
+	from those used in linear regression.
+	
+	The probability that a case is in a particular category,p, can be calculated with the following formula (which is simply another rearrangement of the previous formula).
+	
+	\[p = \frac{exp(b_0 + b_1x_1 + b_2x_2 + b_3x_3 + \ldots)}{1 + exp(b_0 + b_1x_1 + b_2x_2 + b_3x_3 + \ldots)}\]
+	
+	\newpage
+	
+
+	\section{Review of Logistic Regression}
+	% http://www.nesug.org/proceedings/nesug06/an/da26.pdf
+	% http://www.ccsr.ac.uk/publications/teaching/blr.pdf
+	% http://www.southampton.ac.uk/ghp3/docs/unicef/presentation7.1a.pdf
+	% ftp://public.dhe.ibm.com/software/analytics/spss/documentation/statistics/20.0/en/client/Manuals/IBM_SPSS_Regression.pdf
+	% http://www.umass.edu/statdata/statdata/data/
+		
+	\subsection*{Logistic Regression: Logit Transformation}
+	%http://data.princeton.edu/wws509/notes/c3.pdf
+	
+	The logit transformation is given by the following formula: 
+	\[ \eta_i = \mbox{logit}(\pi_i)  = \mbox{log}\left( \frac{\pi_i}{1- \pi_i} \right) \]
+	
+	\noindent 
+	The inverse of the logit transformation is given by the following formula: 
+	\[ \pi_i = \mbox{logit}^{-1}(\eta_i)  =  \frac{e^{\eta_i}}{1 + e^{\eta_i}} \]
+	
+	%---------------------------%
+
+
+	\subsection{Dummy variables}
+	When an explanatory variable is categorical we can use \textbf{dummy variables} to contrast
+	the different categories. For each variable we choose a baseline category and then
+	contrast all remaining categories with the base line. If an explanatory variable
+	has k categories, we need k-1 dummy variables to investigate all the differences in
+	the categories with respect to the dependent variable.
+	
+	For example suppose the explanatory variable was \textbf{\textit{housing}} coded like this:
+	\begin{itemize}
+		\item[1:] Owner occupier
+		\item[2:] renting from a private landlord
+		\item[3:] renting from the local authority
+	\end{itemize}
+	
+	We would therefore need to choose a baseline category and create two dummy
+	variables. For example if we chose owner occupier as the baseline category we
+	would code the dummy variables (House1 and House2) like this
+	
+	%Tenure: &House1 &House2\\
+	%Owner occupier &0& 0\\
+	%Rented private &1 &0\\
+	%Rented local authority &0 &1\\
+	
+	\subsection{Log Likelihood}
+	A ``likelihood" is a probability, specifically the probability that the observed values of the dependent may be predicted from the observed values of the independents. 
+	
+	Like any probability, the likelihood varies from 0 to 1. The log likelihood (LL) is its log and varies from 0 to minus infinity (it is negative because the log of any number less than 1 is negative). LL is calculated through iteration, using maximum likelihood estimation (MLE).
+	
+	
+	\subsection{Maximum Likelihood Estimation}
+	\begin{itemize}
+		\item Maximum likelihood estimation, MLE, is the method used to calculate the logit coefficients. This contrasts to the use of ordinary least squares (OLS) estimation of coefficients in regression. OLS seeks to minimize the sum of squared distances of the data points to the regression line. 
+		\item MLE seeks to maximize the log likelihood, LL, which reflects how likely it is (the odds) that the observed values of the dependent may be predicted from the observed values of the independents. (Equivalently MLE seeks to minimize the -2LL value.)
+		
+		\item MLE is an iterative algorithm which starts with an initial arbitrary ``guesstimate" of what the logit coefficients should be, the MLE algorithm determines the direction and size change in the logit coefficients which will increase LL. 
+		\item After this initial function is estimated, the residuals are tested and a re-estimate is made with an improved function, and the process is repeated (usually about a half-dozen times) until convergence is reached (that is, until LL does not change significantly). There are several alternative convergence criteria.
+	\end{itemize}
+	
+	
+	\subsection{Wald statistic}
+	\begin{itemize}
+		\item Alternatively, when assessing the contribution of individual predictors in a given model, one may examine the significance of the Wald statistic. The Wald statistic, analogous to the t-test in linear regression, is used to assess the significance of coefficients. 
+		
+		\item The Wald statistic is commonly used to test the significance of individual logistic regression coefficients for each independent variable (that is, to test the null hypothesis in logistic regression that a particular logit (effect) coefficient is zero). 
+		
+		\item The Wald Statistic is the ratio of the unstandardized logit coefficient to its standard error. The Wald statistic and its corresponding p probability level is part of SPSS output in the section \textbf{\textit{Variables in the Equation.}} This corresponds to significance testing of b coefficients in OLS regression. The researcher may well want to drop independents from the model when their effect is not significant by the Wald statistic.
+		
+		
+		\item The Wald statistic is the ratio of the square of the regression coefficient to the square of the standard error of the coefficient and is asymptotically distributed as a chi-square distribution.
+	\end{itemize}
+	% Wald Test?
+	
+	\subsection*{Wald Test}
+	\begin{itemize}
+		\item 	The Wald test is a way of testing the signi®cance of particular explanatory variables in a statistical model. In logistic regression we have a binary outcome variable and one or more explanatory variables. For each explanatory variable in the model there will be an associated parameter.
+	\item 	The Wald test, described by Polit (1996) and Agresti (1990), is one of a number of ways of testing whether the parameters associated with a group of
+		explanatory variables are zero.
+		
+	\item 	If for a particular explanatory variable, or group of explanatory variables, the Wald test is significant, then we would conclude that the parameters associated with these variables are not zero, so that the variables should be included in the model. If the Wald test is not significant then these explanatory variables can be omitted from the model. When considering a single explanatory variable, Altman (1991) uses a t-test to check whether the parameter is significant. 
+		
+\item 		For a single parameter the Wald statistic is just the square of the t-statistic and so will give exactly equivalent results.
+		An alternative and widely used approach to testing the significance of a number of explanatory variables is to use the likelihood ratio test. This is
+		appropriate for a variety of types of statistical models. Agresti (1990) argues that the likelihood ratio test is better, particularly if the sample size is small or the parameters are large.
+	\end{itemize}
+
+	
+	The Wald Test is a statistical test used to determine whether an effect exists or not,
+	
+	It tests whether an independent variable has a statistically significant relationship with a dependent variable.
+	
+	It is used in a great variety of different models including models for dichotomous variables and model for continuous
+	variables.
+	
+	\begin{itemize}
+		\item $\hat{\theta}$ Maximum likelihood estimate of the parameter of interest $\theta$
+		\item $\theta_o$ Proposed value.
+		This is an assumption of the fact that the differences between $\hat{\theta}$ and $\theta_o$ is normal.
+		
+		Univariate case
+		\[ \frac{(\hat{\theta} - \theta_o )^2}{\mbox{var}(\hat{\theta})} \sim \chi^2 \]
+		\[ \frac{(\hat{\theta} - \theta_o )^2}{\mbox{s.e.}(\hat{\theta})} \sim \mbox{Normal} \]
+	\end{itemize}	
+	The likelihood ratio test is also used to determine whether an effect exists.
+	]
+
+	%-------------------------------------------------------%
+
 	\section{Wald statistic}
 	\begin{itemize}
 		\item Alternatively, when assessing the contribution of individual predictors in a given model, one may examine the significance of the Wald statistic. The Wald statistic, analogous to the t-test in linear regression, is used to assess the significance of coefficients. 
@@ -745,40 +655,7 @@ the variables (e.g. playing golf with the boss puts you at a higher probability 
 promotion than undertaking five hours unpaid overtime each week).
 \end{itemize}
 
-\subsection{Assumptions of logistic regression}
-\begin{itemize}
-\item Logistic regression does not assume a linear relationship between the dependent and
-independent variables.
-\item The dependent variable must be a dichotomy (2 categories).
-\textit{(Remark: Dichotomous refers to two outcomes. Multichotomous refers to more than two outcomes)}.
-\item The independent variables need not be interval, nor normally distributed, nor linearly
-related, nor of equal variance within each group.
-\item The categories (groups) must be mutually exclusive and exhaustive; a case can only be
-in one group and every case must be a member of one of the groups.
-\item Larger samples are needed than for linear regression because maximum likelihood
-coefficients are large sample estimates. A minimum of 50 cases per predictor is
-recommended.
-\end{itemize}
-%===================================== %
-\newpage
-\subsection{Odds and Odds Ratio}
-Logistic regression calculates changes in the log odds of the dependent,
-not changes in the dependent value as OLS regression does. For a dichotomous variable the
-odds of membership of the target group are equal to the probability of membership in the
-target group divided by the probability of membership in the other group. Odds value can
-range from 0 to infinity and tell you how much more likely it is that an observation is a
-member of the target group rather than a member of the other group. If the probability is
-0.80, the odds are 4 to 1 or 0.80/0.20; if the probability is 0.25, the odds are .33 (0.25/0.75).
 
-If the probability of membership in the target group is 0.50, the odds are 1 to 1 (0.50/0.50), as
-in coin tossing when both outcomes are equally likely.
-
-Another important concept is the odds ratio (OR), which estimates the change in the
-odds of membership in the target group for a one unit increase in the predictor. It is calculated by using the regression coefficient of the predictor as the exponent. Suppose we were predicting exam success by a maths competency
-predictor with an estimate b = 2.69. Thus the odds ratio is exp(2.69) or 14.73. Therefore the odds of passing
-are 14.73 times greater for a student, for example, who had a pre-test score of 5, than for a
-student whose pre-test score was 4.
-%--------------------------------------------------------%
 
 \subsection{Exercise Data Set}
 The exercise data set comes from a survey of home owners
@@ -1077,17 +954,7 @@ variable in Model 2 ($X_2$) is required, i.e. does the simpler model (Model 1) f
 well as the fuller model (Model 2). In other words, we test the null hypothesis that $\beta_2 = 0$
 against the alternative hypothesis that $\beta_2 \neq 0$. 
 
-\subsection{Multinomial Logistic Regression}
-Multinomial Logistic Regression is useful for situations in which you want to be able to classify
-subjects based on values of a set of predictor variables. This type of regression is similar to logistic
-regression, but it is more general because the dependent variable is not restricted to two categories.
-For Example, In order to market films more effectively, movie studios want to predict what type of
-film a moviegoer is likely to see. By performing a Multinomial Logistic Regression, the studio
-can determine the strength of influence a person’s age, gender, and dating status has upon the type
-of film they prefer. The studio can then slant the advertising campaign of a particular movie
-toward a group of people likely to go see it.
-%-------------------------------------------------------------------------------------%
-\newpage
+
 \section{Binary Classification}	
 
 
