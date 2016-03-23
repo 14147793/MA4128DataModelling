@@ -128,10 +128,48 @@ In essence, this is what is accomplished by principal component analysis: it all
 a set of observed variables into a smaller set of artificial variables called principal components.
 The resulting principal components may then be used in subsequent analyses.
 \newpage
+\subsection*{Variable Reduction Procedure}
+
+Principal component analysis is a variable reduction procedure. It is useful when you have
+obtained data on a number of variables (possibly a large number of variables), and believe that
+there is some redundancy in those variables. In this case, redundancy means that some of the
+variables are correlated with one another, possibly because they are measuring the same
+construct. Because of this redundancy, you believe that it should be possible to reduce the
+observed variables into a smaller number of principal components (artificial variables) that will
+account for most of the variance in the observed variables.
+
 \subsection{Data Reduction in Exploratory Graphics}
 
 The term can also refer in \textbf{exploratory graphics} to ``Data Reduction by unbiased decreasing of the sample size". This type of Data Reduction is applied in exploratory graphical data analysis of extremely large data sets. The size of the data set can obscure an existing pattern (especially in large line graphs or scatterplots) due to the density of markers or lines. Then, it can be useful to plot only a representative subset of the data (so that the pattern is not hidden by the number of point markers) to reveal the otherwise obscured but still reliable pattern.
 
+
+\section*{Principal Component Analysis}
+
+
+\subsection*{Characteristics of Principal Components}
+The first component extracted in a principal
+component analysis accounts for a maximal amount of total variance in the observed variables.
+Under typical conditions, this means that the first component will be correlated with at least
+some of the observed variables. It may be correlated with many.
+
+The second component extracted will have two important characteristics. First, this component
+will account for a maximal amount of variance in the data set that was not accounted for by the
+first component. Again under typical conditions, this means that the second component will be
+correlated with some of the observed variables that did not display strong correlations with
+component 1.
+
+The second characteristic of the second component is that it will be uncorrelated with the first
+component. Literally, if you were to compute the correlation between components 1 and 2, that
+correlation would be zero.
+
+The remaining components that are extracted in the analysis display the same two characteristics:
+each component accounts for a maximal amount of variance in the observed variables that was
+not accounted for by the preceding components, and is uncorrelated with all of the preceding
+components. A principal component analysis proceeds in this fashion, with each new component
+accounting for progressively smaller and smaller amounts of variance (this is why only the first
+few components are usually retained and interpreted). When the analysis is complete, the
+resulting components will display varying degrees of correlation with the observed variables, but
+are completely uncorrelated with one another.
 
 \section{Principal Component Analysis }
 
@@ -603,7 +641,7 @@ therefore be removed from consideration in order to simplify the overall
 analyses.
 \end{itemize}
 
-\subsection{Bi-plot Display of PCA}
+\subsection{Biplot Display of PCA}
 \begin{itemize}
 \item Bi-plot display is a visualization technique for investigating
 the inter-relationships between the observations and
@@ -638,6 +676,7 @@ an analysis, the interpretation of an unrotated factor pattern is usually quite 
 interpretation easier, you will normally perform an operation called a rotation. A rotation is a
 linear transformation that is performed on the factor solution for the purpose of making the
 solution easier to interpret.
+
 %-------------------------------------------------------------------------------------------------------%
 
 \subsection{Varimax Rotation}
@@ -719,17 +758,6 @@ orthogonal analysis, factor loadings are equivalent to conventional bivariate co
 variables and the components.
 %-------------------------------------------------------------------------------------------------------%
 
-\subsection{What is a Rotation}
-
-Ideally, you would like to review the correlations between the variables and the
-components and use this information to interpret the components; that is, to determine what
-construct seems to be measured by component 1, what construct seems to be measured by
-component 2, and so forth. Unfortunately, when more than one component has been retained in
-an analysis, the interpretation of an unrotated factor pattern is usually quite difficult. To make
-interpretation easier, you will normally perform an operation called a rotation. A rotation is a
-linear transformation that is performed on the factor solution for the purpose of making the
-solution easier to interpret.
-%-------------------------------------------------------------------------------------------------------%
 
 \subsection{What Is Rotation?}
 %http://jalt.org/test/PDF/Brown31.pdf
@@ -747,6 +775,31 @@ rotation tends to maximize the variance of a column of the factor pattern matrix
 row of the matrix). This rotation is probably the most commonly used orthogonal rotation in the
 social sciences.
 
+\subsection{VARIMAX rotation in Principal Component Analysis}
+%http://www.utd.edu/~herve/Abdi-rotations-pretty.pdf
+\begin{itemize}
+\item Varimax, which was developed by Kaiser (1958), is indubitably the most
+popular rotation method by far. For varimax a simple solution means that each
+factor has a small number of large loadings and a large number of zero (or small)
+loadings.
+
+\item This simplifies the interpretation because, after a varimax rotation,
+each original variable tends to be associated with one (or a small number) of
+factors, and each factor represents only a small number of variables. In addition,
+the factors can often be interpreted from the opposition of few variables with
+positive loadings to few variables with negative loadings.
+
+%-------------------------------------------------------------------------------------------------------%
+
+%http://data-mining-tutorials.blogspot.ie/2009/12/varimax-rotation-in-principal-component.html
+\item A VARIMAX rotation is a change of coordinates used in principal component analysis (PCA) that maximizes the sum of the variances of the squared loadings. Thus, all the coefficients (squared correlation with factors) will be either large or near zero, with few intermediate values.
+
+\item The goal is to associate each variable to at most one factor. The interpretation of the results of the PCA will be simplified. Then each variable will be associated to one and one only factor, they are split (as much as possible) into disjoint sets.
+\end{itemize}
+
+
+%-------------------------------------------------------------------------------------------------------%
+
 \subsection{Interpreting the Rotated Solution}
 
 Interpreting a rotated solution means determining just what is measured by each of the retained
@@ -759,7 +812,7 @@ Guidelines are providedd in statistical literature for testing the statistical s
 is an introductory treatment of principal component analysis, however, simply consider a loading
 to be ?large? if its absolute value exceeds 0.40.
 
-\subsection{SCRATCHOUT}
+
 
 %http://support.sas.com/publishing/pubcat/chaps/55129.pdf
 
@@ -823,27 +876,6 @@ Component - The columns under this heading are the principal components that hav
 You usually do not try to interpret the components the way that you would factors that have been extracted from a factor analysis.  Rather, most people are interested in the component scores, which are used for data reduction (as opposed to factor analysis where you are looking for underlying latent continua).  You can save the component scores to your data set for use in other analyses using the /save subcommand.
 %-------------------------------------------------------------------------------------------------------%
 
-\subsection{VARIMAX rotation in Principal Component Analysis}
-%http://www.utd.edu/~herve/Abdi-rotations-pretty.pdf
-Varimax, which was developed by Kaiser (1958), is indubitably the most
-popular rotation method by far. For varimax a simple solution means that each
-factor has a small number of large loadings and a large number of zero (or small)
-loadings.
-
-This simplifies the interpretation because, after a varimax rotation,
-each original variable tends to be associated with one (or a small number) of
-factors, and each factor represents only a small number of variables. In addition,
-the factors can often be interpreted from the opposition of few variables with
-positive loadings to few variables with negative loadings.
-
-%-------------------------------------------------------------------------------------------------------%
-
-%http://data-mining-tutorials.blogspot.ie/2009/12/varimax-rotation-in-principal-component.html
-A VARIMAX rotation is a change of coordinates used in principal component analysis (PCA) that maximizes the sum of the variances of the squared loadings. Thus, all the coefficients (squared correlation with factors) will be either large or near zero, with few intermediate values.
-
-The goal is to associate each variable to at most one factor. The interpretation of the results of the PCA will be simplified. Then each variable will be associated to one and one only factor, they are split (as much as possible) into disjoint sets.
-
-%-------------------------------------------------------------------------------------------------------%
 
 \subsection{Other orthogonal rotations}
 %http://www.utd.edu/~herve/Abdi-rotations-pretty.pdf
@@ -875,41 +907,5 @@ by any projection of the data comes to lie on the first co-ordinate (called the 
 
 %==========================================================================%
 \newpage
-\section*{Principal Component Analysis}
-
-\subsection*{Variable Reduction Procedure}
-
-Principal component analysis is a variable reduction procedure. It is useful when you have
-obtained data on a number of variables (possibly a large number of variables), and believe that
-there is some redundancy in those variables. In this case, redundancy means that some of the
-variables are correlated with one another, possibly because they are measuring the same
-construct. Because of this redundancy, you believe that it should be possible to reduce the
-observed variables into a smaller number of principal components (artificial variables) that will
-account for most of the variance in the observed variables.
-
-\subsection*{Characteristics of Principal Components}
-The first component extracted in a principal
-component analysis accounts for a maximal amount of total variance in the observed variables.
-Under typical conditions, this means that the first component will be correlated with at least
-some of the observed variables. It may be correlated with many.
-
-The second component extracted will have two important characteristics. First, this component
-will account for a maximal amount of variance in the data set that was not accounted for by the
-first component. Again under typical conditions, this means that the second component will be
-correlated with some of the observed variables that did not display strong correlations with
-component 1.
-
-The second characteristic of the second component is that it will be uncorrelated with the first
-component. Literally, if you were to compute the correlation between components 1 and 2, that
-correlation would be zero.
-
-The remaining components that are extracted in the analysis display the same two characteristics:
-each component accounts for a maximal amount of variance in the observed variables that was
-not accounted for by the preceding components, and is uncorrelated with all of the preceding
-components. A principal component analysis proceeds in this fashion, with each new component
-accounting for progressively smaller and smaller amounts of variance (this is why only the first
-few components are usually retained and interpreted). When the analysis is complete, the
-resulting components will display varying degrees of correlation with the observed variables, but
-are completely uncorrelated with one another.
 
 \end{document}
