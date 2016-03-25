@@ -30,17 +30,44 @@
 \tableofcontents
 %http://support.sas.com/publishing/pubcat/chaps/55129.pdf
 
-\section{Introduction to Course}
-Advances in data collection and storage capabilities during the past decades have led to an information
-overload in most sciences. Researchers working in domains as diverse as engineering, astronomy, biology,
-remote sensing, economics, and consumer transactions, face larger and larger observations and simulations
-on a daily basis.
+\subsection{Principal Component Analysis (PCA)}
+\begin{itemize}
+	\item Is a variable reduction technique
+	\item Is used when variables are highly correlated
+	\item Reduces the number of observed variables to a smaller number of principal components which account for most
+	of the variance of the observed variables
+	\item Is a large sample procedure
+\end{itemize}
 
-Such datasets, in contrast with smaller, more traditional datasets that have been studied
-extensively in the past, present new challenges in data analysis. Traditional statistical methods break down
-partly because of the increase in the number of observations, but mostly because of the increase in the
-number of variables associated with each observation. The dimension of the data is the number of variables
-that are measured on each observation.\\(I Fodor, LLNL, USA, June 2002).
+The number of components extracted is equal to the number of observed variables in the analysis. The first principal
+component identified accounts for most of the variance in the data. The second component identified accounts for the
+second largest amount of variance in the data and is uncorrelated with the first principal component and so on.
+
+
+The total amount of variance in PCA is equal to the number of observed variables being analyzed. In PCA, observed
+variables are standardized, (e.g., mean=0, standard deviation=1).
+
+Components accounting for maximal variance are retained while other components accounting for a trivial amount of
+variance are not retained. Eigenvalues indicate the amount of variance explained by each component. Eigenvectors
+are the weights used to calculate components scores.
+
+
+\section{High Dimensionality for Data}
+\begin{itemize}
+	\item Advances in data collection and storage capabilities during the past decades have led to an information
+	overload in most sciences. Researchers working in domains as diverse as engineering, astronomy, biology,
+	remote sensing, economics, and consumer transactions, face larger and larger observations and simulations
+	on a daily basis.
+	
+	\item Such datasets, in contrast with smaller, more traditional datasets that have been studied
+	extensively in the past, present new challenges in data analysis. 
+	\item Traditional statistical methods break down
+	partly because of the increase in the number of observations, but mostly because of the increase in the
+	number of variables associated with each observation. The dimension of the data is the number of variables
+	that are measured on each observation.
+	%\\(I Fodor, LLNL, USA, June 2002).
+\end{itemize}
+
 
 \section{Overview of Course}
 
@@ -48,10 +75,12 @@ To ground the students in Applied Multivariate Analysis. This module serves busi
 The students learn how to implement these techniques in SPSS to become competent in the analysis of a wide variety of multivariate data structures.
 
 \section{Data Reduction}
+\begin{itemize}
+	\item Data Reduction or Dimensionality Reduction pertains to analytic methods (typically multivariate exploratory techniques such as Factor Analysis, Multidimensional Scaling, Cluster Analysis, Canonical Correlation, or Neural Networks) that involve reducing the dimensionality of a data set by extracting a number of underlying factors, dimensions, clusters, etc., that can account for the variability in the (multidimensional) data set.
+	
+	\item For example, in poorly designed questionnaires, all responses provided by the participants on a large number of variables (scales, questions, or dimensions) could be explained by a very limited number of "trivial" or artifactual factors. For example, two such underlying factors could be: (1) the respondent's attitude towards the study (positive or negative) and (2) the "social desirability" factor (a response bias representing a tendency to respond in a socially desirable manner).
+\end{itemize}
 
-Data Reduction or Dimensionality Reduction pertains to analytic methods (typically multivariate exploratory techniques such as Factor Analysis, Multidimensional Scaling, Cluster Analysis, Canonical Correlation, or Neural Networks) that involve reducing the dimensionality of a data set by extracting a number of underlying factors, dimensions, clusters, etc., that can account for the variability in the (multidimensional) data set.
-
-For example, in poorly designed questionnaires, all responses provided by the participants on a large number of variables (scales, questions, or dimensions) could be explained by a very limited number of "trivial" or artifactual factors. For example, two such underlying factors could be: (1) the respondent's attitude towards the study (positive or negative) and (2) the "social desirability" factor (a response bias representing a tendency to respond in a socially desirable manner).
 \newpage
 \subsection{Variable Redundancy}
 A specific (but fictitious) example of research will now be presented to illustrate the concept of
@@ -99,34 +128,39 @@ opportunity to review just how a correlation matrix is interpreted.
 The rows and columns of the table correspond to the seven variables included in the analysis: Row 1 (and column 1)
 represents variable 1, row 2 (and column 2) represents variable 2, and so forth. Where a given
 row and column intersect, you will find the correlation between the two corresponding variables.
-For example, where the row for variable 2 intersects with the column for variable 1, you find a
-correlation of 0.75; this means that the correlation between variables 1 and 2 is 0.75.
-The correlations show that the seven items seem to hang together in two distinct
-groups.
 
-First, notice that items 1-4 show relatively strong correlations with one another. This
-could be because items 1-4 are measuring the same construct. In the same way, items 5-7
-correlate strongly with one another (a possible indication that they all measure the same
-construct as well). Even more interesting, notice that items 1-4 demonstrate very weak
-correlations with items 5-7. This is what you would expect to see if items 1-4 and items 5-7
-were measuring two different constructs.
+\begin{itemize}
+	\item For example, where the row for variable 2 intersects with the column for variable 1, you find a
+	correlation of 0.75; this means that the correlation between variables 1 and 2 is 0.75.
+	The correlations show that the seven items seem to hang together in two distinct
+	groups.
+	
+\item First, notice that items 1-4 show relatively strong correlations with one another. This
+	could be because items 1-4 are measuring the same construct. In the same way, items 5-7
+	correlate strongly with one another (a possible indication that they all measure the same
+	construct as well). 
+\item Even more interesting, notice that items 1-4 demonstrate very weak
+	correlations with items 5-7. This is what you would expect to see if items 1-4 and items 5-7
+	were measuring two different constructs.
+	
+\item 	Given this apparent redundancy, it is likely that the seven items of the questionnaire are not
+	really measuring seven different constructs; more likely, items 1-4 are measuring a single
+	construct that could reasonably be labelled \textbf{\emph{satisfaction with supervision}} while items 5-7 are
+	measuring a different construct that could be labelled \textbf{\emph{satisfaction with pay}}.
+	
+\item 	If responses to the seven items actually displayed the redundancy suggested by the pattern of
+	correlations, it would be advantageous to somehow reduce the number of variables
+	in this data set, so that (in a sense) items 1-4 are collapsed into a single new variable that reflects
+	the employees’ satisfaction with supervision, and items 5-7 are collapsed into a single new
+	variable that reflects satisfaction with pay.
+	
+\item 	We could then use these two new artificial variables (rather than the seven original variables) as predictor variables in multiple regression, or in any other type of analysis.
+	
+\item 	In essence, this is what is accomplished by principal component analysis: it allows you to reduce
+	a set of observed variables into a smaller set of artificial variables called principal components.
+	The resulting principal components may then be used in subsequent analyses.
+\end{itemize}
 
-Given this apparent redundancy, it is likely that the seven items of the questionnaire are not
-really measuring seven different constructs; more likely, items 1-4 are measuring a single
-construct that could reasonably be labelled \textbf{\emph{satisfaction with supervision}} while items 5-7 are
-measuring a different construct that could be labelled \textbf{\emph{satisfaction with pay}}.
-
-If responses to the seven items actually displayed the redundancy suggested by the pattern of
-correlations, it would be advantageous to somehow reduce the number of variables
-in this data set, so that (in a sense) items 1-4 are collapsed into a single new variable that reflects
-the employees’ satisfaction with supervision, and items 5-7 are collapsed into a single new
-variable that reflects satisfaction with pay.
-
-We could then use these two new artificial variables (rather than the seven original variables) as predictor variables in multiple regression, or in any other type of analysis.
-
-In essence, this is what is accomplished by principal component analysis: it allows you to reduce
-a set of observed variables into a smaller set of artificial variables called principal components.
-The resulting principal components may then be used in subsequent analyses.
 \newpage
 \subsection*{Variable Reduction Procedure}
 
@@ -145,6 +179,30 @@ The term can also refer in \textbf{exploratory graphics} to ``Data Reduction by 
 
 \section*{Principal Component Analysis}
 
+
+\subsection{PCA Terminology}
+\begin{itemize}
+	\item  PC loadings are correlation coefficients between the PC scores and the
+	original variables.
+	\item  PC loadings measure the importance of each variable in accounting for the
+	variability in the PC.  It is possible to interpret the first few PCs in terms of
+	'overall' effect or a 'contrast' between groups of variables based on the
+	structures of PC loadings.
+	\item high correlation between PC1 and a variable indicates that the variable is
+	associated with the direction of the maximum amount of variation in the
+	dataset.
+	\item More than one variable might have a high correlation with PC1. A strong
+	correlation between a variable and PC2 indicates that the variable is
+	responsible for the next largest variation in the data perpendicular to PC1,
+	and so on.
+	\item  if a variable does not correlate to any PC, or correlates only with the last PC,
+	or one before the last PC, this usually suggests that the variable has little or
+	no contribution to the variation in the dataset. Therefore, PCA may often
+	indicate which variables in a dataset are important and which ones may be of
+	little consequence. Some of these low-performance variables might
+	therefore be removed from consideration in order to simplify the overall
+	analyses.
+\end{itemize}
 
 \subsection*{Characteristics of Principal Components}
 The first component extracted in a principal
@@ -171,62 +229,6 @@ few components are usually retained and interpreted). When the analysis is compl
 resulting components will display varying degrees of correlation with the observed variables, but
 are completely uncorrelated with one another.
 
-\section{Principal Component Analysis }
-
-\subsection{Introduction}
-Principal component analysis is appropriate when you have obtained measures on a number of
-(possibly) correlated observed variables and wish to develop a smaller number of artificial uncorrelated variables called \textbf{principal components} that will account for most of the variance in the observed variables. The first principal component accounts for as much of the variability in the data as possible, and each succeeding component accounts for as much of the remaining variability as possible. The principal
-components may then be used as predictor or criterion variables in subsequent analyses.
-
-
-Traditionally, principal component analysis is performed can be performed on raw data, on the symmetric \textbf{Covariance matrix} or on the symmetric \textbf{Correlation matrix}. (The covariance matrix contains scaled sums of squares and cross products. A correlation matrix is like a covariance matrix but first the variables, i.e. the columns, have been standardized.)
-
-If raw data is used, the procedure will create the original correlation matrix or covariance matrix, as specified by the user.  If the correlation matrix is used, the variables are standardized and the total variance will equal the number of variables used in the analysis (because each standardized variable has a variance equal to 1).  If the covariance matrix is used, the variables will remain in their original metric.  However, one must take care to use variables whose variances and scales are similar.  Unlike \textbf{factor analysis}, which analyzes the common variance, the original matrix in a principal components analysis analyzes the total variance.  Also, principal components analysis assumes that each original measure is collected without measurement error.
-
-
-
-
-
-\subsection{Mathematical background of PCA}
-Principal Component Analysis is a linear \textbf{dimensionality reduction} technique, which identifies orthogonal directions of maximum variance in the original data, and projects the data into a lower-dimensionality space formed of a sub-set of the highest-variance components (Bishop, 1995).
-
-
-The mathematical technique used in PCA is called \textbf{eigen analysis}. Technically, a principal component can be
-defined as a linear combination of optimally-weighted observed variables. Software packages compute solutions for these weights by using a special
-type of equation called an \textbf{\emph{eigenequation}}. The weights produced by these eigenequations are
-optimal weights in the sense that, for a given set of data, no other set of weights could produce a
-set of components that are more successful in accounting for variance in the observed variables.
-The weights are created so as to satisfy a principle of least squares that is similar (but not identical) to
-the principle of least squares used in multiple regression.
-
-Remarks
-\begin{itemize}
-\item The words \textbf{\emph{linear combination}} refer to the fact that scores on a
-component are created by adding together scores on the observed variables being analyzed.
-\item \textbf{\emph{Optimally weighted}} refers to the fact that the observed variables are weighted in such a way
-that the resulting components account for a maximal amount of variance in the data set.
-\end{itemize}
-
-%We solve for the eigenvalues and eigenvectors of a square symmetric matrix with sums of squares and cross products. The eigenvector associated with the largest eigenvalue has the same direction as the first principal component. Similarly the eigenvector associated with the second largest eigenvalue determines the direction of the second principal component, and so on. The sum of the eigenvalues equals the \textbf{trace} of the square matrix and the maximum number of eigenvectors equals the number of rows (or columns) of this matrix.
-
-\subsection{Number of Extracted Components }The preceding section may have created the impression
-that, if a principal component analysis were performed on data from the 7-item job satisfaction
-questionnaire, only two components would be created.  However, such an impression would not
-be entirely correct.
-
-In reality, the number of components extracted in a principal component analysis \textbf{\emph{is equal}} to the
-number of observed variables being analyzed.  This means that an analysis of your 7-item
-questionnaire would actually result in seven components, not two.
-
-However, in most analyses, only the first few components account for meaningful amounts of
-variance, so only these first few components are retained, interpreted, and used in subsequent
-analyses (such as in multiple regression analyses).  For example, in your analysis of the 7-item
-job satisfaction questionnaire, it is likely that only the first two components would account for a
-meaningful amount of variance; therefore only these would be retained for interpretation.  You
-would assume that the remaining five components accounted for only trivial amounts of
-variance.  These latter components would therefore not be retained, interpreted, or further
-analyzed.
-
 \subsection{Characteristics of Principal Components}
 The first component extracted in a principal component analysis accounts for a maximal amount of total variance in the observed variables. Under typical conditions, this means that the first component will be correlated with at least
 some of the observed variables.  In fact it may be correlated with many.
@@ -249,24 +251,50 @@ few components are usually retained and interpreted).  When the analysis is comp
 resulting components will display varying degrees of correlation with the observed variables, but
 are completely uncorrelated with one another.
 
-\subsection{Total Variance in the context of PCA}
-To understand the meaning of \textbf{total
-variance} as it is used in a principal component analysis, remember that the observed
-variables are standardized in the course of the analysis.  This means that each variable is
-transformed so that it has a mean of zero and a variance of one.
 
-The total variance in the
-data set is simply the sum of the variances of these observed variables.  Because they have
-been standardized to have a variance of one, each observed variable contributes one unit of
-variance to the total variance in the data set.  Because of this, the total variance in a
-principal component analysis \textbf{\emph{will always be equal}} to the number of observed variables
-being analyzed.
+\section{Principal Component Analysis }
 
-For example, if seven variables are being analyzed, the total variance will
-equal seven.  The components that are extracted in the analysis will partition this variance:
-perhaps the first component will account for 3.2 units of total variance; perhaps the second
-component will account for 2.1 units.  The analysis continues in this way until all of the
-variance in the data set (i.e. the remaining 1.7 units). has been accounted for.
+\subsection{Introduction}
+Principal component analysis is appropriate when you have obtained measures on a number of
+(possibly) correlated observed variables and wish to develop a smaller number of artificial uncorrelated variables called \textbf{principal components} that will account for most of the variance in the observed variables. The first principal component accounts for as much of the variability in the data as possible, and each succeeding component accounts for as much of the remaining variability as possible. The principal
+components may then be used as predictor or criterion variables in subsequent analyses.
+
+
+Traditionally, principal component analysis is performed can be performed on raw data, on the symmetric \textbf{Covariance matrix} or on the symmetric \textbf{Correlation matrix}. (The covariance matrix contains scaled sums of squares and cross products. A correlation matrix is like a covariance matrix but first the variables, i.e. the columns, have been standardized.)
+
+If raw data is used, the procedure will create the original correlation matrix or covariance matrix, as specified by the user.  If the correlation matrix is used, the variables are standardized and the total variance will equal the number of variables used in the analysis (because each standardized variable has a variance equal to 1).  If the covariance matrix is used, the variables will remain in their original metric.  However, one must take care to use variables whose variances and scales are similar.  Unlike \textbf{factor analysis}, which analyzes the common variance, the original matrix in a principal components analysis analyzes the total variance.  Also, principal components analysis assumes that each original measure is collected without measurement error.
+
+
+
+
+
+\subsection{Mathematical background of PCA}
+\begin{itemize}
+	\item Principal Component Analysis is a linear \textbf{dimensionality reduction} technique, which identifies orthogonal directions of maximum variance in the original data, and projects the data into a lower-dimensionality space formed of a sub-set of the highest-variance components (Bishop, 1995).
+	
+	
+\item 	The mathematical technique used in PCA is called \textbf{eigen analysis}. Technically, a principal component can be
+	defined as a linear combination of optimally-weighted observed variables.
+\item  Software packages compute solutions for these weights by using a special
+	type of equation called an \textbf{\emph{eigenequation}}. The weights produced by these eigenequations are
+	optimal weights in the sense that, for a given set of data, no other set of weights could produce a
+	set of components that are more successful in accounting for variance in the observed variables.
+\item 	The weights are created so as to satisfy a principle of least squares that is similar (but not identical) to
+	the principle of least squares used in multiple regression.
+\end{itemize}
+
+
+Remarks
+\begin{itemize}
+\item The words \textbf{\emph{linear combination}} refer to the fact that scores on a
+component are created by adding together scores on the observed variables being analyzed.
+\item \textbf{\emph{Optimally weighted}} refers to the fact that the observed variables are weighted in such a way
+that the resulting components account for a maximal amount of variance in the data set.
+\end{itemize}
+
+%We solve for the eigenvalues and eigenvectors of a square symmetric matrix with sums of squares and cross products. The eigenvector associated with the largest eigenvalue has the same direction as the first principal component. Similarly the eigenvector associated with the second largest eigenvalue determines the direction of the second principal component, and so on. The sum of the eigenvalues equals the \textbf{trace} of the square matrix and the maximum number of eigenvectors equals the number of rows (or columns) of this matrix.
+
+
 
 \subsection{Orthogonal versus Oblique Solutions}
 
@@ -295,7 +323,30 @@ want this test to be signifcant (i.e. have a significance value less than 0.05).
 tells us that the correlation matrix is not an identity matrix; therefore, there are some relationships
 between the variables we hope to include in the analysis. For these data, Bartlett's test is
 highly significant (p < 0.001), and therefore factor analysis is appropriate.
+%====================================================%
+\newpage
+\section{Number of Extracted Components }
 
+\begin{itemize}
+	\item The preceding section may have created the impression
+	that, if a principal component analysis were performed on data from the 7-item job satisfaction
+	questionnaire, only two components would be created.  However, such an impression would not
+	be entirely correct.
+	
+\item	In reality, the number of components extracted in a principal component analysis \textbf{\emph{is equal}} to the
+	number of observed variables being analyzed.  This means that an analysis of your 7-item
+	questionnaire would actually result in seven components, not two.
+	
+\item 	However, in most analyses, only the first few components account for meaningful amounts of
+	variance, so only these first few components are retained, interpreted, and used in subsequent
+	analyses (such as in multiple regression analyses).  For example, in your analysis of the 7-item
+	job satisfaction questionnaire, it is likely that only the first two components would account for a
+	meaningful amount of variance; therefore only these would be retained for interpretation.
+\item  You
+	would assume that the remaining five components accounted for only trivial amounts of
+	variance.  These latter components would therefore not be retained, interpreted, or further
+	analyzed.
+\end{itemize}
 
 \subsection{Determining the Number of “Meaningful” Components to Retain}
 Earlier it was stated that the number of components extracted is equal to the number of variables
@@ -313,66 +364,77 @@ interpretability criterion.
 \end{itemize}
 
 
-\subsection{The Eigenvalue-One Criterion}  In principal component analysis, one of the most commonly
-used criteria for solving the number-of-components problem is the eigenvalue-one criterion, also
-known as the Kaiser criterion (Kaiser, 1960).  With this approach, you retain and interpret any
-component with an eigenvalue greater than 1.00.
-
-The rationale for this criterion is straightforward.  Each observed variable contributes one unit of
-variance to the total variance in the data set.  Any component that displays an eigenvalue greater
-than 1.00 is accounting  for a greater amount of variance than had been contributed by one
-variable.  Such a component is therefore accounting for a meaningful amount of variance, and is
-worthy of being retained.
-
-On the other hand, a component with an eigenvalue less than 1.00 is accounting for less variance
-than had been contributed by one variable.  The purpose of principal component analysis is to
-reduce a number of observed variables into a relatively smaller number of components; this
-cannot be effectively achieved if you retain components that account for less variance than had
-been contributed by individual variables.  For this reason, components with eigenvalues less than
-1.00 are viewed as trivial, and are not retained.
-
+\subsection{The Eigenvalue-One Criterion} 
+\begin{itemize}
+	\item In principal component analysis, one of the most commonly
+	used criteria for solving the number-of-components problem is the eigenvalue-one criterion, also
+	known as the Kaiser criterion (Kaiser, 1960).  
+\item With this approach, you retain and interpret any
+	component with an eigenvalue greater than 1.00.
+	
+\item 	The rationale for this criterion is straightforward.  Each observed variable contributes one unit of
+	variance to the total variance in the data set.  Any component that displays an eigenvalue greater
+	than 1.00 is accounting  for a greater amount of variance than had been contributed by one
+	variable.  Such a component is therefore accounting for a meaningful amount of variance, and is
+	worthy of being retained.
+	
+\item 	On the other hand, a component with an eigenvalue less than 1.00 is accounting for less variance
+	than had been contributed by one variable.  The purpose of principal component analysis is to
+	reduce a number of observed variables into a relatively smaller number of components; this
+	cannot be effectively achieved if you retain components that account for less variance than had
+	been contributed by individual variables.  For this reason, components with eigenvalues less than
+	1.00 are viewed as trivial, and are not retained.
+\end{itemize} 
+%====================================================%
 
 \subsubsection{Advantages and Disadvantages}
-The eigenvalue-one criterion has a number of positive features that have contributed to its
-popularity.  Perhaps the most important reason for its widespread use is its simplicity:  You do
-not make any subjective decisions, but merely retain components with eigenvalues greater than
-one.
+\begin{itemize}
+	\item The eigenvalue-one criterion has a number of positive features that have contributed to its
+	popularity.  Perhaps the most important reason for its widespread use is its simplicity:  You do
+	not make any subjective decisions, but merely retain components with eigenvalues greater than
+	one.
+	
+\item 	On the positive side, it has been shown that this criterion very often results in retaining the
+	correct number of components, particularly when a small to moderate number of variables are
+	being analyzed and the variable communalities are high.  Stevens (1986) reviews studies that
+	have investigated the accuracy of the eigenvalue-one criterion, and recommends its use when
+	less than 30 variables are being analyzed and communalities are greater than .70, or when the
+	analysis is based on over 250 observations and the mean communality is greater than or equal to
+	0.60.
+	
+\item 	There are a number of problems associated with the eigenvalue-one criterion, however.  As was
+	suggested in the preceding paragraph, it can lead to retaining the wrong number of components
+	under circumstances that are often encountered in research (e.g., when many variables are
+	analyzed, when communalities are small).
+	
+\item 	Also, the mindless application of this criterion can
+	lead to retaining a certain number of components when the actual difference in the eigenvalues
+	of successive components is only trivial.  For example, if component 2 displays an eigenvalue of
+	1.001 and component 3 displays an eigenvalue of 0.999, then component 2 will be retained but
+	component 3 will not; this may mislead you into believing that the third component was
+	meaningless when, in fact, it accounted for almost exactly the same amount of variance as the
+	second component.
+	
+\item 	In short, the eigenvalue-one criterion can be helpful when used judiciously,
+	but the thoughtless application of this approach can lead to serious errors of interpretation.
+\end{itemize}
 
-On the positive side, it has been shown that this criterion very often results in retaining the
-correct number of components, particularly when a small to moderate number of variables are
-being analyzed and the variable communalities are high.  Stevens (1986) reviews studies that
-have investigated the accuracy of the eigenvalue-one criterion, and recommends its use when
-less than 30 variables are being analyzed and communalities are greater than .70, or when the
-analysis is based on over 250 observations and the mean communality is greater than or equal to
-0.60.
 
-There are a number of problems associated with the eigenvalue-one criterion, however.  As was
-suggested in the preceding paragraph, it can lead to retaining the wrong number of components
-under circumstances that are often encountered in research (e.g., when many variables are
-analyzed, when communalities are small).
-
-Also, the mindless application of this criterion can
-lead to retaining a certain number of components when the actual difference in the eigenvalues
-of successive components is only trivial.  For example, if component 2 displays an eigenvalue of
-1.001 and component 3 displays an eigenvalue of 0.999, then component 2 will be retained but
-component 3 will not; this may mislead you into believing that the third component was
-meaningless when, in fact, it accounted for almost exactly the same amount of variance as the
-second component.
-
-In short, the eigenvalue-one criterion can be helpful when used judiciously,
-but the thoughtless application of this approach can lead to serious errors of interpretation.
-
-\subsection{The scree test} With the scree test (Cattell, 1966), you plot the eigenvalues associated with
-each component and look for a “break” between the components with relatively large
-eigenvalues and those with small eigenvalues.  The components that appear before the break are
-assumed to be meaningful and are retained for rotation; those apppearing after the break are
-assumed to be unimportant and are not retained.
-
-Remark: The word “scree” refers to the loose rubble that lies at
-the base of a cliff.  When performing a scree test, you normally hope that the scree plot
-will take the form of a cliff:  At the top will be the eigenvalues for the few meaningful
-components, followed by a break (the edge of the cliff).  At the bottom of the cliff will lie
-the scree:  eigenvalues for the trivial components.
+\subsection{The Scree Test} 
+\begin{itemize}
+	\item With the \textbf{Scree Test} \textit{(Cattell, 1966)}, you plot the eigenvalues associated with
+	each component and look for a “break” between the components with relatively large
+	eigenvalues and those with small eigenvalues.
+	\item   The components that appear before the break are
+	assumed to be meaningful and are retained for rotation; those apppearing after the break are
+	assumed to be unimportant and are not retained.
+	
+	\item \textbf{Remark:} The word “scree” refers to the loose rubble that lies at
+	the base of a cliff.  When performing a scree test, you normally hope that the scree plot
+	will take the form of a cliff:  At the top will be the eigenvalues for the few meaningful
+	components, followed by a break (the edge of the cliff).  At the bottom of the cliff will lie
+	the scree:  eigenvalues for the trivial components.
+\end{itemize}
 
 \begin{figure}[h!]
 \begin{center}
@@ -395,25 +457,48 @@ this criterion has its own weaknesses as well, most notably the ambiguity that i
 by scree plots under typical research conditions:  Very often, it is difficult to determine exactly
 where in the scree plot a break exists, or even if a break exists at all.
 
+\subsection{Total Variance in the context of PCA}
+To understand the meaning of \textbf{total
+	variance} as it is used in a principal component analysis, remember that the observed
+variables are standardized in the course of the analysis.  This means that each variable is
+transformed so that it has a mean of zero and a variance of one.
+
+The total variance in the
+data set is simply the sum of the variances of these observed variables.  Because they have
+been standardized to have a variance of one, each observed variable contributes one unit of
+variance to the total variance in the data set.  Because of this, the total variance in a
+principal component analysis \textbf{\emph{will always be equal}} to the number of observed variables
+being analyzed.
+
+For example, if seven variables are being analyzed, the total variance will
+equal seven.  The components that are extracted in the analysis will partition this variance:
+perhaps the first component will account for 3.2 units of total variance; perhaps the second
+component will account for 2.1 units.  The analysis continues in this way until all of the
+variance in the data set (i.e. the remaining 1.7 units). has been accounted for.
+
 \subsection{Proportion of Variance Accounted For}
 
-A third criterion in solving the number of factors
-problem involves retaining a component if it accounts for a specified proportion (or percentage)
-of variance in the data set.  For example, you may decide to retain any component that accounts
-for at least $5\%$ or $10\%$ of the total variance.  This proportion can be calculated with a simple
-formula:
+\begin{itemize}
+	\item A third criterion in solving the number of factors
+	problem involves retaining a component if it accounts for a specified proportion (or percentage)
+	of variance in the data set. 
+	\item For example, you may decide to retain any component that accounts
+	for at least $5\%$ or $10\%$ of the total variance.  This proportion can be calculated with a simple
+	formula:
+	
+	\[ \mbox{Proportion}  = \frac{\mbox{Eigenvalue for the component of interest}}{\mbox{Total eigenvalues of the correlation matrix}}  \]
+	
+\item 	In principal component analysis, the “total eigenvalues of the correlation matrix” is equal to the
+	total number of variables being analyzed (because each variable contributes one unit of variance
+	to the analysis).
+	
+\item 	An alternative criterion is to retain enough components so that the cumulative percent of variance
+	accounted for is equal to some minimal value.  Suppose that,in a PCA procedure, that components 1, 2, 3,
+	and 4 accounted for approximately $37\%$, $33\%$, $13\%$, and $10\%$ of the total variance, respectively.
+	
+\item 	Suppose that it was required to account for $90\%$ of the variance. Adding these percentages together results in a sum of $93\%$.  This means that the cumulative percent of variance accounted for by components 1, 2, 3, and 4 is $93\%$.
+\end{itemize}
 
-\[ \mbox{Proportion}  = \frac{\mbox{Eigenvalue for the component of interest}}{\mbox{Total eigenvalues of the correlation matrix}}  \]
-
-In principal component analysis, the “total eigenvalues of the correlation matrix” is equal to the
-total number of variables being analyzed (because each variable contributes one unit of variance
-to the analysis).
-
-An alternative criterion is to retain enough components so that the cumulative percent of variance
-accounted for is equal to some minimal value.  Suppose that,in a PCA procedure, that components 1, 2, 3,
-and 4 accounted for approximately $37\%$, $33\%$, $13\%$, and $10\%$ of the total variance, respectively.
-
-Suppose that it was required to account for $90\%$ of the variance. Adding these percentages together results in a sum of $93\%$.  This means that the cumulative percent of variance accounted for by components 1, 2, 3, and 4 is $93\%$.
 
 \begin{figure}[h!]
 \begin{center}
@@ -497,27 +582,6 @@ Principal Component Analysis (PCA) and Exploratory Factor Analysis (EFA) are bot
 and sometimes mistaken as the same statistical method. However, there are distinct differences between PCA and
 EFA. Similarities and differences between PCA and EFA will be examined.
 
-
-\subsection{Principal Component Analysis (PCA)}
-\begin{itemize}
-\item Is a variable reduction technique
-\item Is used when variables are highly correlated
-\item Reduces the number of observed variables to a smaller number of principal components which account for most
-of the variance of the observed variables
-\item Is a large sample procedure
-\end{itemize}
-
-The number of components extracted is equal to the number of observed variables in the analysis. The first principal
-component identified accounts for most of the variance in the data. The second component identified accounts for the
-second largest amount of variance in the data and is uncorrelated with the first principal component and so on.
-
-
-The total amount of variance in PCA is equal to the number of observed variables being analyzed. In PCA, observed
-variables are standardized, (e.g., mean=0, standard deviation=1).
-
-Components accounting for maximal variance are retained while other components accounting for a trivial amount of
-variance are not retained. Eigenvalues indicate the amount of variance explained by each component. Eigenvectors
-are the weights used to calculate components scores.
 
 
 \subsection{Factor Analysis}
@@ -617,29 +681,6 @@ underlying and unique factors.
 %---------------------------------------------------------------------------------------------%
 \newpage
 
-\subsection{PCA Terminology}
-\begin{itemize}
-\item  PC loadings are correlation coefficients between the PC scores and the
-original variables.
-\item  PC loadings measure the importance of each variable in accounting for the
-variability in the PC.  It is possible to interpret the first few PCs in terms of
-'overall' effect or a 'contrast' between groups of variables based on the
-structures of PC loadings.
-\item high correlation between PC1 and a variable indicates that the variable is
-associated with the direction of the maximum amount of variation in the
-dataset.
-\item More than one variable might have a high correlation with PC1. A strong
-correlation between a variable and PC2 indicates that the variable is
-responsible for the next largest variation in the data perpendicular to PC1,
-and so on.
-\item  if a variable does not correlate to any PC, or correlates only with the last PC,
-or one before the last PC, this usually suggests that the variable has little or
-no contribution to the variation in the dataset. Therefore, PCA may often
-indicate which variables in a dataset are important and which ones may be of
-little consequence. Some of these low-performance variables might
-therefore be removed from consideration in order to simplify the overall
-analyses.
-\end{itemize}
 
 \subsection{Biplot Display of PCA}
 \begin{itemize}
@@ -665,6 +706,80 @@ variables included in the analysis.This is the proportion of each variable's var
 
 \textbf{Extraction}  - The values in this column indicate the proportion of each variable's variance that can be explained by the principal components.  Variables with high values are well represented in the common factor space, while variables with low values are not well represented. They are the reproduced variances from the number of components that you have saved.  You can find these values on the diagonal of the reproduced correlation matrix.
 
+
+
+
+\subsection{Exploratory Factory Analysis}
+
+
+
+%http://support.sas.com/publishing/pubcat/chaps/55129.pdf
+%-------------------------------------------------------------------------------------------------------%
+\subsection{Introduction to Rotation}
+
+
+Factor patterns and factor loadings.
+
+After extracting the initial components, computer softwars
+will create an unrotated factor pattern matrix. The rows of this matrix represent the variables
+being analyzed, and the columns represent the retained components (these components would commonly be
+referred to as FACTOR1, FACTOR2 and so forth in the output).
+
+The entries in the matrix are \textbf{\emph{factor loadings}}. A factor loading is a general term for a coefficient
+that appears in a factor pattern matrix or a factor structure matrix. In an analysis that results in
+oblique (correlated) components, the definition for a factor loading is different depending on
+whether it is in a factor pattern matrix or in a factor structure matrix.
+
+However, the situation is simpler in an analysis that results in orthogonal components (as in the present case): In an
+orthogonal analysis, factor loadings are equivalent to conventional bivariate correlations between the observed
+variables and the components.
+%-------------------------------------------------------------------------------------------------------%
+
+
+\section{What Is Rotation?}
+%http://jalt.org/test/PDF/Brown31.pdf
+\begin{itemize}
+	\item Rotation is the performing arithmetic to obtain a new set of factor loadings (similar to regression weights) from a given set.
+	
+	\item Rotation is any of several methods in factor analysis by which the researcher attempts to relate the calculated factors to theoretical entities. This is done differently depending upon whether the factors are believed to be correlated (oblique) or uncorrelated
+	(orthogonal). 
+	\item In factor analysis and principal-components analysis, rotation of the factor axes
+	(dimensions) identified in the initial extraction of factors, in order to obtain simple and interpretable
+	factors.
+\end{itemize}
+
+%-------------------------------------------------------------------------------------------------------%
+\subsection{Varimax Rotation}
+A varimax rotation is an orthogonal rotation, meaning that
+it results in uncorrelated components. Compared to some other types of rotations, a varimax
+rotation tends to maximize the variance of a column of the factor pattern matrix (as opposed to a
+row of the matrix). This rotation is probably the most commonly used orthogonal rotation in the
+social sciences.
+
+\subsection{VARIMAX rotation in Principal Component Analysis}
+%http://www.utd.edu/~herve/Abdi-rotations-pretty.pdf
+\begin{itemize}
+\item Varimax, which was developed by Kaiser (1958), is indubitably the most
+popular rotation method by far. For varimax a simple solution means that each
+factor has a small number of large loadings and a large number of zero (or small)
+loadings.
+
+\item This simplifies the interpretation because, after a varimax rotation,
+each original variable tends to be associated with one (or a small number) of
+factors, and each factor represents only a small number of variables. In addition,
+the factors can often be interpreted from the opposition of few variables with
+positive loadings to few variables with negative loadings.
+
+%-------------------------------------------------------------------------------------------------------%
+
+%http://data-mining-tutorials.blogspot.ie/2009/12/varimax-rotation-in-principal-component.html
+\item A VARIMAX rotation is a change of coordinates used in principal component analysis (PCA) that maximizes the sum of the variances of the squared loadings. Thus, all the coefficients (squared correlation with factors) will be either large or near zero, with few intermediate values.
+
+\item The goal is to associate each variable to at most one factor. The interpretation of the results of the PCA will be simplified. Then each variable will be associated to one and one only factor, they are split (as much as possible) into disjoint sets.
+\end{itemize}
+
+
+%-------------------------------------------------------------------------------------------------------%
 
 \subsection{What is a Rotation}
 
@@ -731,75 +846,6 @@ Canonical Correlation
 
 %Item Analysis and Factor Analysis with SPSS
 %http://www2.sas.com/proceedings/sugi30/203-30.pdf
-
-\subsection{Exploratory Factory Analysis}
-
-
-
-%http://support.sas.com/publishing/pubcat/chaps/55129.pdf
-%-------------------------------------------------------------------------------------------------------%
-\subsection{Introduction to Rotation}
-
-
-Factor patterns and factor loadings.
-
-After extracting the initial components, computer softwars
-will create an unrotated factor pattern matrix. The rows of this matrix represent the variables
-being analyzed, and the columns represent the retained components (these components would commonly be
-referred to as FACTOR1, FACTOR2 and so forth in the output).
-
-The entries in the matrix are \textbf{\emph{factor loadings}}. A factor loading is a general term for a coefficient
-that appears in a factor pattern matrix or a factor structure matrix. In an analysis that results in
-oblique (correlated) components, the definition for a factor loading is different depending on
-whether it is in a factor pattern matrix or in a factor structure matrix.
-
-However, the situation is simpler in an analysis that results in orthogonal components (as in the present case): In an
-orthogonal analysis, factor loadings are equivalent to conventional bivariate correlations between the observed
-variables and the components.
-%-------------------------------------------------------------------------------------------------------%
-
-
-\subsection{What Is Rotation?}
-%http://jalt.org/test/PDF/Brown31.pdf
-Rotation is the performing arithmetic to obtain a new set of factor loadings (similar to regression weights) from a given set.
-
-Rotation is any of several methods in factor analysis by which the researcher attempts to relate the calculated factors to theoretical entities. This is done differently depending upon whether the factors are believed to be correlated (oblique) or uncorrelated
-(orthogonal). In factor analysis and principal-components analysis, rotation of the factor axes
-(dimensions) identified in the initial extraction of factors, in order to obtain simple and interpretable
-factors.
-%-------------------------------------------------------------------------------------------------------%
-\subsection{Varimax Rotation}
-A varimax rotation is an orthogonal rotation, meaning that
-it results in uncorrelated components. Compared to some other types of rotations, a varimax
-rotation tends to maximize the variance of a column of the factor pattern matrix (as opposed to a
-row of the matrix). This rotation is probably the most commonly used orthogonal rotation in the
-social sciences.
-
-\subsection{VARIMAX rotation in Principal Component Analysis}
-%http://www.utd.edu/~herve/Abdi-rotations-pretty.pdf
-\begin{itemize}
-\item Varimax, which was developed by Kaiser (1958), is indubitably the most
-popular rotation method by far. For varimax a simple solution means that each
-factor has a small number of large loadings and a large number of zero (or small)
-loadings.
-
-\item This simplifies the interpretation because, after a varimax rotation,
-each original variable tends to be associated with one (or a small number) of
-factors, and each factor represents only a small number of variables. In addition,
-the factors can often be interpreted from the opposition of few variables with
-positive loadings to few variables with negative loadings.
-
-%-------------------------------------------------------------------------------------------------------%
-
-%http://data-mining-tutorials.blogspot.ie/2009/12/varimax-rotation-in-principal-component.html
-\item A VARIMAX rotation is a change of coordinates used in principal component analysis (PCA) that maximizes the sum of the variances of the squared loadings. Thus, all the coefficients (squared correlation with factors) will be either large or near zero, with few intermediate values.
-
-\item The goal is to associate each variable to at most one factor. The interpretation of the results of the PCA will be simplified. Then each variable will be associated to one and one only factor, they are split (as much as possible) into disjoint sets.
-\end{itemize}
-
-
-%-------------------------------------------------------------------------------------------------------%
-
 \subsection{Interpreting the Rotated Solution}
 
 Interpreting a rotated solution means determining just what is measured by each of the retained
