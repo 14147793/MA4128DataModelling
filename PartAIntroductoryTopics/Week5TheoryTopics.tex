@@ -59,12 +59,7 @@
 \end{itemize}
 
 
-\subsection{Overfitting}
-\begin{itemize}
-	\item The problem with evaluating a predictive model on training data is that it does not inform you on how well the model has generalized to new unseen data.
-	
-\item 	A model that is selected for its accuracy on the training dataset rather than its accuracy on an unseen test dataset is very likely have lower accuracy on an unseen test dataset. The reason is that the model is not as generalized. It has specalized to the structure in the training dataset. This is called \textbf{overfitting}.
-\end{itemize}
+
 
 \subsection{Cross-Validation and Testing}
 %====================================================%
@@ -157,20 +152,7 @@ are hazardous, costly or impossible to collect
 
 %-------------------------------------------------------%
 
-\subsection*{Type III Errors}
 
-\begin{itemize}
-\item Type III error is related to hypotheses suggested by the data, if tested using the data set that suggested them, are likely to be accepted even when they are not true. 
-
-\item This is because circular reasoning would be involved: something seems true in the limited data set, therefore we hypothesize that it is true in general, therefore we (wrongly) test it on the same limited data set, which seems to confirm that it is true. 
-
-\item Generating hypotheses based on data already observed, in the absence of testing them on new data, is referred to as \textbf{Post Hoc theorizing}.
-
-
-\item The correct procedure is to test any hypothesis on a data set that was not used to generate the hypothesis.
-\end{itemize}
-%=================================================%
-\newpage
 \subsection{Binary Classification}
 \noindent \textbf{Defining True/False Positives}
 In general, Positive = identified and negative = rejected. Therefore:
