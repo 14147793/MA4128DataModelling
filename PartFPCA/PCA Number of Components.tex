@@ -28,7 +28,8 @@
 \begin{document}
 
 
-\section{Number of Extracted Components }
+\section{Determining the Number of Components in PCA }
+\subsection{Introduction}
 \textit{(Continuing from 7 question questionnaire example.)}
 \begin{itemize}
 	\item The preceding section may have created the impression
@@ -42,20 +43,20 @@
 	
 	\item 	However, in most analyses, only the first few components account for meaningful amounts of
 	variance, so only these first few components are retained, interpreted, and used in subsequent
-	analyses (such as in multiple regression analyses).  \\ For example, in your analysis of the 7-item
+	analyses (such as in multiple regression analyses).  \item For example, in your analysis of the 7-item
 	job satisfaction questionnaire, it is likely that only the first two components would account for a
 	meaningful amount of variance; therefore only these would be retained for interpretation.
-	\item  You
+	 You
 	would assume that the remaining five components accounted for only trivial amounts of
 	variance.  These latter components would therefore be discarded.
 \end{itemize}
 
-\subsection{Determining the Number of Meaningful Components to Retain}
+\subsection{Methods of Determining the Number of Meaningful Components to Retain}
 
 \begin{itemize}
 	\item 
 
-\textbf{Important:} You decide just how many of these components are truly
+\textbf{Important:} As you carry out the analysis, you must decide just how many of these components are truly
 meaningful and worthy of being retained for further analysis.
 
 
@@ -75,13 +76,14 @@ interpretation.
 	\item the proportion of variance accounted for, 
 	\item the interpretability criterion.
 \end{enumerate}
+In the next section, we will go through them one by one.
 \end{itemize}
 
 \section{Selection Techniques}
-\subsection{The Scree Test} 
+\subsection{Method 1: The Scree Test} 
 \begin{itemize}
-	\item With the \textbf{Scree Test} \textit{(Cattell, 1966)}, you plot the eigenvalues associated with
-	each component and look for a break between the components with relatively large
+	\item With the \textbf{Scree Test} \textit{(Cattell, 1966)}, eigenvalues associated with
+	each component are plotted in descending order. We look for a break between the components with relatively large
 	eigenvalues and those with small eigenvalues.
 	
 %	\subsection*{Scree Test} Plotting the eigenvalues against the
@@ -99,7 +101,7 @@ interpretation.
 	assumed to be unimportant and are not retained.
 	
 	\item \textbf{Remark:} The word ``scree" refers to the loose rubble that lies at
-	the base of a cliff.  When performing a scree test, you normally hope that the scree plot
+	the base of a cliff.\\ \smallskip  When performing a scree test, you normally hope that the scree plot
 	will take the form of a cliff:  At the top will be the eigenvalues for the few meaningful
 	components, followed by a break (the edge of the cliff).  At the bottom of the cliff will lie
 	the scree:  eigenvalues for the trivial components.
@@ -114,34 +116,44 @@ interpretation.
 	
 \end{figure}
 
+\begin{itemize}
+	\item Sometimes a scree plot will display several large breaks.  When this is the case, you could look
+	for the last big break before the eigenvalues begin to level off. Only the components that appear
+	before this last large break should be retained.
+\end{itemize}
 
-Sometimes a scree plot will display several large breaks.  When this is the case, you should look
-for the last big break before the eigenvalues begin to level off. Only the components that appear
-before this last large break should be retained.
 
-\subsubsection{Advantages and Disadvantages}
-The scree test can be expected to provide reasonably accurate results, provided the sample is
-large (over 200) and most of the variable communalities are large (Stevens, 1986).  However,
-this criterion has its own weaknesses as well, most notably the ambiguity that is often displayed
-by scree plots under typical research conditions:  Very often, it is difficult to determine exactly
-where in the scree plot a break exists, or even if a break exists at all.
+\subsubsection*{Advantages and Disadvantages}
+\begin{itemize}
+	\item The scree test can be expected to provide reasonably accurate results, provided the sample is
+	large (over 200) and most of the variable communalities are large \textit{(Stevens, 1986)}. 
+	\item However,
+	this criterion has its own weaknesses as well, most notably the ambiguity that is often displayed
+	by scree plots under typical research conditions:  Very often, it is difficult to determine exactly
+	where in the scree plot a break exists, or even if a break exists at all.
+\end{itemize}
 
-\subsection{The Eigenvalue-One Criterion} 
+
+\subsection{Method 2: The Eigenvalue-One Criterion} 
 \begin{itemize}
 	\item In principal component analysis, one of the most commonly
 	used criteria for solving the number-of-components problem is the eigenvalue-one criterion, also
-	known as the Kaiser criterion (Kaiser, 1960).  
-	\item With this approach, you retain and interpret any
-	component with an eigenvalue greater than 1.00.
-	
-	\item 	The rationale for this criterion is straightforward.  Each observed variable contributes one unit of
+	known as the Kaiser criterion \textit{(Kaiser, 1960)}.  
+	\item \textbf{Important:} With this approach, you retain and interpret any
+	component with an eigenvalue greater than 1.00. (hence the name)
+	\item The rationale for this criterion is simple: 
+	\begin{itemize}
+	\item[$\ast$] 	  Each observed variable contributes one unit of
 	variance to the total variance in the data set.  Any component that displays an eigenvalue greater
 	than 1.00 is accounting  for a greater amount of variance than had been contributed by one
 	variable.  Such a component is therefore accounting for a meaningful amount of variance, and is
 	worthy of being retained.
 	
-	\item 	On the other hand, a component with an eigenvalue less than 1.00 is accounting for less variance
-	than had been contributed by one variable.  The purpose of principal component analysis is to
+	\item[$\ast$]  	On the other hand, a component with an eigenvalue less than 1.00 is accounting for less variance
+	than had been contributed by one variable.  
+	\end{itemize}
+	\item 
+	The purpose of principal component analysis is to
 	reduce a number of observed variables into a relatively smaller number of components; this
 	cannot be effectively achieved if you retain components that account for less variance than had
 	been contributed by individual variables.  For this reason, components with eigenvalues less than
@@ -149,18 +161,20 @@ where in the scree plot a break exists, or even if a break exists at all.
 \end{itemize} 
 %====================================================%
 
-\subsubsection{Advantages and Disadvantages}
+\subsubsection*{Advantages and Disadvantages}
 \begin{itemize}
 	\item The eigenvalue-one criterion has a number of positive features that have contributed to its
 	popularity.  Perhaps the most important reason for its widespread use is its simplicity:  You do
 	not make any subjective decisions, but merely retain components with eigenvalues greater than
 	one.
 	
+	
 	\item 	On the positive side, it has been shown that this criterion very often results in retaining the
 	correct number of components, particularly when a small to moderate number of variables are
-	being analyzed and the variable communalities are high.  Stevens (1986) reviews studies that
+	being analyzed and the variable communalities are high.
+	\\  \textit{Stevens (1986)} reviews studies that
 	have investigated the accuracy of the eigenvalue-one criterion, and recommends its use when
-	less than 30 variables are being analyzed and communalities are greater than .70, or when the
+	less than 30 variables are being analyzed and communalities are greater than 0.70, or when the
 	analysis is based on over 250 observations and the mean communality is greater than or equal to
 	0.60.
 	
@@ -171,24 +185,34 @@ where in the scree plot a break exists, or even if a break exists at all.
 	
 	\item 	Also, the mindless application of this criterion can
 	lead to retaining a certain number of components when the actual difference in the eigenvalues
-	of successive components is only trivial.  For example, if component 2 displays an eigenvalue of
-	1.001 and component 3 displays an eigenvalue of 0.999, then component 2 will be retained but
-	component 3 will not; this may mislead you into believing that the third component was
-	meaningless when, in fact, it accounted for almost exactly the same amount of variance as the
-	second component.
+	of successive components is only trivial.  
+	\begin{itemize}
+		\item[$\ast$] For example, if component 2 displays an eigenvalue of
+		1.002 and component 3 displays an eigenvalue of 0.998, then component 2 will be retained but
+		component 3 will not; this may mislead you into believing that the third component was
+		meaningless when, in fact, it accounted for almost exactly the same amount of variance as the
+		second component.
+	\end{itemize}
+
 	
 	\item 	In short, the eigenvalue-one criterion can be helpful when used judiciously,
 	but the thoughtless application of this approach can lead to serious errors of interpretation.
 \end{itemize}
+\begin{figure}
+\centering
+\includegraphics[width=0.7\linewidth]{spss-eigen}
+\end{figure}
 
 
 
-\subsection{Total Variance in the context of PCA}
+\subsection{(For Next Method) Total Variance in the context of PCA}
+
 \begin{itemize}
 	\item To understand the meaning of \textbf{total
 		variance} as it is used in a principal component analysis, remember that the observed
 	variables are standardized in the course of the analysis.  This means that each variable is
 	transformed so that it has a mean of zero and a variance of one.
+	\item \textbf{Important} In the SPSS output they are equivalent to the eigen-values for each component.
 	
 \item 	The total variance in the
 	data set is simply the sum of the variances of these observed variables.  Because they have
@@ -205,7 +229,7 @@ where in the scree plot a break exists, or even if a break exists at all.
 \end{itemize}
 
 
-\subsection{Proportion of Variance Accounted For}
+\subsection{Method 3: Proportion of Variance Accounted For}
 
 \begin{itemize}
 	\item A third criterion in solving the number of factors
@@ -239,22 +263,44 @@ where in the scree plot a break exists, or even if a break exists at all.
 \end{figure}
 
 
-\subsubsection{Advantages and Disadvantages}
-
-The proportion of variance criterion has a number of positive features.  For example, in most
-cases, you would not want to retain a group of components that, combined, account for only a
-minority of the variance in the data set (say, $30\%$).  Nonetheless, many critical values discussed
-earlier are obviously arbitrary.  Because of these and related problems, this approach has sometimes been
-criticized for its subjectivity (Kim and Mueller, 1978).
-
-\subsection{The Interpretability Criteria}
-
-Perhaps the most important criterion for solving the \textbf{\emph{number of-components}} problem is the interpretability criterion:  interpreting the substantive meaning of the retained components and verifying that this interpretation makes sense in terms of what is known about the constructs under investigation.
+\subsubsection*{Advantages and Disadvantages}
+\begin{itemize}
+	\item The proportion of variance criterion has a number of positive features.  For example, in most
+	cases, you would not want to retain a group of components that, combined, account for only a
+	minority of the variance in the data set (for example, $30\%$).  \item Nonetheless, many critical values discussed
+	earlier are obviously arbitrary.  Because of these and related problems, this approach has sometimes been
+	criticized for its subjectivity \textit{(Kim and Mueller, 1978)}.
+\end{itemize}
 
 
-The following list provides four rules to follow in doing this.  (A later section shows how to
-actually interpret the results of a principal component analysis; the following rules will be more
-meaningful after you have completed that section).
+\subsection{Method 4: The Interpretability Criteria}
+
+Perhaps the most important criterion for solving the \textbf{\emph{number of-components}} problem is the interpretability criterion:  interpreting the substantive meaning of the retained components and verifying that this interpretation makes sense in terms of what is known about the data under investigation, a Post-Hoc analysis in other words.\\
+\medskip
+
+\noindent \textit{Remark: There is a lot more to this in practice, but we will not have time to consider it fully.}
+
+
+\section{Rotations}
+\begin{itemize}
+	\item  Ideally, you would like to review the correlations between the variables and the
+	components and use this information to interpret the components; that is, to determine what
+	construct seems to be measured by component 1, what construct seems to be measured by
+	component 2, and so forth.
+	\item \textbf{Important:}  Unfortunately, when more than one component has been retained in
+	an analysis, the interpretation of an unrotated factor pattern is usually quite difficult. To make
+	interpretation easier, you will normally perform an operation called a \textbf{rotation}. 
+	\item \textbf{Definition:} A rotation is a
+	linear transformation that is performed on the factor solution for the purpose of making the
+	solution easier to interpret. 
+\end{itemize}
+
+
+
+\end{document}
+
+
+The following list provides four rules to follow in doing this.  .
 
 \begin{enumerate}
 	\item Are there at least three variables (items) with significant loadings on each retained
@@ -281,9 +327,6 @@ meaningful after you have completed that section).
 		variables, and near-zero loadings for the remaining variables.
 	\end{itemize}
 \end{enumerate}
+
 \newpage
 %----------------------------------------------------------------------------------%
-
-
-
-\end{document}

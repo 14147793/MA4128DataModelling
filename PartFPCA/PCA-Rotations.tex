@@ -27,18 +27,72 @@
 	
 	\tableofcontents
 	\newpage
+
+%-------------------------------------------------------------------------------------------------------%
+\section{Introduction to Rotation}
+
+\begin{itemize}
+	\item After extracting the initial components, computer software
+	will create an unrotated factor pattern matrix. The rows of this matrix represent the variables
+	being analyzed, and the columns represent the retained components.
 	
-	%http://www.ats.ucla.edu/stat/r/dae/canonical.htm
-\subsection{Canonical Correlation}
+\item	The entries in the matrix are \textbf{\emph{factor loadings}}. A factor loading is a general term for a coefficient
+	that appears in a factor pattern matrix or a factor structure matrix. 
 
-%Item Analysis and Factor Analysis with SPSS
-%http://www2.sas.com/proceedings/sugi30/203-30.pdf
+\item In an analysis that results in
+	oblique (correlated) components, the definition for a factor loading is different depending on
+	whether it is in a factor pattern matrix or in a factor structure matrix.
+	
+\item 	However, the situation is simpler in an analysis that results in orthogonal components: In an
+	orthogonal analysis, factor loadings are equivalent to conventional bivariate correlations between the observed
+	variables and the components.
+\end{itemize}
 
-\subsection{Exploratory Factory Analysis}
+	%-------------------------------------------------------------------------------------------------------%
+	\subsection{What Is Rotation?}
+	%http://jalt.org/test/PDF/Brown31.pdf
+\begin{itemize}
+	\item 	Rotation is the performing arithmetic to obtain a new set of factor loadings (similar to regression weights) from a given set.
+	
+\item 	Rotation is any of several methods in factor analysis by which the researcher attempts to relate the calculated factors to theoretical entities. This is done differently depending upon whether the factors are believed to be correlated (oblique) or uncorrelated
+	(orthogonal).
+\item  In factor analysis and principal-components analysis, rotation of the factor axes
+	(dimensions) identified in the initial extraction of factors, in order to obtain simple and interpretable
+	factors.
+	
+\end{itemize}
 
 
+%-------------------------------------------------------------------------------------------------------%
+\subsection{What is a Rotation}
 
-%http://support.sas.com/publishing/pubcat/chaps/55129.pdf
+\begin{itemize}
+	\item Ideally, you would like to review the correlations between the variables and the
+	components and use this information to interpret the components; that is, to determine what
+	construct seems to be measured by component 1, what construct seems to be measured by
+	component 2, and so forth.
+	\item  Unfortunately, when more than one component has been retained in
+	an analysis, the interpretation of an unrotated factor pattern is usually quite difficult. To make
+	interpretation easier, you will normally perform an operation called a rotation. 
+	\item A rotation is a
+	linear transformation that is performed on the factor solution for the purpose of making the
+	solution easier to interpret.
+\end{itemize}
+
+%-------------------------------------------------------------------------------------------------------%
+
+\section{What Is Rotation?}
+%http://jalt.org/test/PDF/Brown31.pdf
+\begin{itemize}
+	\item Rotation is the performing arithmetic to obtain a new set of factor loadings (similar to regression weights) from a given set.
+	
+	\item Rotation is any of several methods in factor analysis by which the researcher attempts to relate the calculated factors to theoretical entities. This is done differently depending upon whether the factors are believed to be correlated (oblique) or uncorrelated
+	(orthogonal). 
+	\item In factor analysis and principal-components analysis, rotation of the factor axes
+	(dimensions) identified in the initial extraction of factors, in order to obtain simple and interpretable
+	factors.
+\end{itemize}
+
 %-------------------------------------------------------------------------------------------------------%
 \subsection{Introduction to Rotation}
 
@@ -59,35 +113,40 @@ However, the situation is simpler in an analysis that results in orthogonal comp
 orthogonal analysis, factor loadings are equivalent to conventional bivariate correlations between the observed
 variables and the components.
 %-------------------------------------------------------------------------------------------------------%
-\subsection{What Is Rotation?}
-%http://jalt.org/test/PDF/Brown31.pdf
-Rotation is the performing arithmetic to obtain a new set of factor loadings (similar to regression weights) from a given set.
 
-Rotation is any of several methods in factor analysis by which the researcher attempts to relate the calculated factors to theoretical entities. This is done differently depending upon whether the factors are believed to be correlated (oblique) or uncorrelated
-(orthogonal). In factor analysis and principal-components analysis, rotation of the factor axes
-(dimensions) identified in the initial extraction of factors, in order to obtain simple and interpretable
-factors.
-%-------------------------------------------------------------------------------------------------------%
+
+\subsection{Varimax Rotation}
+A varimax rotation is an orthogonal rotation, meaning that
+it results in uncorrelated components. Compared to some other types of rotations, a varimax
+rotation tends to maximize the variance of a column of the factor pattern matrix (as opposed to a
+row of the matrix). This rotation is probably the most commonly used orthogonal rotation in the
+social sciences.
+
 \subsection{VARIMAX rotation in Principal Component Analysis}
 %http://www.utd.edu/~herve/Abdi-rotations-pretty.pdf
-Varimax, which was developed by Kaiser (1958), is indubitably the most
-popular rotation method by far. For varimax a simple solution means that each
-factor has a small number of large loadings and a large number of zero (or small)
-loadings.
+\begin{itemize}
+	\item Varimax, which was developed by Kaiser (1958), is indubitably the most
+	popular rotation method by far. For varimax a simple solution means that each
+	factor has a small number of large loadings and a large number of zero (or small)
+	loadings.
+	
+	\item This simplifies the interpretation because, after a varimax rotation,
+	each original variable tends to be associated with one (or a small number) of
+	factors, and each factor represents only a small number of variables. In addition,
+	the factors can often be interpreted from the opposition of few variables with
+	positive loadings to few variables with negative loadings.
+	
+	%-------------------------------------------------------------------------------------------------------%
+	
+	%http://data-mining-tutorials.blogspot.ie/2009/12/varimax-rotation-in-principal-component.html
+	\item A VARIMAX rotation is a change of coordinates used in principal component analysis (PCA) that maximizes the sum of the variances of the squared loadings. Thus, all the coefficients (squared correlation with factors) will be either large or near zero, with few intermediate values.
+	
+	\item The goal is to associate each variable to at most one factor. The interpretation of the results of the PCA will be simplified. Then each variable will be associated to one and one only factor, they are split (as much as possible) into disjoint sets.
+\end{itemize}
 
-This simplifies the interpretation because, after a varimax rotation,
-each original variable tends to be associated with one (or a small number) of
-factors, and each factor represents only a small number of variables. In addition,
-the factors can often be interpreted from the opposition of few variables with
-positive loadings to few variables with negative loadings.
 
+%-------------------------------------------------------------------------------------------------------%
 
-%http://data-mining-tutorials.blogspot.ie/2009/12/varimax-rotation-in-principal-component.html
-A VARIMAX rotation is a change of coordinates used in principal component analysis (PCA) that maximizes the sum of the variances of the squared loadings. Thus, all the coefficients (squared correlation with factors) will be either large or near zero, with few intermediate values.
-
-The goal is to associate each variable to at most one factor. The interpretation of the results of the PCA will be simplified. Then each variable will be associated to one and one only factor, they are split (as much as possible) into disjoint sets.
-
-%================================================================================================ %
 \subsection{What is a Rotation}
 
 Ideally, you would like to review the correlations between the variables and the
@@ -98,6 +157,7 @@ an analysis, the interpretation of an unrotated factor pattern is usually quite 
 interpretation easier, you will normally perform an operation called a rotation. A rotation is a
 linear transformation that is performed on the factor solution for the purpose of making the
 solution easier to interpret.
+
 %-------------------------------------------------------------------------------------------------------%
 
 \subsection{Varimax Rotation}
@@ -115,10 +175,132 @@ given component, and determining what these variables have in common. Usually, a
 is assigned to each retained component that describes its content.
 The first decision to be made at this stage is to decide how large a factor loading must be to be
 considered ``large."
+
+Guidelines are provided in statistical literature for testing the statistical significance of factor loadings. Given that this is an introductory treatment of principal component analysis, however, simply consider a loading
+to be large if its absolute value exceeds 0.40.
+
+
+\end{document}
+
+%-------------------------------------------------------------------------------------------------------%
+%\subsection{Factor loadings}
+%Factor loadings refer to the Correlations between the original variables and the factors, and
+%the key to understanding the underlying nature of a particular factor. Squared
+%factor loadings indicate what percentage of the variance in an original variable is
+%explained by a factor.
+%
+%
+%
+%Factor loadings (factor or component coefficients) : The
+%factor loadings, also called component loadings in PCA, are the
+%correlation coefficients between the variables (rows) and
+%factors (columns).
+%
+%
+%
+%Analogous to Pearson's r, the squared factor loading is the
+%percent of variance in that variable explained by the factor.
+%To get the percent of variance in all the variables accounted
+%for by each factor, add the sum of the squared factor
+%loadings for that factor (column) and divide by the number of
+%variables. (Note the number of variables equals the sum of
+%their variances as the variance of a standardized variable is
+%1.) This is the same as dividing the factor's eigenvalue by the
+%number of variables
+%http://www.ats.ucla.edu/stat/r/dae/canonical.htm
+Canonical Correlation
+
+%Item Analysis and Factor Analysis with SPSS
+%http://www2.sas.com/proceedings/sugi30/203-30.pdf
+\subsection{Interpreting the Rotated Solution}
+
+Interpreting a rotated solution means determining just what is measured by each of the retained
+components. Briefly, this involves identifying the variables that demonstrate high loadings for a
+given component, and determining what these variables have in common. Usually, a brief name
+is assigned to each retained component that describes its content.
+The first decision to be made at this stage is to decide how large a factor loading must be to be
+considered ``large."
 Guidelines are providedd in statistical literature for testing the statistical significance of factor loadings. Given that this
 is an introductory treatment of principal component analysis, however, simply consider a loading
-to be “large” if its absolute value exceeds 0.40.
+to be ?large? if its absolute value exceeds 0.40.
 
+
+
+%http://support.sas.com/publishing/pubcat/chaps/55129.pdf
+
+
+
+\subsection{Other orthogonal rotations}
+%http://www.utd.edu/~herve/Abdi-rotations-pretty.pdf
+There are several other methods for orthogonal rotation such as the quartimax
+rotation, which minimizes the number of factors needed to explain each
+variable, and the equimax rotation which is a compromise between varimax
+and quartimax. Other methods exist, but none approaches varimax in popularity. 
+
+\newpage
+\subsection{Interpreting the Rotated Solution}
+\begin{itemize}
+	\item Interpreting a rotated solution means determining just what is measured by each of the retained
+	components. 
+	\item Briefly, this involves identifying the variables that demonstrate high loadings for a
+	given component, and determining what these variables have in common. 
+	\item Usually, a brief name
+	is assigned to each retained component that describes its content.
+	\item The first decision to be made at this stage is to decide how large a factor loading must be to be
+	considered ``large."
+	Guidelines are providedd in statistical literature for testing the statistical significance of factor loadings. 
+	\item Given that this
+	is an introductory treatment of principal component analysis, however, simply consider a loading
+	to be “large” if its absolute value exceeds 0.40.
+\end{itemize}
+
+
+\subsection{VARIMAX rotation in Principal Component Analysis}
+%http://www.utd.edu/~herve/Abdi-rotations-pretty.pdf
+Varimax, which was developed by Kaiser (1958), is indubitably the most
+popular rotation method by far. For varimax a simple solution means that each
+factor has a small number of large loadings and a large number of zero (or small)
+loadings.
+
+\begin{itemize}
+	\item This simplifies the interpretation because, after a varimax rotation,
+	each original variable tends to be associated with one (or a small number) of
+	factors, and each factor represents only a small number of variables. In addition,
+	the factors can often be interpreted from the opposition of few variables with
+	positive loadings to few variables with negative loadings.
+	
+	
+	%http://data-mining-tutorials.blogspot.ie/2009/12/varimax-rotation-in-principal-component.html
+\item	A VARIMAX rotation is a change of coordinates used in principal component analysis (PCA) that maximizes the sum of the variances of the squared loadings. Thus, all the coefficients (squared correlation with factors) will be either large or near zero, with few intermediate values.
+\end{itemize}
+
+
+The goal is to associate each variable to at most one factor. The interpretation of the results of the PCA will be simplified. Then each variable will be associated to one and one only factor, they are split (as much as possible) into disjoint sets.
+
+%================================================================================================ %
+
+\subsection{Varimax Rotation}
+A varimax rotation is an orthogonal rotation, meaning that
+it results in uncorrelated components. Compared to some other types of rotations, a varimax
+rotation tends to maximize the variance of a column of the factor pattern matrix (as opposed to a
+row of the matrix). This rotation is probably the most commonly used orthogonal rotation in the
+social sciences.
+
+
+\subsection{Other orthogonal rotations}
+%http://www.utd.edu/~herve/Abdi-rotations-pretty.pdf
+\begin{itemize}
+	\item There are several other methods for orthogonal rotation such as the quartimax
+	rotation, which minimizes the number of factors needed to explain each
+	variable, and the equimax rotation which is a compromise between varimax
+	and quartimax.
+	\item  Other methods exist, but none approaches VARIMAX in popularity. 
+\end{itemize}
+
+\end{document}
+\section{------------------END OF PRINTED DOCUMENT}
+
+%http://www.ats.ucla.edu/stat/r/dae/canonical.htm
 \subsection{SCRATCHOUT}
 
 %http://support.sas.com/publishing/pubcat/chaps/55129.pdf
@@ -189,12 +371,16 @@ Component - The columns under this heading are the principal components that hav
 
 %-------------------------------------------------------------------------------------------------------%
 
-\subsection{Other orthogonal rotations}
-%http://www.utd.edu/~herve/Abdi-rotations-pretty.pdf
-There are several other methods for orthogonal rotation such as the quartimax
-rotation, which minimizes the number of factors needed to explain each
-variable, and the equimax rotation which is a compromise between varimax
-and quartimax. Other methods exist, but none approaches varimax in popularity. 
 
+	\subsection{Canonical Correlation}
+	
+	%Item Analysis and Factor Analysis with SPSS
+	%http://www2.sas.com/proceedings/sugi30/203-30.pdf
+	
+	\subsection{Exploratory Factory Analysis}
+	
+	
+	
+	%http://support.sas.com/publishing/pubcat/chaps/55129.pdf
 
 \end{document}
