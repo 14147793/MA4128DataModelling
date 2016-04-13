@@ -30,7 +30,8 @@
 \tableofcontents
 %http://support.sas.com/publishing/pubcat/chaps/55129.pdf
 
-\subsection{Principal Component Analysis (PCA)}
+\newpage
+\section{Principal Component Analysis (PCA)}
 \begin{itemize}
 	\item Is a variable reduction technique
 	\item Is used when variables are highly correlated
@@ -69,10 +70,6 @@ are the weights used to calculate components scores.
 \end{itemize}
 
 
-\section{Overview of Course}
-
-To ground the students in Applied Multivariate Analysis. This module serves business and mathematics students. It introduces the mathematical statistical ideas behind \begin{itemize} \item Principal Component Analysis, \item Factor Analysis, \item Cluster Analysis, \item Discrimination Function, \item The Multiple Linear Logistic function. \end{itemize}
-The students learn how to implement these techniques in SPSS to become competent in the analysis of a wide variety of multivariate data structures.
 
 \section{Data Reduction}
 \begin{itemize}
@@ -81,7 +78,7 @@ The students learn how to implement these techniques in SPSS to become competent
 	\item For example, in poorly designed questionnaires, all responses provided by the participants on a large number of variables (scales, questions, or dimensions) could be explained by a very limited number of "trivial" or artifactual factors. For example, two such underlying factors could be: (1) the respondent's attitude towards the study (positive or negative) and (2) the "social desirability" factor (a response bias representing a tendency to respond in a socially desirable manner).
 \end{itemize}
 
-\newpage
+
 \subsection{Variable Redundancy}
 A specific (but fictitious) example of research will now be presented to illustrate the concept of
 variable redundancy introduced earlier. Imagine that you have developed a 7-item measure of
@@ -171,10 +168,6 @@ variables are correlated with one another, possibly because they are measuring t
 construct. Because of this redundancy, you believe that it should be possible to reduce the
 observed variables into a smaller number of principal components (artificial variables) that will
 account for most of the variance in the observed variables.
-
-\subsection{Data Reduction in Exploratory Graphics}
-
-The term can also refer in \textbf{exploratory graphics} to ``Data Reduction by unbiased decreasing of the sample size". This type of Data Reduction is applied in exploratory graphical data analysis of extremely large data sets. The size of the data set can obscure an existing pattern (especially in large line graphs or scatterplots) due to the density of markers or lines. Then, it can be useful to plot only a representative subset of the data (so that the pattern is not hidden by the number of point markers) to reveal the otherwise obscured but still reliable pattern.
 
 
 \section*{Principal Component Analysis}
@@ -274,17 +267,6 @@ that the resulting components account for a maximal amount of variance in the da
 
 
 
-\subsection{Orthogonal versus Oblique Solutions}
-
-This course will discuss only principal component analysis that result in \textbf{orthogonal solutions}.
-An orthogonal solution is one in which the components remain uncorrelated (orthogonal means
-“uncorrelated”).
-
-It is possible to perform a principal component analysis that results in correlated components.
-Such a solution is called an \textbf{oblique solution}.  In some situations, oblique solutions are superior
-to orthogonal solutions because they produce cleaner, more easily-interpreted results.
-However, oblique solutions are also somewhat more complicated to interpret, compared to
-orthogonal solutions.  For this reason, we will focus only on the interpretation of orthogonal solutions
 
 \subsection{Sampling adequacy (KMO Statistic)}
 Measured by the Kaiser-Meyer-Olkin (KMO) statistics, sampling adequacy predicts if the analyses are likely to perform well, based on correlation and partial correlation. KMO can also be used to assess which variables to drop from the model because they are too multi-collinear.
@@ -325,7 +307,7 @@ Obilque means other than a 90 degree angle.
 \item Communality is the variance in observed variables accounted for by a common factors. Communality is more
 relevant to EFA than PCA.
 \end{itemize}
-\newpage
+\end{document}
 %--------------------------------------------------------------------------------------------------%
 \section{Exploratory Factor Analysis}
 Principal Component Analysis (PCA) and Exploratory Factor Analysis (EFA) are both variable reduction techniques
@@ -704,5 +686,15 @@ by any projection of the data comes to lie on the first co-ordinate (called the 
 
 %==========================================================================%
 \newpage
+
+\section{Overview of Course}
+
+To ground the students in Applied Multivariate Analysis. This module serves business and mathematics students. It introduces the mathematical statistical ideas behind \begin{itemize} \item Principal Component Analysis, \item Factor Analysis, \item Cluster Analysis, \item Discrimination Function, \item The Multiple Linear Logistic function. \end{itemize}
+The students learn how to implement these techniques in SPSS to become competent in the analysis of a wide variety of multivariate data structures.
+
+\subsection{Data Reduction in Exploratory Graphics}
+
+The term can also refer in \textbf{exploratory graphics} to ``Data Reduction by unbiased decreasing of the sample size". This type of Data Reduction is applied in exploratory graphical data analysis of extremely large data sets. The size of the data set can obscure an existing pattern (especially in large line graphs or scatterplots) due to the density of markers or lines. Then, it can be useful to plot only a representative subset of the data (so that the pattern is not hidden by the number of point markers) to reveal the otherwise obscured but still reliable pattern.
+
 
 \end{document}
