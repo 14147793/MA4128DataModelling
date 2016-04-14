@@ -22,7 +22,7 @@
 \pagestyle{fancy}
 \setmarginsrb{20mm}{0mm}{20mm}{25mm}{12mm}{11mm}{0mm}{11mm}
 \lhead{MA4128} \rhead{Mr. Kevin O'Brien}
-\chead{Spring 2013}
+\chead{Principal Component Analysis}
 %\input{tcilatex}
 
 \begin{document}
@@ -52,6 +52,11 @@ orthogonal solutions.  For this reason, we will focus only on the interpretation
 \item Kaiser-Meyer-OlkinTo compute KMO overall, the numerator is the sum of squared correlations of all variables in the analysis (except the 1.0 self-correlations of variables with themselves, of course). 
 
 \item The denominator is this same sum plus the sum of squared partial correlations of each variable i with each variable j, controlling for others in the analysis. The concept is that the partial correlations should not be very large if one is to expect distinct factors to emerge from factor analysis.
+\end{itemize}
+
+\begin{itemize}
+\item KMO values greater than 0.8 can be considered good, i.e. an indication that component or factor analysis will be useful for these variables. This usually occurs when most of the zero-order correlations are positive. 
+\item KMO values less than 0.5 occur when most of the zero-order correlations are negative. KMO values less than 0.5 require remedial action, either by deleting the offending variables or by including other variables related to the offenders. Perhaps the variables reflect responses to a questionnaire where some items were written so that high scores reflect the trait in question while other items were structured so that low scores reflect the trait. 
 \end{itemize}
 
 
