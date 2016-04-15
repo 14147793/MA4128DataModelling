@@ -26,10 +26,9 @@
 %\input{tcilatex}
 
 \begin{document}
-	
-\tableofcontents
+
 \section{Principal Compoment Analysis}
-\subsection{Orthogonal versus Oblique Solutions}
+\subsection{Orthogonal versus Oblique Solutions (Ignore for 2016)}
 \begin{itemize}
 \item This course will discuss only principal component analysis that result in \textbf{orthogonal solutions}.
 An orthogonal solution is one in which the components remain uncorrelated (orthogonal means
@@ -45,13 +44,18 @@ orthogonal solutions.  For this reason, we will focus only on the interpretation
 	
 \subsection{Sampling adequacy (KMO Statistic)}
 \begin{itemize}
-\item Measured by the Kaiser-Meyer-Olkin (KMO) statistics, sampling adequacy predicts if the analyses are likely to perform well, based on correlation and partial correlation. KMO can also be used to assess which variables to drop from the model because they are too multi-collinear.
+\item Measured by the Kaiser-Meyer-Olkin (KMO) statistics, sampling adequacy predicts if the PCA analyses are likely to perform well, based on correlation and partial correlation. 
+\item \textbf{IMPORTANT} KMO can also be used to assess which variables to drop from the model because they are too multi-collinear.
 
-\item There is a KMO statistic for each individual variable, and their sum is the KMO overall statistic. KMO varies from 0 to 1.0 and KMO overall should be 0.60 or higher to proceed with factor analysis. Values below 0.5 imply that factor analysis or PCA may not be appropriate. (Approach to overcoming this: If it is not, drop the \textbf{indicator variables} with the lowest individual KMO statistic values, until KMO overall rises above 0.60.)
+\item KMO varies from 0 to 1.0 and KMO overall should be 0.60 or higher to proceed with PCA analysis. There is a KMO statistic for each individual variable, and their sum is the KMO overall statistic. 
+\item \textbf{Interpretation:} Values below 0.5 imply that factor analysis or PCA may not be appropriate.
+\begin{itemize}
+\item[$\ast$] Approach to overcoming this: If it is not, drop the \textbf{indicator variables} with the lowest individual KMO statistic values, until KMO overall rises above 0.60.
+\end{itemize} 
 
-\item Kaiser-Meyer-OlkinTo compute KMO overall, the numerator is the sum of squared correlations of all variables in the analysis (except the 1.0 self-correlations of variables with themselves, of course). 
+\item To compute KMO overall, the numerator is the sum of squared correlations of all variables in the analysis (except the 1.0 self-correlations of variables with themselves, of course). 
 
-\item The denominator is this same sum plus the sum of squared partial correlations of each variable i with each variable j, controlling for others in the analysis. The concept is that the partial correlations should not be very large if one is to expect distinct factors to emerge from factor analysis.
+%\item The denominator is this same sum plus the sum of squared partial correlations of each variable i with each variable $j$, controlling for others in the analysis. The concept is that the partial correlations should not be very large if one is to expect distinct factors to emerge from factor analysis.
 \end{itemize}
 
 \begin{itemize}
@@ -64,8 +68,21 @@ orthogonal solutions.  For this reason, we will focus only on the interpretation
 \begin{itemize}
 	\item
 Bartlett's measure tests the null hypothesis that the original correlation matrix is an identity
-matrix. For PCA and factor analysis to work we need some relationships between variables and if the correlation
-matrix were an identity matrix then all correlation coefficients would be zero. Therefore, we
+matrix. \textit{(Each Variable is uncorrelated with every other variable.)}
+
+\[
+\textbf{R} = \left( \begin{array}{ccccc}
+ 1 & 0 & 0 & \ldots & 0 \\ 
+ 0 & 1 & 0 & \ldots & 0 \\ 
+ 0 & 0 & 1 & \ldots & 0 \\ 
+ \vdots  & \vdots & \vdots & \ddots & \vdots \\ 
+ 0 & 0 & 0 & \ldots & 1 \\ 
+\end{array} \right)
+\]  
+\item \textbf{IMPORTANT:} For PCA to work we need some relationships between variables and if the correlation
+matrix were an identity matrix then all correlation coefficients would be zero. Information would be lost if dimensionality reduction took place.
+
+\item Therefore, we
 want this test to be signifcant (i.e. have a significance value less than 0.05). 
 \item A significant test
 tells us that the correlation matrix is not an identity matrix; therefore, there are some relationships
